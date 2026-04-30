@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings | GoTravel.com</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .booking-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+        .booking-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .booking-dates {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+        .booking-dates i {
+            margin-right: 8px;
+            color: var(--primary);
+        }
+        .status-badge {
+            background: #e6f4ea;
+            color: #1e8e3e;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .cancel-btn {
+            background: #fce8e6;
+            color: #c5221f;
+            border: 1px solid #c5221f;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .cancel-btn:hover {
+            background: #c5221f;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="top-nav container">
+            <div class="logo">
+                <a href="index.html">GoTravel.com</a>
+            </div>
+            <div class="nav-actions" id="nav-actions-container"></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content container" style="margin-top: 40px; margin-bottom: 80px; min-height: 50vh;">
+        <h1 style="font-size: 36px; margin-bottom: 10px;">My Bookings</h1>
+        <p class="section-desc">View and manage all your upcoming trips.</p>
+        
+        <div id="bookings-list" style="margin-top: 30px;">
+            <p>Loading your trips...</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom text-center">
+            <p>Copyright © 1996–2026 GoTravel.com. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const userData = localStorage.getItem('gotravel_user');
+            const listContainer = document.getElementById('bookings-list');
+            
+            if (!userData) {
+                listContainer.innerHTML = `<p style="color: var(--text-light);">Please sign in to view your bookings.</p>`;
+                return;
+            }
+
+            const user = JSON.parse(userData);
+            
+            try {
+                const res = await fetch(`/api/bookings?email=${encodeURIComponent(user.email)}`);
+                const data = await res.json();
+                
+                if (res.ok) {
+                    if (data.bookings.length === 0) {
+                        listContainer.innerHTML = `<p style="color: var(--text-light);">You don't have any bookings yet. Time to plan a trip!</p>`;
+                    } else {
+                        listContainer.innerHTML = '';
+                        data.bookings.forEach(b => {
+                            const html = `
+                                <div class="booking-card" id="booking-${b.id}">
+                                    <div>
+                                        <h3>${b.property_name}</h3>
+                                        <div class="booking-dates">
+                                            <i class="fa-regular fa-calendar"></i>
+                                            <strong>Check-in:</strong> ${b.check_in} &nbsp;&nbsp;|&nbsp;&nbsp; 
+                                            <strong>Check-out:</strong> ${b.check_out}
+                                        </div>
+                                        <div class="booking-dates" style="margin-top: 5px;">
+                                            <i class="fa-solid fa-user-group"></i> ${b.persons} Guests &nbsp;&nbsp;|&nbsp;&nbsp; 
+                                            <strong style="color: var(--primary);">Total: $${b.total_price}</strong>
+                                        </div>
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <div class="status-badge">Confirmed</div><br>
+                                        <button class="cancel-btn" onclick="cancelBooking(${b.id})">Cancel Booking</button>
+                                    </div>
+                                </div>
+                            `;
+                            listContainer.insertAdjacentHTML('beforeend', html);
+                        });
+                    }
+                } else {
+                    listContainer.innerHTML = `<p style="color: red;">Error fetching bookings.</p>`;
+                }
+            } catch (err) {
+                listContainer.innerHTML = `<p style="color: red;">Failed to connect to the server.</p>`;
+            }
+        });
+
+        window.cancelBooking = async function(id) {
+            if (!confirm('Are you sure you want to cancel this booking?')) return;
+            try {
+                const res = await fetch(`/api/bookings/${id}`, { method: 'DELETE' });
+                if (res.ok) {
+                    document.getElementById(`booking-${id}`).remove();
+                    const listContainer = document.getElementById('bookings-list');
+                    if (listContainer.children.length === 0) {
+                        listContainer.innerHTML = `<p style="color: var(--text-light);">You don't have any bookings yet. Time to plan a trip!</p>`;
+                    }
+                } else {
+                    alert('Error canceling booking.');
+                }
+            } catch (err) {
+                alert('Error connecting to the server.');
+            }
+        }
+    </script>
+</body>
+</html>

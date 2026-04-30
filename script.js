@@ -96,12 +96,96 @@ document.addEventListener('DOMContentLoaded', () => {
                     Already have an account? <a onclick="openLogin()">Sign In here</a>
                 </div>
             </div>
+        </div>
+
+        <div class="auth-modal" id="booking-modal">
+            <div class="auth-modal-content">
+                <button class="auth-close" onclick="closeAuthModals()"><i class="fa-solid fa-xmark"></i></button>
+                <h2>Book Your Stay</h2>
+                <h4 id="booking-property-name" style="text-align: center; color: var(--text-light); margin-bottom: 20px;"></h4>
+                <form id="booking-form">
+                    <div class="auth-form-group">
+                        <label>Guests</label>
+                        <input type="number" id="booking-guests" min="1" value="1" required>
+                    </div>
+                    <div class="auth-form-group">
+                        <label>Check-In Date</label>
+                        <input type="date" id="booking-checkin" required>
+                    </div>
+                    <div class="auth-form-group">
+                        <label>Check-Out Date</label>
+                        <input type="date" id="booking-checkout" required>
+                    </div>
+                    <h3 id="booking-total" style="text-align: center; color: var(--primary); margin-bottom: 15px;">Total: $0</h3>
+                    <button type="submit" class="auth-submit-btn">Confirm Booking</button>
+                </form>
+            </div>
         </div>`;
         document.body.insertAdjacentHTML('beforeend', modalsHTML);
 
         // Bind events
         document.getElementById('login-form').addEventListener('submit', handleLogin);
         document.getElementById('register-form').addEventListener('submit', handleRegister);
+        document.getElementById('booking-form').addEventListener('submit', handleBooking);
+        
+        document.getElementById('booking-checkin').addEventListener('change', calcTotalPrice);
+        document.getElementById('booking-checkout').addEventListener('change', calcTotalPrice);
+        document.getElementById('booking-guests').addEventListener('input', calcTotalPrice);
+        
+        bindBookingButtons();
+    }
+
+    function bindBookingButtons() {
+        const buttons = document.querySelectorAll('.property-price .primary-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const propertyName = this.closest('.property-item').querySelector('h3').innerText;
+                const priceText = this.closest('.property-item').querySelector('.property-price').innerText;
+                const priceMatch = priceText.match(/\$(\d+)/);
+                const basePrice = priceMatch ? parseInt(priceMatch[1]) : 0;
+                openBooking(propertyName, basePrice);
+            });
+        });
+    }
+
+    window.openBooking = function(propertyName, basePrice) {
+        const userData = localStorage.getItem('gotravel_user');
+        if (!userData) {
+            alert('Please sign in or register to book a property.');
+            openLogin();
+            return;
+        }
+        document.getElementById('booking-property-name').innerText = propertyName;
+        window.currentBasePrice = basePrice;
+        calcTotalPrice();
+        closeAuthModals();
+        document.getElementById('booking-modal').classList.add('active');
+    };
+
+    function calcTotalPrice() {
+        const checkin = document.getElementById('booking-checkin').value;
+        const checkout = document.getElementById('booking-checkout').value;
+        const guests = parseInt(document.getElementById('booking-guests').value) || 1;
+        const totalEl = document.getElementById('booking-total');
+        
+        if (checkin && checkout && window.currentBasePrice) {
+            const d1 = new Date(checkin);
+            const d2 = new Date(checkout);
+            const diffTime = d2 - d1;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            
+            if (diffDays > 0) {
+                const total = diffDays * window.currentBasePrice * guests;
+                totalEl.innerText = `Total: $${total}`;
+                totalEl.dataset.total = total;
+            } else {
+                totalEl.innerText = `Total: $0`;
+                totalEl.dataset.total = 0;
+            }
+        } else {
+            totalEl.innerText = `Total: $0`;
+            totalEl.dataset.total = 0;
+        }
     }
 
     window.openLogin = function() {
@@ -117,6 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.closeAuthModals = function() {
         document.getElementById('login-modal').classList.remove('active');
         document.getElementById('register-modal').classList.remove('active');
+        document.getElementById('booking-modal').classList.remove('active');
     };
 
     window.logout = function() {
@@ -175,6 +260,46 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    async function handleBooking(e) {
+        e.preventDefault();
+        const propertyName = document.getElementById('booking-property-name').innerText;
+        const checkin = document.getElementById('booking-checkin').value;
+        const checkout = document.getElementById('booking-checkout').value;
+        const guests = parseInt(document.getElementById('booking-guests').value) || 1;
+        const totalPrice = parseInt(document.getElementById('booking-total').dataset.total) || 0;
+        const user = JSON.parse(localStorage.getItem('gotravel_user'));
+
+        if (new Date(checkin) >= new Date(checkout)) {
+            alert('Check-out date must be after check-in date.');
+            return;
+        }
+
+        try {
+            const res = await fetch('/api/book', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    email: user.email, 
+                    property_name: propertyName, 
+                    check_in: checkin, 
+                    check_out: checkout,
+                    persons: guests,
+                    total_price: totalPrice
+                })
+            });
+            const data = await res.json();
+            
+            if (res.ok) {
+                alert('Booking successful! Enjoy your trip!');
+                closeAuthModals();
+            } else {
+                alert(data.error);
+            }
+        } catch (err) {
+            alert('Error connecting to server.');
+        }
+    }
+
     function renderNavActions() {
         const container = document.getElementById('nav-actions-container');
         if (!container) return;
@@ -187,6 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <i class="fa-regular fa-circle-user"></i>
                     <span>Welcome, ${user.name.split(' ')[0]}</span>
                 </div>
+                <a href="my-bookings.html" class="auth-btn" style="text-decoration: none;">My Bookings</a>
                 <button class="auth-btn" onclick="logout()">Logout</button>
             `;
         } else {
