@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Destinations | GoTravel.com</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="top-nav container">
+            <div class="logo">
+                <a href="index.html">GoTravel.com</a>
+            </div>
+            <div class="nav-actions" id="nav-actions-container"></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content container" style="margin-top: 40px; margin-bottom: 80px;">
+        <h1 style="font-size: 36px; margin-bottom: 10px;">All Destinations</h1>
+        <p class="section-desc">Explore our full list of breathtaking destinations and find your next adventure.</p>
+        
+        <div class="destination-grid" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); margin-top: 30px;">
+            <a href="bali.html" class="dest-card small">
+                <img src="assets/dest_bali_1777425823195.png" alt="Bali">
+                <div class="dest-overlay">
+                    <h3>Bali</h3>
+                </div>
+            </a>
+            <a href="jakarta.html" class="dest-card small">
+                <img src="assets/dest_jakarta_1777426644763.png" alt="Jakarta">
+                <div class="dest-overlay">
+                    <h3>Jakarta</h3>
+                </div>
+            </a>
+            <a href="paris.html" class="dest-card small">
+                <img src="assets/dest_paris_1777425808838.png" alt="Paris">
+                <div class="dest-overlay">
+                    <h3>Paris</h3>
+                </div>
+            </a>
+            <a href="tokyo.html" class="dest-card small">
+                <img src="assets/dest_tokyo_1777425846700.png" alt="Tokyo">
+                <div class="dest-overlay">
+                    <h3>Tokyo</h3>
+                </div>
+            </a>
+            <a href="swiss-alps.html" class="dest-card small">
+                <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?w=500&q=80" alt="Swiss Alps">
+                <div class="dest-overlay">
+                    <h3>Swiss Alps</h3>
+                </div>
+            </a>
+            <a href="maldives.html" class="dest-card small">
+                <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=500&q=80" alt="Maldives">
+                <div class="dest-overlay">
+                    <h3>Maldives</h3>
+                </div>
+            </a>
+            <a href="reykjavik.html" class="dest-card small">
+                <img src="https://images.unsplash.com/photo-1476610182048-b716b8518aae?w=500&q=80" alt="Reykjavik">
+                <div class="dest-overlay">
+                    <h3>Reykjavik</h3>
+                </div>
+            </a>
+            <a href="costa-rica.html" class="dest-card small">
+                <img src="https://images.unsplash.com/photo-1518182170546-076616fdcb2a?w=500&q=80" alt="Costa Rica">
+                <div class="dest-overlay">
+                    <h3>Costa Rica</h3>
+                </div>
+            </a>
+            <a href="dubai.html" class="dest-card small">
+                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500&q=80" alt="Dubai">
+                <div class="dest-overlay">
+                    <h3>Dubai</h3>
+                </div>
+            </a>
+            <a href="new-york.html" class="dest-card small">
+                <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=500&q=80" alt="New York">
+                <div class="dest-overlay">
+                    <h3>New York</h3>
+                </div>
+            </a>
+            <a href="alabasta.html" class="dest-card small">
+                <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=500&q=80" alt="Alabasta">
+                <div class="dest-overlay">
+                    <h3>Alabasta</h3>
+                </div>
+            </a>
+            <a href="moon.html" class="dest-card small">
+                <img src="https://images.unsplash.com/photo-1522030299830-16b8d3d049fe?w=500&q=80" alt="The Moon">
+                <div class="dest-overlay">
+                    <h3>The Moon</h3>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom text-center">
+            <p>Copyright © 1996–2026 GoTravel.com. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- AI Assistant -->
+    <div class="ai-fab" id="ai-fab">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+    </div>
+    
+    <div class="ai-chat-modal" id="ai-chat-modal">
+        <div class="ai-chat-header">
+            <div class="ai-avatar"><i class="fa-solid fa-robot"></i></div>
+            <div class="ai-title-wrap">
+                <h4>DestiBot</h4>
+                <p>AI Travel Assistant</p>
+            </div>
+            <button class="close-chat" id="close-chat"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="ai-chat-body" id="ai-chat-body">
+            <!-- Chat messages injected here -->
+        </div>
+        <div class="ai-chat-options" id="ai-chat-options">
+            <!-- Options injected here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Maldives | GoTravel.com</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .destination-hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            color: white;
+            text-align: center;
+        }
+        .destination-hero h1 { font-size: 48px; margin-bottom: 10px; }
+        .destination-hero p { font-size: 20px; max-width: 600px; margin: 0 auto; }
+        .properties-list { margin-top: 40px; }
+        .property-item {
+            display: flex;
+            gap: 20px;
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius);
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .property-img { width: 200px; height: 150px; object-fit: cover; border-radius: 4px; }
+        .property-details { flex: 1; }
+        .property-price { font-size: 24px; font-weight: 700; color: var(--primary); text-align: right; }
+        @media(max-width: 600px) {
+            .property-item { flex-direction: column; }
+            .property-img { width: 100%; height: 200px; }
+            .property-price { text-align: left; margin-top: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="top-nav container">
+            <div class="logo">
+                <a href="index.html">GoTravel.com</a>
+            </div>
+            <div class="nav-actions" id="nav-actions-container"></div>
+        </div>
+    </header>
+
+    <!-- Destination Hero Section -->
+    <section class="destination-hero">
+        <div class="container">
+            <h1>Maldives</h1>
+            <p>Relax in overwater bungalows over crystal clear waters.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content container">
+        <section class="properties-list">
+            <h2>Top properties in Maldives</h2>
+            <div class="property-item">
+                <img src="assets/prop_resort_1777425922004.png" alt="Overwater Bungalow" class="property-img">
+                <div class="property-details">
+                    <h3>Overwater Bungalow</h3>
+                    <p style="color: var(--text-light); margin-bottom: 10px;">Downtown</p>
+                    <p>Experience luxury with private infinity pools and breathtaking sunset views.</p>
+                    <div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">9.4 Superb</div>
+                </div>
+                <div class="property-price">
+                    <p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
+                    <span>$800</span> / night
+                    <button class="primary-btn" style="display: block; width: 100%; margin-top: 15px;">View Availability</button>
+                </div>
+            </div>
+            <div class="property-item">
+                <img src="assets/prop_villa_1777425939174.png" alt="Beachfront Villa" class="property-img">
+                <div class="property-details">
+                    <h3>Beachfront Villa</h3>
+                    <p style="color: var(--text-light); margin-bottom: 10px;">City Center</p>
+                    <p>A tranquil 3-bedroom villa close to the beach and top restaurants.</p>
+                    <div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">8.9 Fabulous</div>
+                </div>
+                <div class="property-price">
+                    <p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
+                    <span>$650</span> / night
+                    <button class="primary-btn" style="display: block; width: 100%; margin-top: 15px;">View Availability</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" style="margin-top: 60px;">
+        <div class="footer-bottom text-center">
+            <p>Copyright © 1996–2026 GoTravel.com. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- AI Assistant -->
+    <div class="ai-fab" id="ai-fab">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+    </div>
+    
+    <div class="ai-chat-modal" id="ai-chat-modal">
+        <div class="ai-chat-header">
+            <div class="ai-avatar"><i class="fa-solid fa-robot"></i></div>
+            <div class="ai-title-wrap">
+                <h4>DestiBot</h4>
+                <p>AI Travel Assistant</p>
+            </div>
+            <button class="close-chat" id="close-chat"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="ai-chat-body" id="ai-chat-body">
+            <!-- Chat messages injected here -->
+        </div>
+        <div class="ai-chat-options" id="ai-chat-options">
+            <!-- Options injected here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

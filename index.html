@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoTravel.com | Modern Travel App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="top-nav container">
+            <div class="logo">
+                <a href="index.html">GoTravel.com</a>
+            </div>
+            <div class="nav-actions" id="nav-actions-container"></div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: linear-gradient(rgba(0, 59, 149, 0.4), rgba(0, 59, 149, 0.4)), url('assets/hero_bg_1777425788855.png');">
+        <div class="hero-content container">
+            <h1 class="hero-title">Find your next stay</h1>
+            <p class="hero-subtitle">Search low prices on hotels, homes and much more...</p>
+        </div>
+        
+        <!-- Search Bar -->
+        <div class="search-bar-container container">
+            <div class="search-bar">
+                <div class="search-item destination">
+                    <i class="fa-solid fa-bed icon"></i>
+                    <input type="text" placeholder="Where are you going?" id="destination">
+                </div>
+                <div class="search-item dates">
+                    <i class="fa-regular fa-calendar icon"></i>
+                    <input type="text" placeholder="Check-in Date - Check-out Date" id="dates" readonly>
+                </div>
+                <div class="search-item guests">
+                    <i class="fa-regular fa-user icon"></i>
+                    <div class="guest-info">2 adults · 0 children · 1 room</div>
+                </div>
+                <button class="search-btn">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content container">
+        
+        <!-- Offers -->
+        <section class="offers section-margin">
+            <h2>Offers</h2>
+            <p class="section-desc">Promotions, deals and special offers for you</p>
+            <div class="offer-cards">
+                <div class="offer-card">
+                    <div class="offer-info">
+                        <h3>Fly away to your dream holiday</h3>
+                        <p>Get inspired, compare and book flights with more flexibility</p>
+                    </div>
+                    <div class="offer-image">
+                        <img src="assets/dest_bali_1777425823195.png" alt="Flight offer">
+                    </div>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-info">
+                        <h3>Take your longest holiday yet</h3>
+                        <p>Browse properties offering long-term stays, many at reduced monthly rates.</p>
+                    </div>
+                    <div class="offer-image">
+                        <img src="assets/prop_villa_1777425939174.png" alt="Long stay offer">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trending Destinations -->
+        <section class="trending section-margin">
+            <h2>Trending destinations</h2>
+            <p class="section-desc">Most popular choices for travelers from your location</p>
+            <div class="destination-grid">
+                <a href="jakarta.html" class="dest-card large">
+                    <img src="assets/dest_jakarta_1777426644763.png" alt="Jakarta">
+                    <div class="dest-overlay">
+                        <h3>Jakarta</h3>
+                        <span class="flag">🇮🇩</span>
+                    </div>
+                </a>
+                <a href="paris.html" class="dest-card large">
+                    <img src="assets/dest_paris_1777425808838.png" alt="Paris">
+                    <div class="dest-overlay">
+                        <h3>Paris</h3>
+                        <span class="flag">🇫🇷</span>
+                    </div>
+                </a>
+                <a href="tokyo.html" class="dest-card small">
+                    <img src="assets/dest_tokyo_1777425846700.png" alt="Tokyo">
+                    <div class="dest-overlay">
+                        <h3>Tokyo</h3>
+                        <span class="flag">🇯🇵</span>
+                    </div>
+                </a>
+                <a href="bali.html" class="dest-card small">
+                    <img src="assets/dest_bali_1777425823195.png" alt="Bali">
+                    <div class="dest-overlay">
+                        <h3>Bali</h3>
+                        <span class="flag">🇮🇩</span>
+                    </div>
+                </a>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="destinations.html" class="primary-btn" style="display: inline-block; font-size: 18px; padding: 15px 40px; border-radius: 8px;">View All Destinations</a>
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom text-center">
+            <p>Copyright © 1996–2026 GoTravel.com. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- AI Assistant -->
+    <div class="ai-fab" id="ai-fab">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+    </div>
+    
+    <div class="ai-chat-modal" id="ai-chat-modal">
+        <div class="ai-chat-header">
+            <div class="ai-avatar"><i class="fa-solid fa-robot"></i></div>
+            <div class="ai-title-wrap">
+                <h4>DestiBot</h4>
+                <p>AI Travel Assistant</p>
+            </div>
+            <button class="close-chat" id="close-chat"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="ai-chat-body" id="ai-chat-body">
+            <!-- Chat messages injected here -->
+        </div>
+        <div class="ai-chat-options" id="ai-chat-options">
+            <!-- Options injected here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
