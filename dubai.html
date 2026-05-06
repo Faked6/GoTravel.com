@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Dubai | GoTravel.com</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Explore Dubai | GoTravel.com</title>
+<link href="styles.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
         .destination-hero {
             background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1000&q=80');
             background-size: cover;
@@ -39,88 +40,138 @@
     </style>
 </head>
 <body>
-
-    <!-- Header & Navigation -->
-    <header class="header">
-        <div class="top-nav container">
-            <div class="logo">
-                <a href="index.html">GoTravel.com</a>
-            </div>
-            <div class="nav-actions" id="nav-actions-container"></div>
-        </div>
-    </header>
-
-    <!-- Destination Hero Section -->
-    <section class="destination-hero">
-        <div class="container">
-            <h1>Dubai, UAE</h1>
-            <p>Luxury shopping, ultramodern architecture, and a lively nightlife scene.</p>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <main class="main-content container">
-        <section class="properties-list">
-            <h2>Top properties in Dubai</h2>
-            <div class="property-item">
-                <img src="assets/prop_hotel_1777425881911.png" alt="Burj Luxury Suites" class="property-img">
-                <div class="property-details">
-                    <h3>Burj Luxury Suites</h3>
-                    <p style="color: var(--text-light); margin-bottom: 10px;">Downtown</p>
-                    <p>Experience luxury with private infinity pools and breathtaking sunset views.</p>
-                    <div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">9.4 Superb</div>
-                </div>
-                <div class="property-price">
-                    <p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
-                    <span>$900</span> / night
-                    <button class="primary-btn" style="display: block; width: 100%; margin-top: 15px;">View Availability</button>
-                </div>
-            </div>
-            <div class="property-item">
-                <img src="assets/prop_apartment_1777425905682.png" alt="Marina Apartment" class="property-img">
-                <div class="property-details">
-                    <h3>Marina Apartment</h3>
-                    <p style="color: var(--text-light); margin-bottom: 10px;">City Center</p>
-                    <p>A tranquil 3-bedroom villa close to the beach and top restaurants.</p>
-                    <div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">8.9 Fabulous</div>
-                </div>
-                <div class="property-price">
-                    <p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
-                    <span>$300</span> / night
-                    <button class="primary-btn" style="display: block; width: 100%; margin-top: 15px;">View Availability</button>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer" style="margin-top: 60px;">
-        <div class="footer-bottom text-center">
-            <p>Copyright © 1996–2026 GoTravel.com. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- AI Assistant -->
-    <div class="ai-fab" id="ai-fab">
-        <i class="fa-solid fa-wand-magic-sparkles"></i>
-    </div>
-    
-    <div class="ai-chat-modal" id="ai-chat-modal">
-        <div class="ai-chat-header">
-            <div class="ai-avatar"><i class="fa-solid fa-robot"></i></div>
-            <div class="ai-title-wrap">
-                <h4>DestiBot</h4>
-                <p>AI Travel Assistant</p>
-            </div>
-            <button class="close-chat" id="close-chat"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="ai-chat-body" id="ai-chat-body">
-            <!-- Chat messages injected here -->
-        </div>
-        <div class="ai-chat-options" id="ai-chat-options">
-            <!-- Options injected here -->
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+<!-- Header & Navigation -->
+<header class="header">
+<div class="top-nav container">
+<div class="logo">
+<a href="index.html">GoTravel.com</a>
+</div>
+<nav class="main-nav">
+<a class="nav-link" href="index.html">Home</a>
+<a class="nav-link" href="destinations.html">Destinations</a>
+<a class="nav-link" href="packages.html">Packages</a>
+<a class="nav-link" href="experiences.html">Experiences</a>
+</nav>
+<div class="nav-actions" id="nav-actions-container"></div>
+</div>
+</header>
+<!-- Destination Hero Section -->
+<section class="destination-hero">
+<div class="container">
+<h1>Dubai, UAE</h1>
+<p>Luxury shopping, ultramodern architecture, and a lively nightlife scene.</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="main-content container">
+<section class="properties-list">
+<h2>Top properties in Dubai</h2>
+<div class="property-item">
+<img alt="Burj Luxury Suites" class="property-img" src="assets/prop_hotel_1777425881911.png"/>
+<div class="property-details">
+<h3>Burj Luxury Suites</h3>
+<p style="color: var(--text-light); margin-bottom: 10px;">Downtown</p>
+<p>Experience luxury with private infinity pools and breathtaking sunset views.</p>
+<div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">9.4 Superb</div>
+</div>
+<div class="property-price">
+<p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
+<span>$900</span> / night
+                    <a class="primary-btn" href="booking.html?hotel=Burj+Luxury+Suites&amp;price=8500" style="display: block; width: 100%; margin-top: 15px; text-align: center; text-decoration: none;">View Availability</a>
+</div>
+</div>
+<div class="property-item">
+<img alt="Marina Apartment" class="property-img" src="assets/prop_apartment_1777425905682.png"/>
+<div class="property-details">
+<h3>Marina Apartment</h3>
+<p style="color: var(--text-light); margin-bottom: 10px;">City Center</p>
+<p>A tranquil 3-bedroom villa close to the beach and top restaurants.</p>
+<div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">8.9 Fabulous</div>
+</div>
+<div class="property-price">
+<p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
+<span>$300</span> / night
+                    <a class="primary-btn" href="booking.html?hotel=Burj+Luxury+Suites&amp;price=8500" style="display: block; width: 100%; margin-top: 15px; text-align: center; text-decoration: none;">View Availability</a>
+</div>
+</div>
+</section>
+<div class="dest-section-header">
+<div class="dest-section-icon exp">🎢</div>
+<div><h2>Fun Experiences</h2><p>Book top attractions in Dubai</p></div>
+</div>
+<div class="experiences-grid">
+<div class="exp-card">
+<div class="exp-card-top"><div class="exp-emoji">🏗️</div><span class="exp-badge">🏙️ City Tour</span></div>
+<h3>Dubai Frame + Skyline Tour</h3>
+<p>Walk across the iconic Dubai Frame glass bridge and enjoy a panoramic tour covering Burj Khalifa and the Gold Souk.</p>
+<div class="exp-card-footer"><div class="exp-price">$50 <span>/ person</span></div><a class="exp-book-btn" href="booking.html?place=Dubai+Frame+City+Tour&amp;price=8500&amp;type=experience&amp;dest=Dubai">Book Now</a></div>
+</div>
+<div class="exp-card">
+<div class="exp-card-top"><div class="exp-emoji">🏜️</div><span class="exp-badge">🌅 Desert Safari</span></div>
+<h3>Desert Safari + BBQ Dinner</h3>
+<p>Race across golden dunes in a 4x4, try sandboarding, watch a belly dance show, and feast on an Arabic BBQ spread.</p>
+<div class="exp-card-footer"><div class="exp-price">$80 <span>/ person</span></div><a class="exp-book-btn" href="booking.html?place=Desert+Safari+BBQ&amp;price=8500&amp;type=experience&amp;dest=Dubai">Book Now</a></div>
+</div>
+<div class="exp-card">
+<div class="exp-card-top"><div class="exp-emoji">🎢</div><span class="exp-badge">🎡 Theme Park</span></div>
+<h3>IMG Worlds of Adventure</h3>
+<p>The world's largest indoor theme park — Marvel, Cartoon Network and Lost Valley under one colossal roof.</p>
+<div class="exp-card-footer"><div class="exp-price">$65 <span>/ person</span></div><a class="exp-book-btn" href="booking.html?place=IMG+Worlds+of+Adventure&amp;price=8500&amp;type=experience&amp;dest=Dubai">Book Now</a></div>
+</div>
+</div>
+<div class="dest-section-header">
+<div class="dest-section-icon pkg">📦</div>
+<div><h2>Travel Packages</h2><p>All-inclusive packages with day-by-day itineraries</p></div>
+</div>
+<div class="packages-grid">
+<div class="pkg-card">
+<div class="pkg-card-header">
+<span class="pkg-duration">6 Days · 5 Nights</span>
+<h3>Dubai Luxury Experience</h3>
+<p>Skyscrapers, deserts and world-class shopping — the full Dubai trip</p>
+<div class="pkg-price-row"><span class="pkg-price">$9,500</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Burj Al Arab</span><span class="pkg-include-badge">🏎️ Luxury Transfer</span><span class="pkg-include-badge">🐪 Dune Bashing</span><span class="pkg-include-badge">🥂 VIP Access</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival + Burj Khalifa</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Arrive in dazzling Dubai. Check into the iconic Burj Al Arab, then head to the top of the Burj Khalifa for breathtaking panoramic views of the city.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Dubai Frame City Tour</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Explore the old and new Dubai. Visit the Dubai Frame, the gold souks, and take an abra (water taxi) ride across Dubai Creek.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Desert Safari + BBQ Dinner</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Head into the dunes for an exhilarating 4x4 dune bashing experience, followed by a traditional Bedouin camp BBQ dinner under the stars.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> IMG Worlds of Adventure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Spend the day at the world's largest indoor theme park, enjoying thrilling rides and attractions.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 5</span> Shopping + Dubai Creek Abra Ride</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Shop till you drop at the massive Dubai Mall, then enjoy a relaxing evening cruise on Dubai Creek.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 6</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Dubai+Luxury+Experience&amp;price=9500=Dubai&amp;days=6">Book This Package</a>
+</div>
+</div>
+<div class="pkg-card">
+<div class="pkg-card-header">
+<span class="pkg-duration">3 Days · 2 Nights</span>
+<h3>Dubai Highlights</h3>
+<p>The best of Dubai in a perfectly packed long weekend</p>
+<div class="pkg-price-row"><span class="pkg-price">$3,800</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Burj Al Arab</span><span class="pkg-include-badge">🏎️ Luxury Transfer</span><span class="pkg-include-badge">🥂 VIP Access</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival + Burj Khalifa Sunset</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Arrive in style, check in, and head straight to the Burj Khalifa to watch the sunset over the Arabian Gulf.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Desert Safari + City Tour</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">A packed day featuring a morning city tour of Dubai's highlights and an afternoon desert safari adventure.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Shopping + Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy some final luxury shopping before your private transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Dubai+Highlights&amp;price=3800=Dubai&amp;days=3">Book This Package</a>
+</div>
+</div>
+</div>
+</main>
+<footer class="footer" style="margin-top: 60px;">
+<div class="footer-bottom text-center">
+<p>Copyright © 1996–2026 GoTravel.com. All rights reserved.</p>
+</div>
+</footer>
+<script src="auth.js"></script>
+<script src="chatbot.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

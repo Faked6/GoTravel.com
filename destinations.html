@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Destinations | GoTravel.com</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 
     <!-- Header & Navigation -->
@@ -16,6 +19,12 @@
             <div class="logo">
                 <a href="index.html">GoTravel.com</a>
             </div>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="destinations.html" class="nav-link">Destinations</a>
+                <a href="packages.html" class="nav-link">Packages</a>
+                <a href="experiences.html" class="nav-link">Experiences</a>
+            </nav>
             <div class="nav-actions" id="nav-actions-container"></div>
         </div>
     </header>
@@ -24,8 +33,9 @@
     <main class="main-content container" style="margin-top: 40px; margin-bottom: 80px;">
         <h1 style="font-size: 36px; margin-bottom: 10px;">All Destinations</h1>
         <p class="section-desc">Explore our full list of breathtaking destinations and find your next adventure.</p>
-        
-        <div class="destination-grid" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); margin-top: 30px;">
+
+        <div class="destination-grid"
+            style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); margin-top: 30px;">
             <a href="bali.html" class="dest-card small">
                 <img src="assets/dest_bali_1777425823195.png" alt="Bali">
                 <div class="dest-overlay">
@@ -87,7 +97,8 @@
                 </div>
             </a>
             <a href="alabasta.html" class="dest-card small">
-                <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=500&q=80" alt="Alabasta">
+                <img src="assets/just-found-indian-location-that-makes-everything-have-a-lot-v0-1lrc9r5r29kd1.jpg"
+                    alt="Alabasta">
                 <div class="dest-overlay">
                     <h3>Alabasta</h3>
                 </div>
@@ -108,28 +119,9 @@
         </div>
     </footer>
 
-    <!-- AI Assistant -->
-    <div class="ai-fab" id="ai-fab">
-        <i class="fa-solid fa-wand-magic-sparkles"></i>
-    </div>
-    
-    <div class="ai-chat-modal" id="ai-chat-modal">
-        <div class="ai-chat-header">
-            <div class="ai-avatar"><i class="fa-solid fa-robot"></i></div>
-            <div class="ai-title-wrap">
-                <h4>DestiBot</h4>
-                <p>AI Travel Assistant</p>
-            </div>
-            <button class="close-chat" id="close-chat"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="ai-chat-body" id="ai-chat-body">
-            <!-- Chat messages injected here -->
-        </div>
-        <div class="ai-chat-options" id="ai-chat-options">
-            <!-- Options injected here -->
-        </div>
-    </div>
-
+    <script src="auth.js"></script>
+    <script src="chatbot.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

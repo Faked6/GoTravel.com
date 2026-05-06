@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore New York | GoTravel.com</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Explore New York | GoTravel.com</title>
+<link href="styles.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
         .destination-hero {
             background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=1000&q=80');
             background-size: cover;
@@ -39,88 +40,140 @@
     </style>
 </head>
 <body>
-
-    <!-- Header & Navigation -->
-    <header class="header">
-        <div class="top-nav container">
-            <div class="logo">
-                <a href="index.html">GoTravel.com</a>
-            </div>
-            <div class="nav-actions" id="nav-actions-container"></div>
-        </div>
-    </header>
-
-    <!-- Destination Hero Section -->
-    <section class="destination-hero">
-        <div class="container">
-            <h1>New York, USA</h1>
-            <p>The city that never sleeps. Iconic skyline and endless entertainment.</p>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <main class="main-content container">
-        <section class="properties-list">
-            <h2>Top properties in New York</h2>
-            <div class="property-item">
-                <img src="assets/prop_apartment_1777425905682.png" alt="Manhattan Penthouse" class="property-img">
-                <div class="property-details">
-                    <h3>Manhattan Penthouse</h3>
-                    <p style="color: var(--text-light); margin-bottom: 10px;">Downtown</p>
-                    <p>Experience luxury with private infinity pools and breathtaking sunset views.</p>
-                    <div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">9.4 Superb</div>
-                </div>
-                <div class="property-price">
-                    <p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
-                    <span>$850</span> / night
-                    <button class="primary-btn" style="display: block; width: 100%; margin-top: 15px;">View Availability</button>
-                </div>
-            </div>
-            <div class="property-item">
-                <img src="assets/prop_hotel_1777425881911.png" alt="Times Square Hotel" class="property-img">
-                <div class="property-details">
-                    <h3>Times Square Hotel</h3>
-                    <p style="color: var(--text-light); margin-bottom: 10px;">City Center</p>
-                    <p>A tranquil 3-bedroom villa close to the beach and top restaurants.</p>
-                    <div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">8.9 Fabulous</div>
-                </div>
-                <div class="property-price">
-                    <p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
-                    <span>$400</span> / night
-                    <button class="primary-btn" style="display: block; width: 100%; margin-top: 15px;">View Availability</button>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer" style="margin-top: 60px;">
-        <div class="footer-bottom text-center">
-            <p>Copyright © 1996–2026 GoTravel.com. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- AI Assistant -->
-    <div class="ai-fab" id="ai-fab">
-        <i class="fa-solid fa-wand-magic-sparkles"></i>
-    </div>
-    
-    <div class="ai-chat-modal" id="ai-chat-modal">
-        <div class="ai-chat-header">
-            <div class="ai-avatar"><i class="fa-solid fa-robot"></i></div>
-            <div class="ai-title-wrap">
-                <h4>DestiBot</h4>
-                <p>AI Travel Assistant</p>
-            </div>
-            <button class="close-chat" id="close-chat"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="ai-chat-body" id="ai-chat-body">
-            <!-- Chat messages injected here -->
-        </div>
-        <div class="ai-chat-options" id="ai-chat-options">
-            <!-- Options injected here -->
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+<!-- Header & Navigation -->
+<header class="header">
+<div class="top-nav container">
+<div class="logo">
+<a href="index.html">GoTravel.com</a>
+</div>
+<nav class="main-nav">
+<a class="nav-link" href="index.html">Home</a>
+<a class="nav-link" href="destinations.html">Destinations</a>
+<a class="nav-link" href="packages.html">Packages</a>
+<a class="nav-link" href="experiences.html">Experiences</a>
+</nav>
+<div class="nav-actions" id="nav-actions-container"></div>
+</div>
+</header>
+<!-- Destination Hero Section -->
+<section class="destination-hero">
+<div class="container">
+<h1>New York, USA</h1>
+<p>The city that never sleeps. Iconic skyline and endless entertainment.</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="main-content container">
+<section class="properties-list">
+<h2>Top properties in New York</h2>
+<div class="property-item">
+<img alt="Manhattan Penthouse" class="property-img" src="assets/prop_apartment_1777425905682.png"/>
+<div class="property-details">
+<h3>Manhattan Penthouse</h3>
+<p style="color: var(--text-light); margin-bottom: 10px;">Downtown</p>
+<p>Experience luxury with private infinity pools and breathtaking sunset views.</p>
+<div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">9.4 Superb</div>
+</div>
+<div class="property-price">
+<p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
+<span>$850</span> / night
+                    <a class="primary-btn" href="booking.html?hotel=Manhattan+Penthouse&amp;price=3200" style="display: block; width: 100%; margin-top: 15px; text-align: center; text-decoration: none;">View Availability</a>
+</div>
+</div>
+<div class="property-item">
+<img alt="Times Square Hotel" class="property-img" src="assets/prop_hotel_1777425881911.png"/>
+<div class="property-details">
+<h3>Times Square Hotel</h3>
+<p style="color: var(--text-light); margin-bottom: 10px;">City Center</p>
+<p>A tranquil 3-bedroom villa close to the beach and top restaurants.</p>
+<div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">8.9 Fabulous</div>
+</div>
+<div class="property-price">
+<p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
+<span>$400</span> / night
+                    <a class="primary-btn" href="booking.html?hotel=Manhattan+Penthouse&amp;price=3200" style="display: block; width: 100%; margin-top: 15px; text-align: center; text-decoration: none;">View Availability</a>
+</div>
+</div>
+</section>
+<div class="dest-section-header">
+<div class="dest-section-icon exp">🎢</div>
+<div><h2>Fun Experiences</h2><p>Book top attractions in New York</p></div>
+</div>
+<div class="experiences-grid">
+<div class="exp-card">
+<div class="exp-card-top"><div class="exp-emoji">🗽</div><span class="exp-badge">🏛️ Landmark</span></div>
+<h3>Statue of Liberty + Ellis Island</h3>
+<p>Take the ferry to Liberty Island, climb to the crown, and explore the moving Ellis Island immigration museum.</p>
+<div class="exp-card-footer"><div class="exp-price">$35 <span>/ person</span></div><a class="exp-book-btn" href="booking.html?place=Statue+of+Liberty+Ellis+Island&amp;price=3200&amp;type=experience&amp;dest=New+York">Book Now</a></div>
+</div>
+<div class="exp-card">
+<div class="exp-card-top"><div class="exp-emoji">🎭</div><span class="exp-badge">🎶 Entertainment</span></div>
+<h3>Broadway Show Experience</h3>
+<p>See the hottest show on Broadway with premium seats — from Les Miserables to Hamilton and The Lion King.</p>
+<div class="exp-card-footer"><div class="exp-price">$110 <span>/ person</span></div><a class="exp-book-btn" href="booking.html?place=Broadway+Show&amp;price=3200&amp;type=experience&amp;dest=New+York">Book Now</a></div>
+</div>
+<div class="exp-card">
+<div class="exp-card-top"><div class="exp-emoji">🚁</div><span class="exp-badge">✈️ Aerial Tour</span></div>
+<h3>NYC Helicopter Tour</h3>
+<p>Soar over Manhattan, the Brooklyn Bridge and Central Park in a thrilling 15-minute helicopter ride.</p>
+<div class="exp-card-footer"><div class="exp-price">$225 <span>/ person</span></div><a class="exp-book-btn" href="booking.html?place=NYC+Helicopter+Tour&amp;price=3200&amp;type=experience&amp;dest=New+York">Book Now</a></div>
+</div>
+</div>
+<div class="dest-section-header">
+<div class="dest-section-icon pkg">📦</div>
+<div><h2>Travel Packages</h2><p>All-inclusive packages with day-by-day itineraries</p></div>
+</div>
+<div class="packages-grid">
+<div class="pkg-card">
+<div class="pkg-card-header">
+<span class="pkg-duration">7 Days · 6 Nights</span>
+<h3>New York Explorer</h3>
+<p>The ultimate NYC trip — from Times Square to Brooklyn</p>
+<div class="pkg-price-row"><span class="pkg-price">$3,450</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Manhattan Grand Hotel</span><span class="pkg-include-badge">🎭 Broadway Tickets</span><span class="pkg-include-badge">🚕 Airport Transfer</span><span class="pkg-include-badge">🗽 Attraction Pass</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival + Times Square</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Arrive in the Big Apple! Transfer to your Manhattan hotel and spend your first evening soaking in the neon lights of Times Square.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Statue of Liberty + Ellis Island</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Take the ferry to Liberty Island to see the iconic statue up close, then explore the historic Ellis Island Immigration Museum.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Manhattan Art + Museum Day</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Spend the day exploring world-class art at the Metropolitan Museum of Art (The Met) and the Museum of Modern Art (MoMA).</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Brooklyn + DUMBO Walkabout</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Walk across the iconic Brooklyn Bridge. Explore the trendy DUMBO neighborhood and grab a slice of authentic New York pizza.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 5</span> Broadway Show Evening</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy a pre-theater dinner in Hell's Kitchen before taking your premium seats for a hit Broadway musical.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 6</span> Helicopter Tour + Central Park</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">See NYC from the sky with a thrilling helicopter tour, followed by a relaxing afternoon strolling or biking through Central Park.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 7</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=New+York+Explorer&amp;price=3450=New+York&amp;days=7">Book This Package</a>
+</div>
+</div>
+<div class="pkg-card">
+<div class="pkg-card-header">
+<span class="pkg-duration">4 Days · 3 Nights</span>
+<h3>NYC Highlights</h3>
+<p>Hit every must-see New York landmark in 4 packed days</p>
+<div class="pkg-price-row"><span class="pkg-price">$1,750</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Manhattan Grand Hotel</span><span class="pkg-include-badge">🚕 Airport Transfer</span><span class="pkg-include-badge">🗽 Attraction Pass</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival + Times Square Night Walk</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Arrive in NYC, check into your hotel, and experience the dazzling energy of Times Square at night.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Statue of Liberty + Brooklyn Bridge</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">A packed day featuring a ferry ride to the Statue of Liberty and a scenic walk across the Brooklyn Bridge.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Central Park, MoMA + Broadway</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Stroll through Central Park, admire modern art at MoMA, and cap off the trip with a spectacular Broadway show.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=NYC+Highlights&amp;price=1750=New+York&amp;days=4">Book This Package</a>
+</div>
+</div>
+</div>
+</main>
+<footer class="footer" style="margin-top: 60px;">
+<div class="footer-bottom text-center">
+<p>Copyright © 1996–2026 GoTravel.com. All rights reserved.</p>
+</div>
+</footer>
+<script src="auth.js"></script>
+<script src="chatbot.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

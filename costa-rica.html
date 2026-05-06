@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Costa Rica | GoTravel.com</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Explore Costa Rica | GoTravel.com</title>
+<link href="styles.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
         .destination-hero {
             background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/dest_costarica.png');
             background-size: cover;
@@ -39,88 +40,142 @@
     </style>
 </head>
 <body>
-
-    <!-- Header & Navigation -->
-    <header class="header">
-        <div class="top-nav container">
-            <div class="logo">
-                <a href="index.html">GoTravel.com</a>
-            </div>
-            <div class="nav-actions" id="nav-actions-container"></div>
-        </div>
-    </header>
-
-    <!-- Destination Hero Section -->
-    <section class="destination-hero">
-        <div class="container">
-            <h1>Costa Rica</h1>
-            <p>Pura Vida! Rainforests, volcanoes, and amazing wildlife.</p>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <main class="main-content container">
-        <section class="properties-list">
-            <h2>Top properties in Costa Rica</h2>
-            <div class="property-item">
-                <img src="assets/prop_resort_1777425922004.png" alt="Jungle Eco Lodge" class="property-img">
-                <div class="property-details">
-                    <h3>Jungle Eco Lodge</h3>
-                    <p style="color: var(--text-light); margin-bottom: 10px;">Downtown</p>
-                    <p>Experience luxury with private infinity pools and breathtaking sunset views.</p>
-                    <div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">9.4 Superb</div>
-                </div>
-                <div class="property-price">
-                    <p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
-                    <span>$150</span> / night
-                    <button class="primary-btn" style="display: block; width: 100%; margin-top: 15px;">View Availability</button>
-                </div>
-            </div>
-            <div class="property-item">
-                <img src="assets/prop_hotel_1777425881911.png" alt="Surf Beach Resort" class="property-img">
-                <div class="property-details">
-                    <h3>Surf Beach Resort</h3>
-                    <p style="color: var(--text-light); margin-bottom: 10px;">City Center</p>
-                    <p>A tranquil 3-bedroom villa close to the beach and top restaurants.</p>
-                    <div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">8.9 Fabulous</div>
-                </div>
-                <div class="property-price">
-                    <p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
-                    <span>$200</span> / night
-                    <button class="primary-btn" style="display: block; width: 100%; margin-top: 15px;">View Availability</button>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer" style="margin-top: 60px;">
-        <div class="footer-bottom text-center">
-            <p>Copyright © 1996–2026 GoTravel.com. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- AI Assistant -->
-    <div class="ai-fab" id="ai-fab">
-        <i class="fa-solid fa-wand-magic-sparkles"></i>
-    </div>
-    
-    <div class="ai-chat-modal" id="ai-chat-modal">
-        <div class="ai-chat-header">
-            <div class="ai-avatar"><i class="fa-solid fa-robot"></i></div>
-            <div class="ai-title-wrap">
-                <h4>DestiBot</h4>
-                <p>AI Travel Assistant</p>
-            </div>
-            <button class="close-chat" id="close-chat"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="ai-chat-body" id="ai-chat-body">
-            <!-- Chat messages injected here -->
-        </div>
-        <div class="ai-chat-options" id="ai-chat-options">
-            <!-- Options injected here -->
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+<!-- Header & Navigation -->
+<header class="header">
+<div class="top-nav container">
+<div class="logo">
+<a href="index.html">GoTravel.com</a>
+</div>
+<nav class="main-nav">
+<a class="nav-link" href="index.html">Home</a>
+<a class="nav-link" href="destinations.html">Destinations</a>
+<a class="nav-link" href="packages.html">Packages</a>
+<a class="nav-link" href="experiences.html">Experiences</a>
+</nav>
+<div class="nav-actions" id="nav-actions-container"></div>
+</div>
+</header>
+<!-- Destination Hero Section -->
+<section class="destination-hero">
+<div class="container">
+<h1>Costa Rica</h1>
+<p>Pura Vida! Rainforests, volcanoes, and amazing wildlife.</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="main-content container">
+<section class="properties-list">
+<h2>Top properties in Costa Rica</h2>
+<div class="property-item">
+<img alt="Jungle Eco Lodge" class="property-img" src="assets/prop_resort_1777425922004.png"/>
+<div class="property-details">
+<h3>Jungle Eco Lodge</h3>
+<p style="color: var(--text-light); margin-bottom: 10px;">Downtown</p>
+<p>Experience luxury with private infinity pools and breathtaking sunset views.</p>
+<div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">9.4 Superb</div>
+</div>
+<div class="property-price">
+<p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
+<span>$150</span> / night
+                    <a class="primary-btn" href="booking.html?hotel=Jungle+Eco+Lodge&amp;price=1850" style="display: block; width: 100%; margin-top: 15px; text-align: center; text-decoration: none;">View Availability</a>
+</div>
+</div>
+<div class="property-item">
+<img alt="Surf Beach Resort" class="property-img" src="assets/prop_hotel_1777425881911.png"/>
+<div class="property-details">
+<h3>Surf Beach Resort</h3>
+<p style="color: var(--text-light); margin-bottom: 10px;">City Center</p>
+<p>A tranquil 3-bedroom villa close to the beach and top restaurants.</p>
+<div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">8.9 Fabulous</div>
+</div>
+<div class="property-price">
+<p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
+<span>$200</span> / night
+                    <a class="primary-btn" href="booking.html?hotel=Jungle+Eco+Lodge&amp;price=1850" style="display: block; width: 100%; margin-top: 15px; text-align: center; text-decoration: none;">View Availability</a>
+</div>
+</div>
+</section>
+<div class="dest-section-header">
+<div class="dest-section-icon exp">🎢</div>
+<div><h2>Fun Experiences</h2><p>Book top attractions in Costa Rica</p></div>
+</div>
+<div class="experiences-grid">
+<div class="exp-card">
+<div class="exp-card-top"><div class="exp-emoji">🌋</div><span class="exp-badge">🏔️ Volcano</span></div>
+<h3>Arenal Volcano Hike</h3>
+<p>Hike the slopes of iconic Arenal through lush rainforest trails, ending with a soak in natural hot springs.</p>
+<div class="exp-card-footer"><div class="exp-price">$55 <span>/ person</span></div><a class="exp-book-btn" href="booking.html?place=Arenal+Volcano+Hike&amp;price=1850&amp;type=experience&amp;dest=Costa+Rica">Book Now</a></div>
+</div>
+<div class="exp-card">
+<div class="exp-card-top"><div class="exp-emoji">🌿</div><span class="exp-badge">🌴 Adventure</span></div>
+<h3>Rainforest Zip-lining</h3>
+<p>Fly through the jungle canopy on exhilarating zip-lines stretching over 1km above the rainforest floor.</p>
+<div class="exp-card-footer"><div class="exp-price">$70 <span>/ person</span></div><a class="exp-book-btn" href="booking.html?place=Rainforest+Zip-lining&amp;price=1850&amp;type=experience&amp;dest=Costa+Rica">Book Now</a></div>
+</div>
+<div class="exp-card">
+<div class="exp-card-top"><div class="exp-emoji">🏄</div><span class="exp-badge">🌊 Water Sports</span></div>
+<h3>Pacific Surf Camp</h3>
+<p>Learn to ride the Pacific waves at Manuel Antonio with professional surf instructors. All levels welcome.</p>
+<div class="exp-card-footer"><div class="exp-price">$85 <span>/ person</span></div><a class="exp-book-btn" href="booking.html?place=Pacific+Surf+Camp&amp;price=1850&amp;type=experience&amp;dest=Costa+Rica">Book Now</a></div>
+</div>
+</div>
+<div class="dest-section-header">
+<div class="dest-section-icon pkg">📦</div>
+<div><h2>Travel Packages</h2><p>All-inclusive packages with day-by-day itineraries</p></div>
+</div>
+<div class="packages-grid">
+<div class="pkg-card">
+<div class="pkg-card-header">
+<span class="pkg-duration">8 Days · 7 Nights</span>
+<h3>Costa Rica Adventure</h3>
+<p>Volcanoes, jungles, beaches and wildlife all in one epic trip</p>
+<div class="pkg-price-row"><span class="pkg-price">$1,999</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Jungle Eco Lodge</span><span class="pkg-include-badge">🦜 Wildlife Tour</span><span class="pkg-include-badge">🛶 Kayaking</span><span class="pkg-include-badge">🌋 Volcano Hike</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival + San Jose</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Welcome to Costa Rica! Transfer from the airport to your San Jose hotel. Enjoy a welcome dinner featuring traditional gallo pinto.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Arenal Volcano Hike + Hot Springs</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Travel to La Fortuna. Embark on a guided hike around the base of the majestic Arenal Volcano, followed by a relaxing soak in natural geothermal hot springs.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Rainforest Zip-lining</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Get your adrenaline pumping as you soar through the rainforest canopy on one of Costa Rica's longest and most thrilling zip-line courses.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Manuel Antonio Beach Day</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Head to the Pacific coast to relax on the pristine white-sand beaches of Manuel Antonio National Park.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 5</span> Pacific Surf Lessons</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Hit the waves with a morning surf lesson tailored for all skill levels, followed by a beachfront BBQ lunch.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 6</span> Wildlife Safari</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Take a guided riverboat safari to spot sloths, howler monkeys, toucans, and maybe even crocodiles in their natural habitat.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 7</span> Monteverde Cloud Forest</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Walk among the treetops on hanging bridges through the misty, biodiverse Monteverde Cloud Forest.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 8</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Costa+Rica+Adventure&amp;price=1999=Costa+Rica&amp;days=8">Book This Package</a>
+</div>
+</div>
+<div class="pkg-card">
+<div class="pkg-card-header">
+<span class="pkg-duration">5 Days · 4 Nights</span>
+<h3>Eco Explorer</h3>
+<p>Discover Costa Rica nature and wildlife up close</p>
+<div class="pkg-price-row"><span class="pkg-price">$1,150</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Jungle Eco Lodge</span><span class="pkg-include-badge">🦜 Wildlife Tour</span><span class="pkg-include-badge">🌋 Volcano Hike</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival + Orientation</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Arrive in Costa Rica, settle into your eco-lodge, and attend a brief orientation on local wildlife and sustainability.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Arenal Volcano Day</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">A full day dedicated to exploring the Arenal region, including a volcano hike and a visit to a local coffee plantation.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Zip-lining Adventure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Experience the jungle from above on a thrilling zip-line canopy tour.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Beach + Surfing</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Spend the day on the Pacific coast with optional surf lessons or simply relaxing by the waves.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 5</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Costa+Rica+Eco+Explorer&amp;price=1150=Costa+Rica&amp;days=5">Book This Package</a>
+</div>
+</div>
+</div>
+</main>
+<footer class="footer" style="margin-top: 60px;">
+<div class="footer-bottom text-center">
+<p>Copyright © 1996–2026 GoTravel.com. All rights reserved.</p>
+</div>
+</footer>
+<script src="auth.js"></script>
+<script src="chatbot.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

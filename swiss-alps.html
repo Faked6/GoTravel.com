@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Swiss Alps | GoTravel.com</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Explore Swiss Alps | GoTravel.com</title>
+<link href="styles.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
         .destination-hero {
             background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?w=1000&q=80');
             background-size: cover;
@@ -39,88 +40,136 @@
     </style>
 </head>
 <body>
-
-    <!-- Header & Navigation -->
-    <header class="header">
-        <div class="top-nav container">
-            <div class="logo">
-                <a href="index.html">GoTravel.com</a>
-            </div>
-            <div class="nav-actions" id="nav-actions-container"></div>
-        </div>
-    </header>
-
-    <!-- Destination Hero Section -->
-    <section class="destination-hero">
-        <div class="container">
-            <h1>Swiss Alps</h1>
-            <p>Majestic mountains, cozy chalets, and world-class skiing.</p>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <main class="main-content container">
-        <section class="properties-list">
-            <h2>Top properties in Swiss Alps</h2>
-            <div class="property-item">
-                <img src="assets/prop_villa_1777425939174.png" alt="Alpine Chalet" class="property-img">
-                <div class="property-details">
-                    <h3>Alpine Chalet</h3>
-                    <p style="color: var(--text-light); margin-bottom: 10px;">Downtown</p>
-                    <p>Experience luxury with private infinity pools and breathtaking sunset views.</p>
-                    <div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">9.4 Superb</div>
-                </div>
-                <div class="property-price">
-                    <p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
-                    <span>$450</span> / night
-                    <button class="primary-btn" style="display: block; width: 100%; margin-top: 15px;">View Availability</button>
-                </div>
-            </div>
-            <div class="property-item">
-                <img src="assets/prop_resort_1777425922004.png" alt="Mountain Resort" class="property-img">
-                <div class="property-details">
-                    <h3>Mountain Resort</h3>
-                    <p style="color: var(--text-light); margin-bottom: 10px;">City Center</p>
-                    <p>A tranquil 3-bedroom villa close to the beach and top restaurants.</p>
-                    <div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">8.9 Fabulous</div>
-                </div>
-                <div class="property-price">
-                    <p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
-                    <span>$600</span> / night
-                    <button class="primary-btn" style="display: block; width: 100%; margin-top: 15px;">View Availability</button>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer" style="margin-top: 60px;">
-        <div class="footer-bottom text-center">
-            <p>Copyright © 1996–2026 GoTravel.com. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- AI Assistant -->
-    <div class="ai-fab" id="ai-fab">
-        <i class="fa-solid fa-wand-magic-sparkles"></i>
-    </div>
-    
-    <div class="ai-chat-modal" id="ai-chat-modal">
-        <div class="ai-chat-header">
-            <div class="ai-avatar"><i class="fa-solid fa-robot"></i></div>
-            <div class="ai-title-wrap">
-                <h4>DestiBot</h4>
-                <p>AI Travel Assistant</p>
-            </div>
-            <button class="close-chat" id="close-chat"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="ai-chat-body" id="ai-chat-body">
-            <!-- Chat messages injected here -->
-        </div>
-        <div class="ai-chat-options" id="ai-chat-options">
-            <!-- Options injected here -->
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+<!-- Header & Navigation -->
+<header class="header">
+<div class="top-nav container">
+<div class="logo">
+<a href="index.html">GoTravel.com</a>
+</div>
+<nav class="main-nav">
+<a class="nav-link" href="index.html">Home</a>
+<a class="nav-link" href="destinations.html">Destinations</a>
+<a class="nav-link" href="packages.html">Packages</a>
+<a class="nav-link" href="experiences.html">Experiences</a>
+</nav>
+<div class="nav-actions" id="nav-actions-container"></div>
+</div>
+</header>
+<!-- Destination Hero Section -->
+<section class="destination-hero">
+<div class="container">
+<h1>Swiss Alps</h1>
+<p>Majestic mountains, cozy chalets, and world-class skiing.</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="main-content container">
+<section class="properties-list">
+<h2>Top properties in Swiss Alps</h2>
+<div class="property-item">
+<img alt="Alpine Chalet" class="property-img" src="assets/prop_villa_1777425939174.png"/>
+<div class="property-details">
+<h3>Alpine Chalet</h3>
+<p style="color: var(--text-light); margin-bottom: 10px;">Downtown</p>
+<p>Experience luxury with private infinity pools and breathtaking sunset views.</p>
+<div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">9.4 Superb</div>
+</div>
+<div class="property-price">
+<p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
+<span>$450</span> / night
+                    <a class="primary-btn" href="booking.html?hotel=Alpine+Chalet&amp;price=4200" style="display: block; width: 100%; margin-top: 15px; text-align: center; text-decoration: none;">View Availability</a>
+</div>
+</div>
+<div class="property-item">
+<img alt="Mountain Resort" class="property-img" src="assets/prop_resort_1777425922004.png"/>
+<div class="property-details">
+<h3>Mountain Resort</h3>
+<p style="color: var(--text-light); margin-bottom: 10px;">City Center</p>
+<p>A tranquil 3-bedroom villa close to the beach and top restaurants.</p>
+<div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">8.9 Fabulous</div>
+</div>
+<div class="property-price">
+<p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
+<span>$600</span> / night
+                    <a class="primary-btn" href="booking.html?hotel=Alpine+Chalet&amp;price=4200" style="display: block; width: 100%; margin-top: 15px; text-align: center; text-decoration: none;">View Availability</a>
+</div>
+</div>
+</section>
+<div class="dest-section-header">
+<div class="dest-section-icon exp">🎢</div>
+<div><h2>Fun Experiences</h2><p>Book top activities in the Swiss Alps</p></div>
+</div>
+<div class="experiences-grid">
+<div class="exp-card">
+<div class="exp-card-top"><div class="exp-emoji">🎿</div><span class="exp-badge">⛷️ Ski &amp; Snow</span></div>
+<h3>Ski Day at Jungfrau Region</h3>
+<p>Full-day ski pass at one of the world's most iconic ski resorts. Equipment rental included, all skill levels welcome.</p>
+<div class="exp-card-footer"><div class="exp-price">$120 <span>/ person</span></div><a class="exp-book-btn" href="booking.html?place=Jungfrau+Ski+Day&amp;price=4200&amp;type=experience&amp;dest=Swiss+Alps">Book Now</a></div>
+</div>
+<div class="exp-card">
+<div class="exp-card-top"><div class="exp-emoji">🚠</div><span class="exp-badge">🗻 Scenic Train</span></div>
+<h3>Glacier Express Scenic Train</h3>
+<p>Journey through breathtaking Alpine scenery on the world-famous Glacier Express — the slowest express train on Earth.</p>
+<div class="exp-card-footer"><div class="exp-price">$95 <span>/ person</span></div><a class="exp-book-btn" href="booking.html?place=Glacier+Express+Train&amp;price=4200&amp;type=experience&amp;dest=Swiss+Alps">Book Now</a></div>
+</div>
+<div class="exp-card">
+<div class="exp-card-top"><div class="exp-emoji">🧀</div><span class="exp-badge">🍫 Food &amp; Culture</span></div>
+<h3>Swiss Cheese &amp; Chocolate Tour</h3>
+<p>Visit authentic Swiss dairy farms and chocolate factories. Taste, learn and bring home delicious Swiss memories.</p>
+<div class="exp-card-footer"><div class="exp-price">$65 <span>/ person</span></div><a class="exp-book-btn" href="booking.html?place=Swiss+Cheese+Chocolate+Tour&amp;price=4200&amp;type=experience&amp;dest=Swiss+Alps">Book Now</a></div>
+</div>
+</div>
+<div class="dest-section-header">
+<div class="dest-section-icon pkg">📦</div>
+<div><h2>Travel Packages</h2><p>All-inclusive curated packages with day-by-day itineraries</p></div>
+</div>
+<div class="packages-grid">
+<div class="pkg-card">
+<div class="pkg-card-header">
+<span class="pkg-duration">6 Days · 5 Nights</span>
+<h3>Alpine Grand Adventure</h3>
+<p>Ski, hike, and indulge in the majestic Swiss Alps</p>
+<div class="pkg-price-row"><span class="pkg-price">$2,950</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Alpine Grand Chalet</span><span class="pkg-include-badge">⛷️ Ski Pass</span><span class="pkg-include-badge">🚡 Cable Car Tickets</span><span class="pkg-include-badge">🧀 Fondue Dinner</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival &amp; Zurich</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Zurich airport transfer → chalet check-in → welcome fondue dinner in the village.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Ski at Jungfrau</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Full-day skiing at the Jungfrau region with equipment rental and lift pass included.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Glacier Express Train</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Scenic Glacier Express train journey → arrive in Zermatt → Matterhorn views at sunset.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Hiking &amp; Lakes</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Morning Alpine hike → Lake Lucerne boat cruise → cheese &amp; chocolate factory visit.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 5</span> Interlaken &amp; Adventure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Interlaken adventure options (paragliding, skydiving) or spa &amp; relaxation day. Farewell dinner.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 6</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Alpine+Grand+Adventure&amp;price=2950=Swiss+Alps&amp;days=6">Book This Package</a>
+</div>
+</div>
+<div class="pkg-card">
+<div class="pkg-card-header">
+<span class="pkg-duration">3 Days · 2 Nights</span>
+<h3>Alps Winter Getaway</h3>
+<p>A cozy chalet retreat with skiing and Alpine cuisine</p>
+<div class="pkg-price-row"><span class="pkg-price">$1,250</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Alpine Grand Chalet</span><span class="pkg-include-badge">⛷️ Ski Pass</span><span class="pkg-include-badge">🧀 Fondue Dinner</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival &amp; Chalet</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Transfer from airport → chalet check-in → welcome raclette dinner by the fireplace.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Ski &amp; Scenic Train</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Morning ski session → afternoon scenic mountain train ride → evening fondue in the village.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Alps+Winter+Getaway&amp;price=1250=Swiss+Alps&amp;days=3">Book This Package</a>
+</div>
+</div>
+</div>
+</main>
+<footer class="footer" style="margin-top: 60px;">
+<div class="footer-bottom text-center"><p>Copyright © 1996–2026 GoTravel.com. All rights reserved.</p></div>
+</footer>
+<script src="auth.js"></script>
+<script src="chatbot.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

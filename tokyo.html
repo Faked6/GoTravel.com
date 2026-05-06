@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Tokyo | GoTravel.com</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Explore Tokyo | GoTravel.com</title>
+<link href="styles.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
         .destination-hero {
             background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/dest_tokyo_1777425846700.png');
             background-size: cover;
@@ -39,88 +40,138 @@
     </style>
 </head>
 <body>
-
-    <!-- Header & Navigation -->
-    <header class="header">
-        <div class="top-nav container">
-            <div class="logo">
-                <a href="index.html">GoTravel.com</a>
-            </div>
-            <div class="nav-actions" id="nav-actions-container"></div>
-        </div>
-    </header>
-
-    <!-- Destination Hero Section -->
-    <section class="destination-hero">
-        <div class="container">
-            <h1>Tokyo, Japan</h1>
-            <p>Experience neon lights, bustling streets, and serene temples.</p>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <main class="main-content container">
-        <section class="properties-list">
-            <h2>Top properties in Tokyo</h2>
-            <div class="property-item">
-                <img src="assets/prop_hotel_1777425881911.png" alt="Shinjuku Grand Hotel" class="property-img">
-                <div class="property-details">
-                    <h3>Shinjuku Grand Hotel</h3>
-                    <p style="color: var(--text-light); margin-bottom: 10px;">Downtown</p>
-                    <p>Experience luxury with private infinity pools and breathtaking sunset views.</p>
-                    <div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">9.4 Superb</div>
-                </div>
-                <div class="property-price">
-                    <p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
-                    <span>$300</span> / night
-                    <button class="primary-btn" style="display: block; width: 100%; margin-top: 15px;">View Availability</button>
-                </div>
-            </div>
-            <div class="property-item">
-                <img src="assets/prop_resort_1777425922004.png" alt="Traditional Ryokan" class="property-img">
-                <div class="property-details">
-                    <h3>Traditional Ryokan</h3>
-                    <p style="color: var(--text-light); margin-bottom: 10px;">City Center</p>
-                    <p>A tranquil 3-bedroom villa close to the beach and top restaurants.</p>
-                    <div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">8.9 Fabulous</div>
-                </div>
-                <div class="property-price">
-                    <p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
-                    <span>$300</span> / night
-                    <button class="primary-btn" style="display: block; width: 100%; margin-top: 15px;">View Availability</button>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer" style="margin-top: 60px;">
-        <div class="footer-bottom text-center">
-            <p>Copyright © 1996–2026 GoTravel.com. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- AI Assistant -->
-    <div class="ai-fab" id="ai-fab">
-        <i class="fa-solid fa-wand-magic-sparkles"></i>
-    </div>
-    
-    <div class="ai-chat-modal" id="ai-chat-modal">
-        <div class="ai-chat-header">
-            <div class="ai-avatar"><i class="fa-solid fa-robot"></i></div>
-            <div class="ai-title-wrap">
-                <h4>DestiBot</h4>
-                <p>AI Travel Assistant</p>
-            </div>
-            <button class="close-chat" id="close-chat"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="ai-chat-body" id="ai-chat-body">
-            <!-- Chat messages injected here -->
-        </div>
-        <div class="ai-chat-options" id="ai-chat-options">
-            <!-- Options injected here -->
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+<!-- Header & Navigation -->
+<header class="header">
+<div class="top-nav container">
+<div class="logo">
+<a href="index.html">GoTravel.com</a>
+</div>
+<nav class="main-nav">
+<a class="nav-link" href="index.html">Home</a>
+<a class="nav-link" href="destinations.html">Destinations</a>
+<a class="nav-link" href="packages.html">Packages</a>
+<a class="nav-link" href="experiences.html">Experiences</a>
+</nav>
+<div class="nav-actions" id="nav-actions-container"></div>
+</div>
+</header>
+<!-- Destination Hero Section -->
+<section class="destination-hero">
+<div class="container">
+<h1>Tokyo, Japan</h1>
+<p>Experience neon lights, bustling streets, and serene temples.</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="main-content container">
+<section class="properties-list">
+<h2>Top properties in Tokyo</h2>
+<div class="property-item">
+<img alt="Shinjuku Grand Hotel" class="property-img" src="assets/prop_hotel_1777425881911.png"/>
+<div class="property-details">
+<h3>Shinjuku Grand Hotel</h3>
+<p style="color: var(--text-light); margin-bottom: 10px;">Downtown</p>
+<p>Experience luxury with private infinity pools and breathtaking sunset views.</p>
+<div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">9.4 Superb</div>
+</div>
+<div class="property-price">
+<p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
+<span>$300</span> / night
+                    <a class="primary-btn" href="booking.html?hotel=Shinjuku+Grand+Hotel&amp;price=2800" style="display: block; width: 100%; margin-top: 15px; text-align: center; text-decoration: none;">View Availability</a>
+</div>
+</div>
+<div class="property-item">
+<img alt="Traditional Ryokan" class="property-img" src="assets/prop_resort_1777425922004.png"/>
+<div class="property-details">
+<h3>Traditional Ryokan</h3>
+<p style="color: var(--text-light); margin-bottom: 10px;">City Center</p>
+<p>A tranquil 3-bedroom villa close to the beach and top restaurants.</p>
+<div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">8.9 Fabulous</div>
+</div>
+<div class="property-price">
+<p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
+<span>$300</span> / night
+                    <a class="primary-btn" href="booking.html?hotel=Shinjuku+Grand+Hotel&amp;price=2800" style="display: block; width: 100%; margin-top: 15px; text-align: center; text-decoration: none;">View Availability</a>
+</div>
+</div>
+</section>
+<div class="dest-section-header">
+<div class="dest-section-icon exp">🎢</div>
+<div><h2>Fun Experiences</h2><p>Book top attractions and activities in Tokyo</p></div>
+</div>
+<div class="experiences-grid">
+<div class="exp-card">
+<div class="exp-card-top"><div class="exp-emoji">🎮</div><span class="exp-badge">🕹️ Digital Art</span></div>
+<h3>TeamLab Planets Digital Art</h3>
+<p>Walk through immersive digital art installations where you become part of the art. A mind-bending experience.</p>
+<div class="exp-card-footer"><div class="exp-price">$32 <span>/ person</span></div><a class="exp-book-btn" href="booking.html?place=TeamLab+Planets&amp;price=2800&amp;type=experience&amp;dest=Tokyo">Book Now</a></div>
+</div>
+<div class="exp-card">
+<div class="exp-card-top"><div class="exp-emoji">🍣</div><span class="exp-badge">🍜 Food Tour</span></div>
+<h3>Tsukiji Market Food Tour</h3>
+<p>Sample fresh sushi, street snacks and local delicacies with a foodie guide through Tokyo's famous market.</p>
+<div class="exp-card-footer"><div class="exp-price">$60 <span>/ person</span></div><a class="exp-book-btn" href="booking.html?place=Tsukiji+Food+Tour&amp;price=2800&amp;type=experience&amp;dest=Tokyo">Book Now</a></div>
+</div>
+<div class="exp-card">
+<div class="exp-card-top"><div class="exp-emoji">🗻</div><span class="exp-badge">🌿 Day Trip</span></div>
+<h3>Mt. Fuji &amp; Hakone Day Trip</h3>
+<p>Visit iconic Mt. Fuji, enjoy hot spring views at Hakone, and cruise on Lake Ashi — all in one incredible day.</p>
+<div class="exp-card-footer"><div class="exp-price">$85 <span>/ person</span></div><a class="exp-book-btn" href="booking.html?place=Mt+Fuji+Day+Trip&amp;price=2800&amp;type=experience&amp;dest=Tokyo">Book Now</a></div>
+</div>
+</div>
+<div class="dest-section-header">
+<div class="dest-section-icon pkg">📦</div>
+<div><h2>Travel Packages</h2><p>All-inclusive curated packages with day-by-day itineraries</p></div>
+</div>
+<div class="packages-grid">
+<div class="pkg-card">
+<div class="pkg-card-header">
+<span class="pkg-duration">7 Days · 6 Nights</span>
+<h3>Tokyo &amp; Beyond</h3>
+<p>Experience the best of modern and traditional Japan</p>
+<div class="pkg-price-row"><span class="pkg-price">$2,250</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Shinjuku Skyline</span><span class="pkg-include-badge">🚄 JR Pass Included</span><span class="pkg-include-badge">🍜 Food Tour</span><span class="pkg-include-badge">📶 Pocket WiFi</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival &amp; Shinjuku</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Airport transfer → hotel → Shinjuku neon streets &amp; ramen dinner.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> TeamLab &amp; Akihabara</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">TeamLab Planets digital art → Akihabara electronics district → izakaya dinner.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Tsukiji &amp; Asakusa</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Early Tsukiji food tour → Senso-ji Temple → Nakamise shopping street.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Mt. Fuji &amp; Hakone</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Full-day Mt. Fuji tour — lake cruise, hot springs, cable car.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 5</span> Harajuku &amp; Shibuya</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Harajuku → Meiji Shrine → famous Shibuya Crossing → Daikanyama dinner.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 6</span> Kyoto Day Trip</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Bullet train to Kyoto → Fushimi Inari gates → Arashiyama bamboo grove → farewell dinner.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 7</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Tokyo+%26+Beyond&amp;price=2250=Tokyo&amp;days=7">Book This Package</a>
+</div>
+</div>
+<div class="pkg-card">
+<div class="pkg-card-header">
+<span class="pkg-duration">4 Days · 3 Nights</span>
+<h3>Tokyo Quick Escape</h3>
+<p>Pack in all the Tokyo highlights in a long weekend</p>
+<div class="pkg-price-row"><span class="pkg-price">$1,150</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Shinjuku Skyline</span><span class="pkg-include-badge">🚄 JR Pass Included</span><span class="pkg-include-badge">📶 Pocket WiFi</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival &amp; Shibuya</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Airport → hotel → Shibuya Crossing → ramen in Shinjuku.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Temples &amp; Markets</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Senso-ji Temple → Tsukiji food tour → TeamLab Planets.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Mt. Fuji Day Trip</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Full-day Mt. Fuji &amp; Hakone excursion with lake cruise.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Tokyo+Quick+Escape&amp;price=1150=Tokyo&amp;days=4">Book This Package</a>
+</div>
+</div>
+</div>
+</main>
+<footer class="footer" style="margin-top: 60px;">
+<div class="footer-bottom text-center"><p>Copyright © 1996–2026 GoTravel.com. All rights reserved.</p></div>
+</footer>
+<script src="auth.js"></script>
+<script src="chatbot.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

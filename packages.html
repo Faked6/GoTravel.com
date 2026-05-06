@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Travel Packages | GoTravel.com</title>
+<link href="styles.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        .pkg-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1600&q=80');
+            background-size: cover; background-position: center;
+            height: 350px; display: flex; align-items: center; justify-content: center;
+            text-align: center; color: white; margin-bottom: 50px;
+        }
+        .pkg-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 15px; }
+        .pkg-hero p { font-size: 18px; opacity: 0.9; }
+
+        .packages-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px; margin-bottom: 80px;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+<div class="top-nav container">
+<div class="logo"><a href="index.html">GoTravel.com</a></div>
+<nav class="main-nav">
+<a class="nav-link" href="index.html">Home</a>
+<a class="nav-link" href="destinations.html">Destinations</a>
+<a class="nav-link" href="packages.html">Packages</a>
+<a class="nav-link" href="experiences.html">Experiences</a>
+</nav>
+<div class="nav-actions" id="nav-actions-container"></div>
+</div>
+</header>
+<section class="pkg-hero">
+<div class="container">
+<h1>Travel Packages</h1>
+<p>All-inclusive curated journeys with flights, hotels, and tours included.</p>
+</div>
+</section>
+<main class="container">
+<div class="packages-grid"><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> Alabasta Kingdom</div>
+<span class="pkg-duration">5 Days · 4 Nights</span>
+<h3>Kingdom Explorer</h3>
+<p>Unravel the secrets of this ancient desert kingdom</p>
+<div class="pkg-price-row"><span class="pkg-price">$1,250</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Royal Palace Suites</span><span class="pkg-include-badge">🐪 Camel Trekking</span><span class="pkg-include-badge">🏜️ Desert Safari</span><span class="pkg-include-badge">🗺️ Guided Tour</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Royal City Arrival + Welcome Feast</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Arrive at the grand gates of Alubarna. Check into the Royal Palace Suites and enjoy a traditional Alabastan feast featuring roasted sand-gator and exotic oasis fruits.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Desert Dune Camel Trek at Sunrise</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Mount your trained camel before dawn and ride into the sweeping Sandora Desert. Watch the sunrise paint the dunes gold before enjoying a nomad-style breakfast.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Ancient Ruins Guided Tour</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Explore the mysterious ruins of an ancient civilization hidden beneath the sands. Learn about the rich history and legends of the Alabasta Kingdom.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Alubarna River Boat Journey</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Take a relaxing cruise down the Sandora River on a traditional riverboat. Spot unique desert wildlife and enjoy a catered lunch on board.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 5</span> Oasis Farewell Dinner + Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final evening at a lush, hidden oasis with live music and dancing, before transferring to the airport for your departure.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Kingdom+Explorer&amp;price=1250=Alabasta&amp;days=5">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> Alabasta Kingdom</div>
+<span class="pkg-duration">3 Days · 2 Nights</span>
+<h3>Desert Escape</h3>
+<p>A whirlwind adventure through the sands of Alabasta</p>
+<div class="pkg-price-row"><span class="pkg-price">$650</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Royal Palace Suites</span><span class="pkg-include-badge">🐪 Camel Trekking</span><span class="pkg-include-badge">🗺️ Guided Tour</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival + Alubarna City Stroll</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Arrive in Alubarna, check in, and spend the evening wandering through the bustling bazaars and grand plazas of the capital city.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Camel Trek + Ancient Ruins</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">A condensed adventure: ride camels deep into the desert to uncover forgotten temples and ruins half-buried in the sand.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> River Boat Ride + Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">A final morning cruise along the Sandora River before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Desert+Escape&amp;price=650=Alabasta&amp;days=3">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> Bali, Indonesia</div>
+<span class="pkg-duration">7 Days · 6 Nights</span>
+<h3>Bali Island Bliss</h3>
+<p>The ultimate Bali experience — temples, rice paddies, beaches &amp; spa</p>
+<div class="pkg-price-row"><span class="pkg-price">$1,950</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Uluwatu Ocean View</span><span class="pkg-include-badge">🧘‍♀️ Spa &amp; Wellness</span><span class="pkg-include-badge">🥥 Organic Meals</span><span class="pkg-include-badge">🚐 Private Transfer</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival &amp; Welcome</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Airport transfer → Seminyak villa check-in → welcome dinner at beachfront restaurant.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Kuta Beach &amp; Surf</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Morning surf lesson at Kuta Beach → beach lunch → afternoon free time at the pool.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Ubud Cultural Day</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Ubud Monkey Forest → Tegalalang Rice Terrace → traditional Balinese dance show in the evening.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Temples &amp; Sunset</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Morning: Besakih Mother Temple. Afternoon: Tanah Lot Sunset Tour with dinner included.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 5</span> Nusa Penida Day Trip</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Speed boat to Nusa Penida → Kelingking Beach &amp; Angel's Billabong → snorkelling at Crystal Bay.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 6</span> Spa &amp; Cooking Class</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Morning: traditional Balinese spa session. Afternoon: Balinese cooking class. Evening: farewell dinner.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 7</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Bali+Island+Bliss&amp;price=1950=Bali&amp;days=7">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> Bali, Indonesia</div>
+<span class="pkg-duration">4 Days · 3 Nights</span>
+<h3>Bali Highlights</h3>
+<p>The best of Bali in a long weekend — culture, nature &amp; beaches</p>
+<div class="pkg-price-row"><span class="pkg-price">$950</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Uluwatu Ocean View</span><span class="pkg-include-badge">🧘‍♀️ Spa &amp; Wellness</span><span class="pkg-include-badge">🚐 Private Transfer</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival &amp; Seminyak</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Airport transfer → hotel check-in → explore Seminyak's beach clubs and restaurants.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Ubud &amp; Temples</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Ubud Monkey Forest → rice terraces → Tanah Lot sunset viewing.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Beach &amp; Water Sports</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Morning surf lesson → afternoon beach time → evening rooftop dinner.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Bali+Highlights&amp;price=950=Bali&amp;days=4">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> Costa Rica</div>
+<span class="pkg-duration">8 Days · 7 Nights</span>
+<h3>Costa Rica Adventure</h3>
+<p>Volcanoes, jungles, beaches and wildlife all in one epic trip</p>
+<div class="pkg-price-row"><span class="pkg-price">$1,999</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Jungle Eco Lodge</span><span class="pkg-include-badge">🦜 Wildlife Tour</span><span class="pkg-include-badge">🛶 Kayaking</span><span class="pkg-include-badge">🌋 Volcano Hike</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival + San Jose</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Welcome to Costa Rica! Transfer from the airport to your San Jose hotel. Enjoy a welcome dinner featuring traditional gallo pinto.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Arenal Volcano Hike + Hot Springs</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Travel to La Fortuna. Embark on a guided hike around the base of the majestic Arenal Volcano, followed by a relaxing soak in natural geothermal hot springs.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Rainforest Zip-lining</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Get your adrenaline pumping as you soar through the rainforest canopy on one of Costa Rica's longest and most thrilling zip-line courses.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Manuel Antonio Beach Day</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Head to the Pacific coast to relax on the pristine white-sand beaches of Manuel Antonio National Park.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 5</span> Pacific Surf Lessons</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Hit the waves with a morning surf lesson tailored for all skill levels, followed by a beachfront BBQ lunch.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 6</span> Wildlife Safari</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Take a guided riverboat safari to spot sloths, howler monkeys, toucans, and maybe even crocodiles in their natural habitat.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 7</span> Monteverde Cloud Forest</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Walk among the treetops on hanging bridges through the misty, biodiverse Monteverde Cloud Forest.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 8</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Costa+Rica+Adventure&amp;price=1999=Costa+Rica&amp;days=8">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> Costa Rica</div>
+<span class="pkg-duration">5 Days · 4 Nights</span>
+<h3>Eco Explorer</h3>
+<p>Discover Costa Rica nature and wildlife up close</p>
+<div class="pkg-price-row"><span class="pkg-price">$1,150</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Jungle Eco Lodge</span><span class="pkg-include-badge">🦜 Wildlife Tour</span><span class="pkg-include-badge">🌋 Volcano Hike</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival + Orientation</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Arrive in Costa Rica, settle into your eco-lodge, and attend a brief orientation on local wildlife and sustainability.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Arenal Volcano Day</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">A full day dedicated to exploring the Arenal region, including a volcano hike and a visit to a local coffee plantation.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Zip-lining Adventure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Experience the jungle from above on a thrilling zip-line canopy tour.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Beach + Surfing</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Spend the day on the Pacific coast with optional surf lessons or simply relaxing by the waves.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 5</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Costa+Rica+Eco+Explorer&amp;price=1150=Costa+Rica&amp;days=5">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> Dubai, UAE</div>
+<span class="pkg-duration">6 Days · 5 Nights</span>
+<h3>Dubai Luxury Experience</h3>
+<p>Skyscrapers, deserts and world-class shopping — the full Dubai trip</p>
+<div class="pkg-price-row"><span class="pkg-price">$9,500</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Burj Al Arab</span><span class="pkg-include-badge">🏎️ Luxury Transfer</span><span class="pkg-include-badge">🐪 Dune Bashing</span><span class="pkg-include-badge">🥂 VIP Access</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival + Burj Khalifa</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Arrive in dazzling Dubai. Check into the iconic Burj Al Arab, then head to the top of the Burj Khalifa for breathtaking panoramic views of the city.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Dubai Frame City Tour</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Explore the old and new Dubai. Visit the Dubai Frame, the gold souks, and take an abra (water taxi) ride across Dubai Creek.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Desert Safari + BBQ Dinner</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Head into the dunes for an exhilarating 4x4 dune bashing experience, followed by a traditional Bedouin camp BBQ dinner under the stars.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> IMG Worlds of Adventure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Spend the day at the world's largest indoor theme park, enjoying thrilling rides and attractions.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 5</span> Shopping + Dubai Creek Abra Ride</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Shop till you drop at the massive Dubai Mall, then enjoy a relaxing evening cruise on Dubai Creek.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 6</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Dubai+Luxury+Experience&amp;price=9500=Dubai&amp;days=6">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> Dubai, UAE</div>
+<span class="pkg-duration">3 Days · 2 Nights</span>
+<h3>Dubai Highlights</h3>
+<p>The best of Dubai in a perfectly packed long weekend</p>
+<div class="pkg-price-row"><span class="pkg-price">$3,800</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Burj Al Arab</span><span class="pkg-include-badge">🏎️ Luxury Transfer</span><span class="pkg-include-badge">🥂 VIP Access</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival + Burj Khalifa Sunset</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Arrive in style, check in, and head straight to the Burj Khalifa to watch the sunset over the Arabian Gulf.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Desert Safari + City Tour</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">A packed day featuring a morning city tour of Dubai's highlights and an afternoon desert safari adventure.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Shopping + Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy some final luxury shopping before your private transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Dubai+Highlights&amp;price=3800=Dubai&amp;days=3">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> Jakarta, Indonesia</div>
+<span class="pkg-duration">5 Days · 4 Nights</span>
+<h3>Jakarta City Explorer</h3>
+<p>The ultimate Jakarta experience — from skyscrapers to street food</p>
+<div class="pkg-price-row">
+<span class="pkg-price">$850</span>
+<span class="pkg-price-label">/ person</span>
+</div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Grand Indonesia</span><span class="pkg-include-badge">🏙️ City Tour</span><span class="pkg-include-badge">🍜 Food Tasting</span><span class="pkg-include-badge">🎟️ Museum Tickets</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day">
+<div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')">
+<span><span class="day-label">Day 1</span> Arrival &amp; Welcome Dinner</span>
+<i class="fa-solid fa-chevron-down itinerary-day-arrow"></i>
+</div>
+<div class="itinerary-day-body">Airport pickup → hotel check-in at Menteng → welcome dinner at Kota Tua waterfront restaurant. Evening stroll through Fatahillah Square.</div>
+</div>
+<div class="itinerary-day">
+<div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')">
+<span><span class="day-label">Day 2</span> Dufan Adventure Park</span>
+<i class="fa-solid fa-chevron-down itinerary-day-arrow"></i>
+</div>
+<div class="itinerary-day-body">Full day at Dufan — 30+ rides, live shows, and lunch on-site. Return to hotel by evening for a relaxing dinner.</div>
+</div>
+<div class="itinerary-day">
+<div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')">
+<span><span class="day-label">Day 3</span> Heritage &amp; Culture</span>
+<i class="fa-solid fa-chevron-down itinerary-day-arrow"></i>
+</div>
+<div class="itinerary-day-body">Morning: Old Town Heritage Walking Tour &amp; National Museum. Afternoon: TMII Cultural Theme Park. Evening: traditional Betawi dinner.</div>
+</div>
+<div class="itinerary-day">
+<div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')">
+<span><span class="day-label">Day 4</span> Shopping &amp; Cooking Class</span>
+<i class="fa-solid fa-chevron-down itinerary-day-arrow"></i>
+</div>
+<div class="itinerary-day-body">Morning: Grand Indonesia Mall &amp; souvenir shopping. Afternoon: hands-on Indonesian cooking class. Evening: farewell dinner at a rooftop restaurant.</div>
+</div>
+<div class="itinerary-day">
+<div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')">
+<span><span class="day-label">Day 5</span> Departure</span>
+<i class="fa-solid fa-chevron-down itinerary-day-arrow"></i>
+</div>
+<div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div>
+</div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Jakarta+City+Explorer&amp;price=850=Jakarta&amp;days=5">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> Jakarta, Indonesia</div>
+<span class="pkg-duration">3 Days · 2 Nights</span>
+<h3>Jakarta Weekend Escape</h3>
+<p>A quick getaway packed with the best of the capital city</p>
+<div class="pkg-price-row">
+<span class="pkg-price">$450</span>
+<span class="pkg-price-label">/ person</span>
+</div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Grand Indonesia</span><span class="pkg-include-badge">🏙️ City Tour</span><span class="pkg-include-badge">🍜 Food Tasting</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day">
+<div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')">
+<span><span class="day-label">Day 1</span> Arrival &amp; City Tour</span>
+<i class="fa-solid fa-chevron-down itinerary-day-arrow"></i>
+</div>
+<div class="itinerary-day-body">Airport pickup → hotel check-in → afternoon city highlights tour (Monas, National Monument) → dinner at Sudirman.</div>
+</div>
+<div class="itinerary-day">
+<div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')">
+<span><span class="day-label">Day 2</span> Parks &amp; Markets</span>
+<i class="fa-solid fa-chevron-down itinerary-day-arrow"></i>
+</div>
+<div class="itinerary-day-body">Morning: Dufan Adventure Park highlights. Afternoon: Tanah Abang market &amp; street food crawl. Evening: rooftop bar views.</div>
+</div>
+<div class="itinerary-day">
+<div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')">
+<span><span class="day-label">Day 3</span> Departure</span>
+<i class="fa-solid fa-chevron-down itinerary-day-arrow"></i>
+</div>
+<div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div>
+</div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Jakarta+Weekend+Escape&amp;price=450=Jakarta&amp;days=3">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> Maldives</div>
+<span class="pkg-duration">7 Days · 6 Nights</span>
+<h3>Maldives Island Escape</h3>
+<p>The ultimate overwater paradise — reefs, sunsets and spa</p>
+<div class="pkg-price-row"><span class="pkg-price">$5,900</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Overwater Paradise Villa</span><span class="pkg-include-badge">🤿 Scuba Gear</span><span class="pkg-include-badge">🚤 Speedboat Transfer</span><span class="pkg-include-badge">🍹 All-Inclusive</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival + Seaplane Transfer</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Arrive in Malé and take a breathtaking scenic seaplane flight over the atolls to your private overwater villa.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Coral Reef Snorkeling Day</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Spend the day exploring vibrant coral reefs right from your villa's deck. Swim with colorful fish, rays, and sea turtles.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Private Island Adventure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Take a speedboat to an uninhabited island for a completely private, romantic picnic on a secluded white-sand beach.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Dolphin Watching Tour</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Embark on a sunset cruise to spot pods of spinner dolphins playing in the wake of the boat.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 5</span> Spa + Wellness Day</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Indulge in a full day of relaxation at the overwater spa, featuring traditional Maldivian healing treatments.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 6</span> Sunset Cruise + Farewell Dinner</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy a final, romantic sunset cruise followed by a private beachfront farewell dinner under the stars.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 7</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Maldives+Island+Escape&amp;price=5900=Maldives&amp;days=7">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> Maldives</div>
+<span class="pkg-duration">4 Days · 3 Nights</span>
+<h3>Maldives Bliss</h3>
+<p>A short but spectacular Maldivian getaway</p>
+<div class="pkg-price-row"><span class="pkg-price">$2,950</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Overwater Paradise Villa</span><span class="pkg-include-badge">🤿 Scuba Gear</span><span class="pkg-include-badge">🚤 Speedboat Transfer</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival + Boat Transfer</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Arrive in Malé and take a luxury speedboat directly to your island resort.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Reef Snorkeling + Island Hop</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Explore the vibrant underwater world and visit a nearby local island to experience Maldivian culture.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Sunset Cruise + Free Time</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy a relaxing day at the resort, capped off with a stunning sunset cruise.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Maldives+Bliss&amp;price=2950=Maldives&amp;days=4">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> The Moon</div>
+<span class="pkg-duration">7 Days · 6 Nights</span>
+<h3>Lunar Odyssey</h3>
+<p>The most extreme adventure in the entire solar system</p>
+<div class="pkg-price-row"><span class="pkg-price">$20,000,000</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Lunar Base Alpha</span><span class="pkg-include-badge">🚀 Rocket Launch</span><span class="pkg-include-badge">🧑‍🚀 Spacesuit Rental</span><span class="pkg-include-badge">🌌 Zero-G Training</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Launch Day + Earth Orbit</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Liftoff from Earth! Experience the incredible g-forces of launch before settling into zero gravity as you orbit Earth.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Lunar Transit + Approach</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Spend the day in transit, watching Earth shrink into a blue marble while the Moon looms larger in your viewport.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Moon Landing + Moonbase Check-in</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Experience the thrill of a lunar touchdown. Disembark and settle into your luxurious quarters at Lunar Base Alpha.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Crater Exploration EVA Walk</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Suit up for your first Extravehicular Activity (EVA). Bounce across the powdery lunar surface and explore the edges of a massive impact crater.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 5</span> Far Side Expedition</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Take a pressurized rover to the dark side of the Moon, completely cut off from Earth, for a truly profound sense of isolation and wonder.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 6</span> Zero-G Recreation + Lunar Sunrise</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy zero-gravity sports inside the base's recreation dome, then watch a breathtaking, slow-moving lunar sunrise.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 7</span> Return Journey + Splashdown</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Board the return vessel for transit back to Earth, culminating in a fiery re-entry and a safe ocean splashdown.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Lunar+Odyssey&amp;price=20000000=The+Moon&amp;days=7">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> The Moon</div>
+<span class="pkg-duration">3 Days · 2 Nights</span>
+<h3>Moonbase Quickstay</h3>
+<p>A short but unbelievable lunar getaway</p>
+<div class="pkg-price-row"><span class="pkg-price">$8,000,000</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Lunar Base Alpha</span><span class="pkg-include-badge">🚀 Rocket Launch</span><span class="pkg-include-badge">🧑‍🚀 Spacesuit Rental</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Launch + Moon Landing</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">A streamlined express journey: launch from Earth and touch down on the lunar surface all in one incredible day.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Crater Walk + Lunar Sunrise</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Suit up for an EVA crater walk, then return to the base just in time to watch the sun rise over the lunar horizon.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Moonbase Tour + Return Journey</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Take a comprehensive tour of Lunar Base Alpha's life support and science labs before initiating the return launch to Earth.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Moonbase+Quickstay&amp;price=8000000=The+Moon&amp;days=3">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> New York, USA</div>
+<span class="pkg-duration">7 Days · 6 Nights</span>
+<h3>New York Explorer</h3>
+<p>The ultimate NYC trip — from Times Square to Brooklyn</p>
+<div class="pkg-price-row"><span class="pkg-price">$3,450</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Manhattan Grand Hotel</span><span class="pkg-include-badge">🎭 Broadway Tickets</span><span class="pkg-include-badge">🚕 Airport Transfer</span><span class="pkg-include-badge">🗽 Attraction Pass</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival + Times Square</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Arrive in the Big Apple! Transfer to your Manhattan hotel and spend your first evening soaking in the neon lights of Times Square.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Statue of Liberty + Ellis Island</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Take the ferry to Liberty Island to see the iconic statue up close, then explore the historic Ellis Island Immigration Museum.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Manhattan Art + Museum Day</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Spend the day exploring world-class art at the Metropolitan Museum of Art (The Met) and the Museum of Modern Art (MoMA).</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Brooklyn + DUMBO Walkabout</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Walk across the iconic Brooklyn Bridge. Explore the trendy DUMBO neighborhood and grab a slice of authentic New York pizza.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 5</span> Broadway Show Evening</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy a pre-theater dinner in Hell's Kitchen before taking your premium seats for a hit Broadway musical.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 6</span> Helicopter Tour + Central Park</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">See NYC from the sky with a thrilling helicopter tour, followed by a relaxing afternoon strolling or biking through Central Park.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 7</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=New+York+Explorer&amp;price=3450=New+York&amp;days=7">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> New York, USA</div>
+<span class="pkg-duration">4 Days · 3 Nights</span>
+<h3>NYC Highlights</h3>
+<p>Hit every must-see New York landmark in 4 packed days</p>
+<div class="pkg-price-row"><span class="pkg-price">$1,750</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Manhattan Grand Hotel</span><span class="pkg-include-badge">🚕 Airport Transfer</span><span class="pkg-include-badge">🗽 Attraction Pass</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival + Times Square Night Walk</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Arrive in NYC, check into your hotel, and experience the dazzling energy of Times Square at night.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Statue of Liberty + Brooklyn Bridge</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">A packed day featuring a ferry ride to the Statue of Liberty and a scenic walk across the Brooklyn Bridge.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Central Park, MoMA + Broadway</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Stroll through Central Park, admire modern art at MoMA, and cap off the trip with a spectacular Broadway show.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=NYC+Highlights&amp;price=1750=New+York&amp;days=4">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> Paris, France</div>
+<span class="pkg-duration">6 Days · 5 Nights</span>
+<h3>Paris Romance Escape</h3>
+<p>The ultimate Parisian experience — art, cuisine and iconic landmarks</p>
+<div class="pkg-price-row"><span class="pkg-price">$2,350</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Eiffel View Hotel</span><span class="pkg-include-badge">🍷 Wine Tasting</span><span class="pkg-include-badge">🏛️ Museum Pass</span><span class="pkg-include-badge">🥐 Breakfast Included</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival &amp; Montmartre</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">CDG airport transfer → hotel check-in → evening stroll through Montmartre &amp; Sacré-Cœur.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Eiffel &amp; Champs-Élysées</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Skip-the-line Eiffel Tower → Arc de Triomphe → evening at a Champs-Élysées bistro.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Louvre &amp; River Cruise</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Louvre guided tour → Tuileries Garden → Seine dinner cruise.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Versailles Day Trip</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Full day at the Palace of Versailles — Hall of Mirrors, royal apartments &amp; gardens.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 5</span> Markets &amp; Cuisine</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Marché d'Aligre market → French cooking class → farewell fine-dining dinner.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 6</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Paris+Romance+Escape&amp;price=2350=Paris&amp;days=6">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> Paris, France</div>
+<span class="pkg-duration">3 Days · 2 Nights</span>
+<h3>Paris Essentials</h3>
+<p>Hit all the must-sees of Paris in a perfectly paced long weekend</p>
+<div class="pkg-price-row"><span class="pkg-price">$950</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Eiffel View Hotel</span><span class="pkg-include-badge">🏛️ Museum Pass</span><span class="pkg-include-badge">🥐 Breakfast Included</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival &amp; Icons</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Airport transfer → hotel → Eiffel Tower → dinner on the Seine.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Art &amp; Culture</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Louvre Museum → Notre-Dame → Marais district exploration &amp; dinner.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Paris+Essentials&amp;price=950=Paris&amp;days=3">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> Reykjavik, Iceland</div>
+<span class="pkg-duration">8 Days · 7 Nights</span>
+<h3>Iceland Ring Road</h3>
+<p>Drive the legendary Route 1 and witness all of Iceland</p>
+<div class="pkg-price-row"><span class="pkg-price">$3,100</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Northern Lights Retreat</span><span class="pkg-include-badge">🌌 Northern Lights Tour</span><span class="pkg-include-badge">❄️ Glacier Hike</span><span class="pkg-include-badge">🚙 4x4 Rental</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival + Reykjavik City Walk</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Arrive in Iceland and explore the colorful streets of Reykjavik. Visit the iconic Hallgrímskirkja church and the Sun Voyager sculpture.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Blue Lagoon Geothermal Spa</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Relax in the milky-blue, mineral-rich waters of the world-famous Blue Lagoon, surrounded by black lava fields.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Golden Circle Tour</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Experience Iceland's most famous route: see the erupting Geysir, the thundering Gullfoss waterfall, and the historic Thingvellir National Park.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Glacier Hike + Ice Caves</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Strap on crampons and grab an ice axe for a guided hike across a massive glacier, culminating in a visit to a stunning blue ice cave.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 5</span> Northern Lights Chase</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Head out into the dark, remote countryside with an expert guide to hunt for the mesmerizing, dancing colors of the Aurora Borealis.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 6</span> Snaefellsnes Peninsula</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Explore the 'Iceland in Miniature' peninsula, featuring dramatic sea cliffs, black sand beaches, and the Kirkjufell mountain.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 7</span> Whale Watching Tour</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Set sail from Reykjavik harbor on a specialized boat to spot minke whales, humpbacks, and playful dolphins in their natural habitat.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 8</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Iceland+Ring+Road&amp;price=3100=Reykjavik&amp;days=8">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> Reykjavik, Iceland</div>
+<span class="pkg-duration">4 Days · 3 Nights</span>
+<h3>Iceland Essentials</h3>
+<p>The highlights of Iceland in a thrilling long weekend</p>
+<div class="pkg-price-row"><span class="pkg-price">$1,450</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Northern Lights Retreat</span><span class="pkg-include-badge">🌌 Northern Lights Tour</span><span class="pkg-include-badge">❄️ Glacier Hike</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival + City Walk</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">This day covers: Arrival + City Walk.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Golden Circle Tour</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Experience Iceland's most famous route: see the erupting Geysir, the thundering Gullfoss waterfall, and the historic Thingvellir National Park.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Northern Lights Chase</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Head out into the dark, remote countryside with an expert guide to hunt for the mesmerizing, dancing colors of the Aurora Borealis.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Iceland+Essentials&amp;price=1450=Reykjavik&amp;days=4">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> Swiss Alps</div>
+<span class="pkg-duration">6 Days · 5 Nights</span>
+<h3>Alpine Grand Adventure</h3>
+<p>Ski, hike, and indulge in the majestic Swiss Alps</p>
+<div class="pkg-price-row"><span class="pkg-price">$2,950</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Alpine Grand Chalet</span><span class="pkg-include-badge">⛷️ Ski Pass</span><span class="pkg-include-badge">🚡 Cable Car Tickets</span><span class="pkg-include-badge">🧀 Fondue Dinner</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival &amp; Zurich</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Zurich airport transfer → chalet check-in → welcome fondue dinner in the village.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Ski at Jungfrau</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Full-day skiing at the Jungfrau region with equipment rental and lift pass included.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Glacier Express Train</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Scenic Glacier Express train journey → arrive in Zermatt → Matterhorn views at sunset.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Hiking &amp; Lakes</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Morning Alpine hike → Lake Lucerne boat cruise → cheese &amp; chocolate factory visit.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 5</span> Interlaken &amp; Adventure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Interlaken adventure options (paragliding, skydiving) or spa &amp; relaxation day. Farewell dinner.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 6</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Alpine+Grand+Adventure&amp;price=2950=Swiss+Alps&amp;days=6">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> Swiss Alps</div>
+<span class="pkg-duration">3 Days · 2 Nights</span>
+<h3>Alps Winter Getaway</h3>
+<p>A cozy chalet retreat with skiing and Alpine cuisine</p>
+<div class="pkg-price-row"><span class="pkg-price">$1,250</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Alpine Grand Chalet</span><span class="pkg-include-badge">⛷️ Ski Pass</span><span class="pkg-include-badge">🧀 Fondue Dinner</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival &amp; Chalet</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Transfer from airport → chalet check-in → welcome raclette dinner by the fireplace.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Ski &amp; Scenic Train</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Morning ski session → afternoon scenic mountain train ride → evening fondue in the village.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Alps+Winter+Getaway&amp;price=1250=Swiss+Alps&amp;days=3">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> Tokyo, Japan</div>
+<span class="pkg-duration">7 Days · 6 Nights</span>
+<h3>Tokyo &amp; Beyond</h3>
+<p>Experience the best of modern and traditional Japan</p>
+<div class="pkg-price-row"><span class="pkg-price">$2,250</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Shinjuku Skyline</span><span class="pkg-include-badge">🚄 JR Pass Included</span><span class="pkg-include-badge">🍜 Food Tour</span><span class="pkg-include-badge">📶 Pocket WiFi</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival &amp; Shinjuku</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Airport transfer → hotel → Shinjuku neon streets &amp; ramen dinner.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> TeamLab &amp; Akihabara</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">TeamLab Planets digital art → Akihabara electronics district → izakaya dinner.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Tsukiji &amp; Asakusa</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Early Tsukiji food tour → Senso-ji Temple → Nakamise shopping street.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Mt. Fuji &amp; Hakone</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Full-day Mt. Fuji tour — lake cruise, hot springs, cable car.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 5</span> Harajuku &amp; Shibuya</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Harajuku → Meiji Shrine → famous Shibuya Crossing → Daikanyama dinner.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 6</span> Kyoto Day Trip</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Bullet train to Kyoto → Fushimi Inari gates → Arashiyama bamboo grove → farewell dinner.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 7</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Tokyo+%26+Beyond&amp;price=2250=Tokyo&amp;days=7">Book This Package</a>
+</div>
+</div><div class="pkg-card">
+<div class="pkg-card-header"><div class="pkg-location-badge"><i class="fa-solid fa-location-dot"></i> Tokyo, Japan</div>
+<span class="pkg-duration">4 Days · 3 Nights</span>
+<h3>Tokyo Quick Escape</h3>
+<p>Pack in all the Tokyo highlights in a long weekend</p>
+<div class="pkg-price-row"><span class="pkg-price">$1,150</span><span class="pkg-price-label">/ person</span></div>
+</div>
+<div class="pkg-card-body">
+<div class="pkg-includes"><span class="pkg-include-badge">🏨 Stay at Shinjuku Skyline</span><span class="pkg-include-badge">🚄 JR Pass Included</span><span class="pkg-include-badge">📶 Pocket WiFi</span></div>
+<div class="pkg-itinerary">
+<div class="pkg-itinerary-title">Itinerary</div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 1</span> Arrival &amp; Shibuya</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Airport → hotel → Shibuya Crossing → ramen in Shinjuku.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 2</span> Temples &amp; Markets</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Senso-ji Temple → Tsukiji food tour → TeamLab Planets.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 3</span> Mt. Fuji Day Trip</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Full-day Mt. Fuji &amp; Hakone excursion with lake cruise.</div></div>
+<div class="itinerary-day"><div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')"><span><span class="day-label">Day 4</span> Departure</span><i class="fa-solid fa-chevron-down itinerary-day-arrow"></i></div><div class="itinerary-day-body">Enjoy your final Costa Rican coffee before your transfer to the airport.</div></div>
+</div>
+<a class="pkg-book-btn" href="booking.html?type=package&amp;pkg=Tokyo+Quick+Escape&amp;price=1150=Tokyo&amp;days=4">Book This Package</a>
+</div>
+</div></div>
+<!-- Bali -->
+<!-- Tokyo -->
+<!-- Swiss Alps -->
+</main>
+<footer class="footer">
+<div class="footer-bottom text-center">
+<p>Copyright © 1996–2026 GoTravel.com. All rights reserved.</p>
+</div>
+</footer>
+<script src="auth.js"></script>
+<script src="chatbot.js"></script>
+</body>
+</html>

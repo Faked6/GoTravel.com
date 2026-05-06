@@ -16,6 +16,12 @@
             <div class="logo">
                 <a href="index.html">GoTravel.com</a>
             </div>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="destinations.html" class="nav-link">Destinations</a>
+                <a href="packages.html" class="nav-link">Packages</a>
+                <a href="experiences.html" class="nav-link">Experiences</a>
+            </nav>
             <div class="nav-actions" id="nav-actions-container"></div>
         </div>
     </header>
@@ -76,6 +82,80 @@
             </div>
         </section>
 
+        <!-- Featured Packages -->
+        <section class="featured-packages section-margin">
+            <div style="margin-bottom: 25px;">
+                <h2>Curated Travel Packages</h2>
+                <p class="section-desc">All-inclusive journeys for the ultimate getaway</p>
+            </div>
+            
+            <div class="offer-cards">
+                <a href="booking.html?type=package&pkg=Bali+Island+Bliss&price=1950&dest=Bali&days=7" class="offer-card" style="text-decoration:none; color:inherit;">
+                    <div class="offer-info">
+                        <span class="offer-badge" style="background:#6c3ce1; color:white; padding:4px 8px; border-radius:4px; font-size:12px; font-weight:700;">5-STAR LUXURY</span>
+                        <h3 style="margin-top:10px;">Bali Island Bliss</h3>
+                        <p>7 Days of luxury spa, yoga, and nature.</p>
+                        <div style="margin-top:15px; font-weight:800; color:var(--primary); font-size:20px;">$1,950</div>
+                    </div>
+                    <div class="offer-image">
+                        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=500&q=80" alt="Bali Package">
+                    </div>
+                </a>
+                <a href="booking.html?type=package&pkg=Paris+Romance+Escape&price=2350&dest=Paris&days=6" class="offer-card" style="text-decoration:none; color:inherit;">
+                    <div class="offer-info">
+                        <span class="offer-badge" style="background:#6c3ce1; color:white; padding:4px 8px; border-radius:4px; font-size:12px; font-weight:700;">ROMANTIC</span>
+                        <h3 style="margin-top:10px;">Paris Romance Escape</h3>
+                        <p>6 Days in the heart of Paris with guided museum tours.</p>
+                        <div style="margin-top:15px; font-weight:800; color:var(--primary); font-size:20px;">$2,350</div>
+                    </div>
+                    <div class="offer-image">
+                        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=500&q=80" alt="Paris Package">
+                    </div>
+                </a>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="packages.html" class="primary-btn" style="display: inline-block; padding: 12px 30px; font-size: 15px; text-decoration:none;">View All Packages</a>
+            </div>
+        </section>
+
+        <!-- Featured Experiences -->
+        <section class="featured-experiences section-margin">
+            <div style="margin-bottom: 25px;">
+                <h2>Unforgettable Experiences</h2>
+                <p class="section-desc">Hand-picked activities and fun places to visit</p>
+            </div>
+            
+            <div class="offer-cards">
+                <a href="booking.html?place=Dufan+Adventure+Park&price=25&type=experience&dest=Jakarta" class="offer-card" style="text-decoration:none; color:inherit;">
+                    <div class="offer-info">
+                        <span class="offer-badge" style="background:#f59e0b; color:white; padding:4px 8px; border-radius:4px; font-size:12px; font-weight:700;">THRILLING</span>
+                        <h3 style="margin-top:10px;">Dufan Adventure Park</h3>
+                        <p>The biggest amusement park in Jakarta. Fun for everyone!</p>
+                        <div style="margin-top:15px; font-weight:800; color:var(--primary); font-size:20px;">$25</div>
+                    </div>
+                    <div class="offer-image">
+                        <img src="assets/dest_jakarta_1777426644763.png" alt="Dufan Park">
+                    </div>
+                </a>
+                <a href="booking.html?place=Manhattan+Helicopter+Tour&price=225&type=experience&dest=New+York" class="offer-card" style="text-decoration:none; color:inherit;">
+                    <div class="offer-info">
+                        <span class="offer-badge" style="background:#f59e0b; color:white; padding:4px 8px; border-radius:4px; font-size:12px; font-weight:700;">AERIAL VIEW</span>
+                        <h3 style="margin-top:10px;">Manhattan Helicopter Tour</h3>
+                        <p>Breathtaking views of the NYC skyline from above.</p>
+                        <div style="margin-top:15px; font-weight:800; color:var(--primary); font-size:20px;">$225</div>
+                    </div>
+                    <div class="offer-image">
+                        <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=500&q=80" alt="NYC Tour">
+                    </div>
+                </a>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="experiences.html" class="primary-btn" style="display: inline-block; padding: 12px 30px; font-size: 15px; text-decoration:none;">View All Experiences</a>
+            </div>
+        </section>
+
         <!-- Trending Destinations -->
         <section class="trending section-margin">
             <h2>Trending destinations</h2>
@@ -116,8 +196,6 @@
             </div>
         </section>
 
-
-
     </main>
 
     <!-- Footer -->
@@ -127,28 +205,8 @@
         </div>
     </footer>
 
-    <!-- AI Assistant -->
-    <div class="ai-fab" id="ai-fab">
-        <i class="fa-solid fa-wand-magic-sparkles"></i>
-    </div>
-    
-    <div class="ai-chat-modal" id="ai-chat-modal">
-        <div class="ai-chat-header">
-            <div class="ai-avatar"><i class="fa-solid fa-robot"></i></div>
-            <div class="ai-title-wrap">
-                <h4>DestiBot</h4>
-                <p>AI Travel Assistant</p>
-            </div>
-            <button class="close-chat" id="close-chat"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="ai-chat-body" id="ai-chat-body">
-            <!-- Chat messages injected here -->
-        </div>
-        <div class="ai-chat-options" id="ai-chat-options">
-            <!-- Options injected here -->
-        </div>
-    </div>
-
+    <script src="auth.js"></script>
+    <script src="chatbot.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

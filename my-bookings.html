@@ -41,6 +41,18 @@
             display: inline-block;
             margin-bottom: 10px;
         }
+        .type-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
+        }
+        .type-hotel   { background: #e8f0fe; color: #1a73e8; }
+        .type-exp     { background: #fef3e2; color: #e37400; }
+        .type-pkg     { background: #f3e8fd; color: #8430ce; }
         .cancel-btn {
             background: #fce8e6;
             color: #c5221f;
@@ -66,6 +78,12 @@
             <div class="logo">
                 <a href="index.html">GoTravel.com</a>
             </div>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="destinations.html" class="nav-link">Destinations</a>
+                <a href="packages.html" class="nav-link">Packages</a>
+                <a href="experiences.html" class="nav-link">Experiences</a>
+            </nav>
             <div class="nav-actions" id="nav-actions-container"></div>
         </div>
     </header>
@@ -87,6 +105,8 @@
         </div>
     </footer>
 
+    <script src="auth.js"></script>
+    <script src="chatbot.js"></script>
     <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', async () => {
@@ -110,14 +130,31 @@
                     } else {
                         listContainer.innerHTML = '';
                         data.bookings.forEach(b => {
+                            // Detect booking type from property name
+                            const name = b.property_name || '';
+                            let typeLabel, typeCls, typeIcon;
+                            if (name.includes('Pass') || name.toLowerCase().includes('experience') ||
+                                name.includes('Tour') || name.includes('Safari') || name.includes('Lesson') ||
+                                name.includes('Hike') || name.includes('Cruise') || name.includes('Trek') ||
+                                name.includes('Surf') || name.includes('Crater') || name.includes('Snorkel')) {
+                                typeLabel = 'Experience'; typeCls = 'type-exp'; typeIcon = '🎡';
+                            } else if (name.includes('Explorer') || name.includes('Escape') || name.includes('Bliss') ||
+                                       name.includes('Highlights') || name.includes('Adventure') || name.includes('Odyssey') ||
+                                       name.includes('Ring Road') || name.includes('Kingdom') || name.includes('Romance') ||
+                                       name.includes('Quickstay') || name.includes('Getaway')) {
+                                typeLabel = 'Package'; typeCls = 'type-pkg'; typeIcon = '📦';
+                            } else {
+                                typeLabel = 'Hotel'; typeCls = 'type-hotel'; typeIcon = '🏨';
+                            }
                             const html = `
                                 <div class="booking-card" id="booking-${b.id}">
                                     <div>
+                                        <span class="type-badge ${typeCls}">${typeIcon} ${typeLabel}</span>
                                         <h3>${b.property_name}</h3>
                                         <div class="booking-dates">
                                             <i class="fa-regular fa-calendar"></i>
-                                            <strong>Check-in:</strong> ${b.check_in} &nbsp;&nbsp;|&nbsp;&nbsp; 
-                                            <strong>Check-out:</strong> ${b.check_out}
+                                            <strong>${typeLabel === 'Experience' ? 'Visit' : 'Check-in'}:</strong> ${b.check_in} &nbsp;&nbsp;|&nbsp;&nbsp; 
+                                            <strong>${typeLabel === 'Experience' ? 'End' : 'Check-out'}:</strong> ${b.check_out}
                                         </div>
                                         <div class="booking-dates" style="margin-top: 5px;">
                                             <i class="fa-solid fa-user-group"></i> ${b.persons} Guests &nbsp;&nbsp;|&nbsp;&nbsp; 
@@ -125,8 +162,8 @@
                                         </div>
                                     </div>
                                     <div style="text-align: right;">
-                                        <div class="status-badge">Confirmed</div><br>
-                                        <button class="cancel-btn" onclick="cancelBooking(${b.id})">Cancel Booking</button>
+                                        <div class="status-badge">✅ Confirmed</div><br>
+                                        <button class="cancel-btn" onclick="cancelBooking(${b.id})">Cancel</button>
                                     </div>
                                 </div>
                             `;
@@ -141,22 +178,23 @@
             }
         });
 
-        window.cancelBooking = async function(id) {
-            if (!confirm('Are you sure you want to cancel this booking?')) return;
-            try {
-                const res = await fetch(`/api/bookings/${id}`, { method: 'DELETE' });
-                if (res.ok) {
-                    document.getElementById(`booking-${id}`).remove();
-                    const listContainer = document.getElementById('bookings-list');
-                    if (listContainer.children.length === 0) {
-                        listContainer.innerHTML = `<p style="color: var(--text-light);">You don't have any bookings yet. Time to plan a trip!</p>`;
+        window.cancelBooking = function(id) {
+            customConfirm('Are you sure you want to cancel this booking?', async function() {
+                try {
+                    const res = await fetch(`/api/bookings/${id}`, { method: 'DELETE' });
+                    if (res.ok) {
+                        document.getElementById(`booking-${id}`).remove();
+                        const listContainer = document.getElementById('bookings-list');
+                        if (listContainer.children.length === 0) {
+                            listContainer.innerHTML = `<p style="color: var(--text-light);">You don't have any bookings yet. Time to plan a trip!</p>`;
+                        }
+                    } else {
+                        customAlert('Error canceling booking.');
                     }
-                } else {
-                    alert('Error canceling booking.');
+                } catch (err) {
+                    customAlert('Error connecting to the server.');
                 }
-            } catch (err) {
-                alert('Error connecting to the server.');
-            }
+            });
         }
     </script>
 </body>

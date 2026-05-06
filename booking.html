@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Experience | GoTravel.com</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="data.js"></script>
+    <style>
+        .booking-page {
+            min-height: 100vh;
+            background: #f4f6fb;
+            padding: 40px 0 80px;
+        }
+
+        .booking-page .container {
+            max-width: 1000px;
+        }
+
+        .booking-header {
+            margin-bottom: 32px;
+        }
+
+        .booking-header a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .booking-header a:hover { text-decoration: underline; }
+
+        .booking-header h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        .booking-header p {
+            color: var(--text-light);
+            margin-top: 4px;
+            font-size: 15px;
+        }
+
+        .booking-layout {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 28px;
+            align-items: start;
+        }
+
+        .booking-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
+        }
+
+        .booking-card h2 {
+            font-size: 17px;
+            font-weight: 700;
+            margin: 0 0 20px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .booking-card h2 .step-badge {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Room Type Grid */
+        .room-type-grid-full {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .room-card {
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .room-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 16px rgba(37, 117, 252, 0.12);
+        }
+
+        .room-card.selected {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(106,17,203,0.04), rgba(37,117,252,0.06));
+            box-shadow: 0 0 0 3px rgba(37,117,252,0.15);
+        }
+
+        .room-card.selected .room-card-check {
+            opacity: 1;
+        }
+
+        .room-card-check {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 22px;
+            height: 22px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 11px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .room-card-icon { font-size: 28px; margin-bottom: 8px; }
+
+        .room-card-name {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--text-dark);
+        }
+
+        .room-card-desc {
+            font-size: 12px;
+            color: var(--text-light);
+            margin: 4px 0 10px;
+            line-height: 1.4;
+        }
+
+        .room-card-price {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .room-card-price span {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        /* Date & Guest Inputs */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input {
+            padding: 11px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary);
+        }
+
+        /* Sticky Summary Sidebar */
+        .booking-summary {
+            position: sticky;
+            top: 24px;
+        }
+
+        .summary-hotel {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .summary-hotel-icon {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .summary-hotel-name {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--text-dark);
+        }
+
+        .summary-hotel-sub {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .summary-row span:last-child {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .summary-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 16px 0;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .summary-total .total-price {
+            color: var(--primary);
+        }
+
+        .confirm-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            letter-spacing: 0.3px;
+        }
+
+        .confirm-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37,117,252,0.4);
+        }
+
+        .confirm-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            font-size: 12px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Success screen */
+        .booking-success {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: white;
+            margin: 0 auto 24px;
+            animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .success-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .success-sub {
+            color: var(--text-light);
+            font-size: 16px;
+            max-width: 400px;
+            margin: 0 auto 32px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .booking-layout { grid-template-columns: 1fr; }
+            .room-type-grid-full { grid-template-columns: 1fr 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .booking-summary { position: static; }
+        }
+        /* Gradient hero */
+        .bk-hero {
+            background: linear-gradient(135deg, #6c3ce1 0%, #4f46e5 50%, #0ea5e9 100%);
+            color: white; padding: 44px 0 28px;
+        }
+        .bk-hero .back-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px;
+            margin-bottom: 16px; transition: color .2s;
+        }
+        .bk-hero .back-link:hover { color: #fff; }
+        .bk-hero h1 { font-size: 30px; font-weight: 800; margin: 0 0 6px; }
+        .bk-hero p  { font-size: 15px; opacity: .85; margin: 0 0 0; }
+        .bk-hero-meta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 20px; }
+        .bk-hero-pill {
+            display: flex; align-items: center; gap: 7px;
+            background: rgba(255,255,255,0.18); padding: 7px 14px;
+            border-radius: 50px; font-size: 13px; font-weight: 600;
+        }
+        /* Payment inputs */
+        .form-group select {
+            padding: 11px 14px; border: 1.5px solid var(--border);
+            border-radius: 10px; font-size: 14px; font-family: inherit;
+            transition: border-color 0.2s; outline: none; width: 100%;
+        }
+        .form-group select:focus { border-color: #6c3ce1; }
+        .error-inline { color: #c5221f; font-size: 13px; margin-top: 10px; display: none; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="top-nav container">
+            <div class="logo"><a href="index.html">GoTravel.com</a></div>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="destinations.html" class="nav-link">Destinations</a>
+                <a href="packages.html" class="nav-link">Packages</a>
+                <a href="experiences.html" class="nav-link">Experiences</a>
+            </nav>
+            <div class="nav-actions" id="nav-actions-container"></div>
+        </div>
+    </header>
+
+    <!-- Gradient Hero -->
+    <div class="bk-hero">
+        <div class="container">
+            <a href="javascript:history.back()" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Back to destination
+            </a>
+            <h1 id="hero-title">Complete Your Booking</h1>
+            <p id="booking-subtitle">Choose your room and confirm your stay</p>
+            <div class="bk-hero-meta" id="hero-meta"></div>
+        </div>
+    </div>
+
+    <div class="booking-page" style="padding-top:32px;">
+        <div class="container">
+
+            <!-- Main Form -->
+            <div id="booking-main">
+                <div class="booking-layout">
+
+                    <!-- Left Column -->
+                    <div>
+                        <!-- New Itinerary Section (only for packages) -->
+                <div class="booking-card" id="pkg-itinerary-card" style="display:none; margin-bottom: 20px;">
+                    <h2 style="margin-bottom: 20px;"><i class="fa-solid fa-map-location-dot" style="color:var(--primary); margin-right:10px;"></i> Detailed Itinerary</h2>
+                    <div id="itinerary-list" class="itinerary-list">
+                        <!-- Injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Step 1: Room/Pass Type (hidden for packages) -->
+                        <div class="booking-card" id="step1-card">
+                            <h2><span class="step-badge">1</span> <span id="step1-label">Choose Your Room</span></h2>
+                            <div class="room-type-grid-full" id="room-grid">
+                                <!-- Injected by JS -->
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Dates & Guests -->
+                        <div class="booking-card">
+                            <h2><span class="step-badge" id="step2-badge">2</span> <span id="step2-label">Your Stay Details</span></h2>
+                            <div class="form-row" style="margin-bottom: 14px;" id="dates-row">
+                                <div class="form-group">
+                                    <label id="label-checkin">Check-In Date</label>
+                                    <input type="date" id="bk-checkin">
+                                </div>
+                                <div class="form-group">
+                                    <label id="label-checkout">Check-Out Date</label>
+                                    <input type="date" id="bk-checkout">
+                                </div>
+                            </div>
+                            <!-- Package-only dates -->
+                            <div id="pkg-dates-row" style="display:none; margin-bottom:14px;">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Start Date</label>
+                                        <input type="date" id="bk-pkg-start">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>End Date (auto)</label>
+                                        <input type="date" id="bk-pkg-end" readonly style="background:#f8f9fa;cursor:default;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label id="label-guests">Number of Guests</label>
+                                <input type="number" id="bk-guests" min="1" max="20" value="1">
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Guest Info -->
+                        <div class="booking-card">
+                            <h2><span class="step-badge">3</span> Guest Information</h2>
+                            <div class="form-row" style="margin-bottom: 14px;">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" id="bk-firstname" placeholder="John">
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" id="bk-lastname" placeholder="Doe">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="bk-email" placeholder="you@example.com">
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Payment -->
+                        <div class="booking-card">
+                            <h2><span class="step-badge">4</span> Payment Details</h2>
+                            <div class="form-group" style="margin-bottom:14px;">
+                                <label>Card Number</label>
+                                <input type="text" id="bk-card" placeholder="&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;" maxlength="19">
+                            </div>
+                            <div class="form-row" style="margin-bottom:14px;">
+                                <div class="form-group">
+                                    <label>Expiry Date</label>
+                                    <input type="text" id="bk-expiry" placeholder="MM / YY" maxlength="7">
+                                </div>
+                                <div class="form-group">
+                                    <label>CVV</label>
+                                    <input type="text" id="bk-cvv" placeholder="&bull;&bull;&bull;" maxlength="4">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Name on Card</label>
+                                <input type="text" id="bk-cardname" placeholder="John Doe">
+                            </div>
+                            <p class="error-inline" id="bk-error">Please fill in all required fields.</p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Summary -->
+                    <div class="booking-summary">
+                        <div class="booking-card">
+                            <div class="summary-hotel">
+                                <div class="summary-hotel-icon" id="sum-icon"><i class="fa-solid fa-hotel"></i></div>
+                                <div>
+                                    <div class="summary-hotel-name" id="sum-hotel-name">—</div>
+                                    <div class="summary-hotel-sub" id="sum-room-type">Select a room type</div>
+                                </div>
+                            </div>
+
+                            <div class="summary-row"><span id="label-sum-checkin">Check-in</span><span id="sum-checkin">—</span></div>
+                            <div class="summary-row"><span id="label-sum-checkout">Check-out</span><span id="sum-checkout">—</span></div>
+                            <div class="summary-row"><span>Guests</span><span id="sum-guests">—</span></div>
+                            <div class="summary-row" id="sum-nights-row"><span id="label-sum-nights">Nights</span><span id="sum-nights">—</span></div>
+                            <div class="summary-row" id="sum-rate-row"><span id="label-sum-rate">Rate per night</span><span id="sum-rate">—</span></div>
+                            <!-- Package-only rows -->
+                            <div class="summary-row" id="sum-duration-row" style="display:none"><span>Duration</span><span id="sum-duration">—</span></div>
+                            <div class="summary-row" id="sum-pperson-row" style="display:none"><span>Price / person</span><span id="sum-pperson">—</span></div>
+
+                            <hr class="summary-divider">
+
+                            <div class="summary-total">
+                                <span>Total</span>
+                                <span class="total-price" id="sum-total">$0</span>
+                            </div>
+
+                            <button class="confirm-btn" id="confirm-btn" onclick="submitBooking()">
+                                <i class="fa-solid fa-lock" style="margin-right: 8px;"></i>Confirm & Book
+                            </button>
+
+                            <div class="trust-badges">
+                                <div class="trust-badge"><i class="fa-solid fa-shield-halved"></i> Secure</div>
+                                <div class="trust-badge"><i class="fa-solid fa-rotate-left"></i> Free cancellation</div>
+                                <div class="trust-badge"><i class="fa-solid fa-tag"></i> Best price</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Success Screen -->
+            <div class="booking-success" id="booking-success">
+                <div class="booking-card" style="max-width: 520px; margin: 0 auto;">
+                    <div class="success-icon">🎉</div>
+                    <div class="success-title">Booking Confirmed!</div>
+                    <div class="success-sub" id="success-msg">Your booking is confirmed. Have an amazing trip!</div>
+                    <a href="my-bookings.html" class="confirm-btn" style="display:block; text-decoration:none; text-align:center;">View My Bookings</a>
+                    <a href="index.html" style="display:block; text-align:center; margin-top:14px; color:var(--primary); font-weight:600; text-decoration:none;">Back to Home</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="chatbot.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // ── Card input formatting ─────────────────────────────────────
+        document.addEventListener('DOMContentLoaded', () => {
+            const cardEl   = document.getElementById('bk-card');
+            const expiryEl = document.getElementById('bk-expiry');
+            const cvvEl    = document.getElementById('bk-cvv');
+            if (cardEl) cardEl.addEventListener('input', function() {
+                this.value = this.value.replace(/\D/g,'').replace(/(.{4})/g,'$1 ').trim().slice(0,19);
+            });
+            if (expiryEl) expiryEl.addEventListener('input', function() {
+                this.value = this.value.replace(/\D/g,'').replace(/^(\d{2})(\d)/,'$1 / $2').slice(0,7);
+            });
+            if (cvvEl) cvvEl.addEventListener('input', function() {
+                this.value = this.value.replace(/\D/g,'').slice(0,4);
+            });
+        });
+
+        // ── Read URL params ──────────────────────────────────────────
+        const params = new URLSearchParams(window.location.search);
+        const bookingType = params.get('type') || 'hotel';
+        const isExperience = bookingType === 'experience';
+        const isPackage    = bookingType === 'package';
+        const hotelName = params.get('pkg') || params.get('hotel') || params.get('place') || 'Property';
+        const basePrice = parseInt(params.get('price')) || 100;
+        const pkgDays   = parseInt(params.get('days') || 0);
+        const pkgDest   = params.get('dest') || '';
+
+        // ── Hero meta pills ───────────────────────────────────────
+        const typeLabel = isPackage ? 'Package' : isExperience ? 'Experience' : 'Hotel';
+        const typeIcon  = isPackage ? 'fa-box-open' : isExperience ? 'fa-ticket' : 'fa-hotel';
+        document.getElementById('hero-title').textContent =
+            isPackage ? 'Book Your Package' : isExperience ? 'Book Your Experience' : 'Complete Your Booking';
+        document.getElementById('booking-subtitle').textContent =
+            isPackage ? hotelName + (pkgDest ? ' · ' + pkgDest : '') :
+            isExperience ? hotelName + ' — Experience' : hotelName;
+        document.getElementById('hero-meta').innerHTML = `
+            <div class="bk-hero-pill"><i class="fa-solid ${typeIcon}"></i> ${typeLabel}</div>
+            ${isPackage ? `<div class="bk-hero-pill"><i class="fa-solid fa-calendar-days"></i> ${pkgDays} Days</div>` : ''}
+            <div class="bk-hero-pill"><i class="fa-solid fa-tag"></i> $${basePrice.toLocaleString()} / ${isPackage ? 'person' : (isExperience ? 'person' : 'night')}</div>
+            <div class="bk-hero-pill"><i class="fa-solid fa-shield-halved"></i> Free Cancellation</div>
+        `;
+
+        if (isPackage) {
+            document.title = 'Book Your Package | GoTravel.com';
+            document.getElementById('step1-card').style.display = 'none';
+            document.getElementById('dates-row').style.display = 'none';
+            document.getElementById('pkg-dates-row').style.display = 'block';
+            document.getElementById('step2-label').textContent = 'Travel Dates';
+            document.getElementById('label-guests').textContent = 'Number of Travellers';
+            document.getElementById('sum-nights-row').style.display = 'none';
+            document.getElementById('sum-rate-row').style.display = 'none';
+            document.getElementById('sum-duration-row').style.display = 'flex';
+            document.getElementById('sum-pperson-row').style.display = 'flex';
+            document.getElementById('sum-duration').textContent = pkgDays + ' days / ' + (pkgDays - 1) + ' nights';
+            document.getElementById('sum-pperson').textContent = '$' + basePrice.toLocaleString();
+            document.getElementById('sum-icon').innerHTML = '<i class="fa-solid fa-box-open"></i>';
+            document.getElementById('sum-icon').style.background = 'linear-gradient(135deg,#6c3ce1,#4f46e5)';
+            
+            // Show Itinerary & Hotel
+            const itenData = TRAVEL_DATA.packages[hotelName];
+            if (itenData) {
+                document.getElementById('sum-room-type').textContent = 'Stay at ' + itenData.hotel;
+                const itenCard = document.getElementById('pkg-itinerary-card');
+                itenCard.style.display = 'block';
+                const itenList = document.getElementById('itinerary-list');
+                itenList.innerHTML = itenData.itinerary.map(item => `
+                    <div class="itinerary-day">
+                        <div class="itinerary-day-header" onclick="this.parentElement.classList.toggle('open')">
+                            <span><span class="day-label">Day ${item.day}</span> ${item.title}</span>
+                            <i class="fa-solid fa-chevron-down itinerary-day-arrow"></i>
+                        </div>
+                        <div class="itinerary-day-body">${item.desc}</div>
+                    </div>
+                `).join('');
+            }
+
+            const pkgStart = document.getElementById('bk-pkg-start');
+            const pkgEnd   = document.getElementById('bk-pkg-end');
+            const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
+            pkgStart.min = tomorrow.toISOString().split('T')[0];
+            pkgStart.addEventListener('change', () => {
+                if (pkgStart.value) {
+                    const d = new Date(pkgStart.value);
+                    d.setDate(d.getDate() + pkgDays - 1);
+                    pkgEnd.value = d.toISOString().split('T')[0];
+                }
+                updateSummary();
+            });
+        }
+
+        if (isExperience) {
+            document.title = 'Book Your Experience | GoTravel.com';
+            document.getElementById('booking-subtitle').textContent = hotelName + ' — Experience';
+            document.getElementById('step1-label').textContent = 'Choose Your Access Pass';
+            document.getElementById('step2-label').textContent = 'Visit Details';
+            document.getElementById('label-checkin').textContent = 'Visit Date';
+            document.getElementById('label-checkout').textContent = 'End Date (optional)';
+            document.getElementById('label-sum-checkin').textContent = 'Visit Date';
+            document.getElementById('label-sum-checkout').textContent = 'End Date';
+            document.getElementById('label-sum-nights').textContent = 'Days';
+            document.getElementById('label-sum-rate').textContent = 'Rate per day';
+            document.getElementById('sum-icon').innerHTML = '<i class="fa-solid fa-ticket"></i>';
+            document.getElementById('sum-icon').style.background = 'linear-gradient(135deg, #f7971e, #ffd200)';
+        } else {
+            document.getElementById('booking-subtitle').textContent = hotelName;
+        }
+
+        document.getElementById('sum-hotel-name').textContent = hotelName;
+
+        // ── Seeded RNG so same hotel always gets same prices ─────────
+        function seededRand(seed, min, max) {
+            let x = Math.sin(seed) * 10000;
+            let r = x - Math.floor(x); // 0..1
+            return Math.round(min + r * (max - min));
+        }
+
+        function hotelSeed(name) {
+            let h = 0;
+            for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) | 0;
+            return Math.abs(h);
+        }
+
+        const seed = hotelSeed(hotelName);
+
+        // Experience pass tiers (used when type=experience)
+        const experiencePasses = [
+            { id: 'day', icon: '🎟️', name: 'Day Pass', desc: 'Full access for one day. Perfect for a quick visit.', multiplier: 1 },
+            { id: 'vip', icon: '⭐', name: 'VIP Access', desc: 'Skip queues, exclusive areas & premium perks.', multiplier: 1 + seededRand(seed + 1, 40, 60) / 100 },
+            { id: 'group', icon: '👨‍👩‍👧', name: 'Group Bundle', desc: 'Best value for groups of 4 or more. Includes guide.', multiplier: 1 + seededRand(seed + 2, 20, 35) / 100 },
+            { id: 'season', icon: '🏆', name: 'Season Pass', desc: 'Unlimited visits for 6 months. Best long-term value.', multiplier: 1 + seededRand(seed + 3, 80, 120) / 100 }
+        ];
+
+        // Pick the right set of options
+        const roomTypes = isExperience ? experiencePasses : [
+            {
+                id: 'standard',
+                icon: '🛏️',
+                name: 'Standard',
+                desc: 'Comfortable room with essential amenities.',
+                multiplier: 1
+            },
+            {
+                id: 'deluxe',
+                icon: '🛎️',
+                name: 'Deluxe',
+                desc: 'Upgraded furnishings and enhanced views.',
+                multiplier: 1 + seededRand(seed + 1, 25, 40) / 100
+            },
+            {
+                id: 'suite',
+                icon: '👑',
+                name: 'Suite',
+                desc: 'Spacious suite with a separate living area.',
+                multiplier: 1 + seededRand(seed + 2, 65, 90) / 100
+            },
+            {
+                id: 'penthouse',
+                icon: '🌟',
+                name: 'Penthouse',
+                desc: 'Top-floor luxury with panoramic views.',
+                multiplier: 1 + seededRand(seed + 3, 120, 180) / 100
+            }
+        ];
+
+        let selectedRoomIndex = 0;
+
+        // ── Render Room Cards ────────────────────────────────────────
+        const roomGrid = document.getElementById('room-grid');
+        roomTypes.forEach((room, idx) => {
+            const price = Math.round(basePrice * room.multiplier);
+            const card = document.createElement('div');
+            card.className = 'room-card' + (idx === 0 ? ' selected' : '');
+            card.innerHTML = `
+                <div class="room-card-check"><i class="fa-solid fa-check"></i></div>
+                <div class="room-card-icon">${room.icon}</div>
+                <div class="room-card-name">${room.name}</div>
+                <div class="room-card-desc">${room.desc}</div>
+                <div class="room-card-price">$${price} <span>${isExperience ? '/ day' : '/ night'}</span></div>
+            `;
+            card.addEventListener('click', () => {
+                document.querySelectorAll('.room-card').forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                selectedRoomIndex = idx;
+                updateSummary();
+            });
+            roomGrid.appendChild(card);
+        });
+
+        // ── Set default dates ────────────────────────────────────────
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(today.getDate() + 1);
+        const fmt = d => d.toISOString().split('T')[0];
+        document.getElementById('bk-checkin').value = fmt(today);
+        document.getElementById('bk-checkout').value = fmt(tomorrow);
+
+        // Try pre-fill email from logged in user
+        const userData = localStorage.getItem('gotravel_user');
+        if (userData) {
+            const user = JSON.parse(userData);
+            if (document.getElementById('bk-email')) {
+                document.getElementById('bk-email').value = user.email || '';
+            }
+            if (user.name) {
+                const parts = user.name.split(' ');
+                document.getElementById('bk-firstname').value = parts[0] || '';
+                document.getElementById('bk-lastname').value = parts[1] || '';
+            }
+        }
+
+        // ── Summary updater ──────────────────────────────────────────
+        function updateSummary() {
+            const guests = parseInt(document.getElementById('bk-guests').value) || 1;
+            document.getElementById('sum-guests').textContent = guests + (guests === 1 ? ' guest' : ' guests');
+
+            if (isPackage) {
+                const startVal = document.getElementById('bk-pkg-start').value;
+                const endVal   = document.getElementById('bk-pkg-end').value;
+                const fmt = d => new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                document.getElementById('sum-checkin').textContent  = startVal ? fmt(startVal) : '—';
+                document.getElementById('sum-checkout').textContent = endVal   ? fmt(endVal)   : '—';
+                document.getElementById('sum-total').textContent = '$' + (basePrice * guests).toLocaleString();
+                return;
+            }
+
+            const checkin = document.getElementById('bk-checkin').value;
+            const checkout = document.getElementById('bk-checkout').value;
+            const room = roomTypes[selectedRoomIndex];
+            const ratePerNight = Math.round(basePrice * room.multiplier);
+
+            document.getElementById('sum-room-type').textContent = room.name + (isExperience ? ' Pass' : ' Room');
+            if (checkin && checkout) {
+                const d1 = new Date(checkin);
+                const d2 = new Date(checkout);
+                const nights = Math.ceil((d2 - d1) / 86400000);
+                if (nights > 0) {
+                    const fmt = d => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                    document.getElementById('sum-checkin').textContent = fmt(d1);
+                    document.getElementById('sum-checkout').textContent = fmt(d2);
+                    document.getElementById('sum-nights').textContent = nights + ' ' + (isExperience ? (nights === 1 ? 'day' : 'days') : (nights === 1 ? 'night' : 'nights'));
+                    document.getElementById('sum-rate').textContent = `$${ratePerNight}`;
+                    const total = ratePerNight * nights * guests;
+                    document.getElementById('sum-total').textContent = `$${total.toLocaleString()}`;
+                    return;
+                }
+            }
+            document.getElementById('sum-checkin').textContent = '—';
+            document.getElementById('sum-checkout').textContent = '—';
+            document.getElementById('sum-nights').textContent = '—';
+            document.getElementById('sum-rate').textContent = '—';
+            document.getElementById('sum-total').textContent = '$0';
+        }
+
+        document.getElementById('bk-checkin').addEventListener('change', updateSummary);
+        document.getElementById('bk-checkout').addEventListener('change', updateSummary);
+        document.getElementById('bk-guests').addEventListener('input', updateSummary);
+        updateSummary();
+
+        // ── Submit ───────────────────────────────────────────────────
+        async function submitBooking() {
+            const firstName = document.getElementById('bk-firstname').value.trim();
+            const lastName  = document.getElementById('bk-lastname').value.trim();
+            const email     = document.getElementById('bk-email').value.trim();
+            const card      = document.getElementById('bk-card').value.trim();
+            const expiry    = document.getElementById('bk-expiry').value.trim();
+            const cvv       = document.getElementById('bk-cvv').value.trim();
+            const errEl     = document.getElementById('bk-error');
+            const guests    = parseInt(document.getElementById('bk-guests').value) || 1;
+
+            let checkin, checkout, total, propertyName;
+
+            if (isPackage) {
+                checkin  = document.getElementById('bk-pkg-start').value;
+                checkout = document.getElementById('bk-pkg-end').value;
+                total    = basePrice * guests;
+                propertyName = hotelName;
+            } else {
+                checkin  = document.getElementById('bk-checkin').value;
+                checkout = document.getElementById('bk-checkout').value;
+                const room = roomTypes[selectedRoomIndex];
+                const rate = Math.round(basePrice * room.multiplier);
+                const nights = Math.ceil((new Date(checkout) - new Date(checkin)) / 86400000);
+                total = rate * nights * guests;
+                propertyName = isExperience ? `${hotelName} — ${room.name} Pass` : `${hotelName} — ${room.name}`;
+            }
+
+            if (!checkin || !firstName || !lastName || !email || !card || !expiry || !cvv) {
+                errEl.style.display = 'block';
+                errEl.textContent = 'Please fill in all required fields including payment details.';
+                errEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+            errEl.style.display = 'none';
+
+            if (!isPackage && new Date(checkin) >= new Date(checkout)) {
+                alert('Check-out must be after check-in.');
+                return;
+            }
+
+            try {
+                await fetch('/api/book', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, property_name: propertyName, check_in: checkin, check_out: checkout, persons: guests, total_price: total })
+                });
+            } catch(_) {}
+
+            // Show success
+            document.getElementById('booking-main').style.display = 'none';
+            document.getElementById('booking-success').style.display = 'block';
+            const fmtD = d => new Date(d).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+            document.getElementById('success-msg').innerHTML =
+                `Hi <strong>${firstName}</strong>! Your <strong>${isPackage ? hotelName + ' package' : propertyName}</strong> is confirmed.<br>
+                ${fmtD(checkin)} — ${fmtD(checkout)}<br>
+                <strong style="color:var(--primary)">Total paid: $${total.toLocaleString()}</strong>`;
+        }
+
+
+    </script>
+</body>
+</html>
