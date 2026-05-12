@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Forum | GoTravel.com</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="top-nav container">
+            <div class="logo">
+                <a href="index.html">GoTravel.com</a>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="destinations.html" class="nav-link">Destinations</a>
+                <a href="packages.html" class="nav-link">Packages</a>
+                <a href="experiences.html" class="nav-link">Experiences</a>
+                <a href="forum.html" class="nav-link" style="color: var(--primary);">Forum</a>
+            </nav>
+            <div class="nav-actions" id="nav-actions-container"></div>
+        </div>
+    </header>
+
+    <main class="main-content container section-margin" style="min-height: 60vh;">
+        <div id="forum-container">
+            <!-- Threads List View -->
+            <div id="threads-view">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2>Community Forum</h2>
+                    <button class="primary-btn" id="new-thread-btn" style="padding: 10px 20px; font-size: 14px;">New Thread</button>
+                </div>
+                
+                <div id="new-thread-form" style="display: none; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px; border: 1px solid var(--border);">
+                    <h3 style="margin-bottom: 15px;">Create a New Thread</h3>
+                    <input type="text" id="thread-title" placeholder="Thread Title" style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid var(--border); border-radius: 6px; font-family: inherit;">
+                    <textarea id="thread-content" placeholder="What's on your mind?" style="width: 100%; padding: 12px; height: 120px; margin-bottom: 15px; border: 1px solid var(--border); border-radius: 6px; resize: vertical; font-family: inherit;"></textarea>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="primary-btn" id="submit-thread-btn" style="padding: 10px 20px;">Post Thread</button>
+                        <button class="custom-btn-secondary" id="cancel-thread-btn" style="padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer;">Cancel</button>
+                    </div>
+                </div>
+
+                <div id="threads-list" class="forum-threads-list">
+                    <div style="text-align: center; padding: 40px; color: var(--text-light);">Loading threads...</div>
+                </div>
+            </div>
+
+            <!-- Single Thread View -->
+            <div id="single-thread-view" style="display: none;">
+                <button class="custom-btn-secondary" id="back-to-threads-btn" style="border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; margin-bottom: 20px;">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Forum
+                </button>
+                
+                <div id="thread-content-container" style="background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 20px; border: 1px solid var(--border);">
+                    <!-- Thread content populated by JS -->
+                </div>
+                
+                <h3 style="margin-bottom: 15px;">Comments</h3>
+                <div id="comments-list" class="forum-comments-list">
+                    <!-- Comments populated by JS -->
+                </div>
+                
+                <div id="new-comment-form" style="margin-top: 25px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid var(--border);">
+                    <h4 style="margin-bottom: 10px;">Add a Comment</h4>
+                    <textarea id="comment-content" placeholder="Write a comment..." style="width: 100%; padding: 12px; height: 80px; margin-bottom: 15px; border: 1px solid var(--border); border-radius: 6px; resize: vertical; font-family: inherit;"></textarea>
+                    <button class="primary-btn" id="submit-comment-btn" style="padding: 10px 20px;">Post Comment</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom text-center">
+            <p>Copyright © 1996–2026 GoTravel.com. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/forum.js"></script>
+</body>
+</html>

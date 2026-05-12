@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | GoTravel.com</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background: #f0f2f5; }
+
+        .admin-wrapper { max-width: 1200px; margin: 30px auto; padding: 0 20px 60px; }
+
+        .admin-header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            padding: 30px 40px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 8px 32px rgba(15,52,96,0.3);
+        }
+        .admin-header-icon {
+            width: 60px; height: 60px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px;
+        }
+        .admin-header h1 { margin: 0; font-size: 26px; font-weight: 800; }
+        .admin-header p { margin: 4px 0 0; opacity: 0.7; font-size: 14px; }
+
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            display: flex; align-items: center; gap: 16px;
+        }
+        .stat-icon {
+            width: 48px; height: 48px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; flex-shrink: 0;
+        }
+        .stat-icon.blue   { background: #e8f0fe; color: #2575fc; }
+        .stat-icon.green  { background: #e6f9f0; color: #10b981; }
+        .stat-icon.purple { background: #f3e8ff; color: #7c3aed; }
+        .stat-icon.amber  { background: #fff8e1; color: #f59e0b; }
+        .stat-value { font-size: 28px; font-weight: 800; color: #1a1a2e; }
+        .stat-label { font-size: 13px; color: #6b7280; }
+
+        .admin-tabs {
+            display: flex; gap: 4px;
+            background: white;
+            padding: 6px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .admin-tab {
+            flex: 1; padding: 11px 16px;
+            border: none; background: none; border-radius: 8px;
+            font-size: 14px; font-weight: 600; color: #6b7280;
+            cursor: pointer; transition: all 0.2s;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .admin-tab:hover { background: #f5f5f5; color: #1a1a2e; }
+        .admin-tab.active {
+            background: linear-gradient(135deg, #1a1a2e, #0f3460);
+            color: white;
+            box-shadow: 0 4px 12px rgba(15,52,96,0.25);
+        }
+
+        .admin-panel { display: none; }
+        .admin-panel.active { display: block; }
+
+        .admin-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            overflow: hidden;
+        }
+        .admin-card-header {
+            padding: 18px 24px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 15px; font-weight: 700; color: #1a1a2e;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+
+        .admin-table { width: 100%; border-collapse: collapse; }
+        .admin-table th {
+            background: #f8fafc; padding: 12px 16px;
+            text-align: left; font-size: 12px; font-weight: 700;
+            color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .admin-table td {
+            padding: 14px 16px; font-size: 14px; color: #374151;
+            border-top: 1px solid #f0f2f5; vertical-align: middle;
+        }
+        .admin-table tr:hover td { background: #fafbfc; }
+
+        .badge-admin {
+            background: #1a1a2e; color: white;
+            font-size: 10px; font-weight: 700; padding: 2px 8px;
+            border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .badge-user {
+            background: #e8f0fe; color: #2575fc;
+            font-size: 10px; font-weight: 700; padding: 2px 8px;
+            border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
+        .btn-delete {
+            background: #fee2e2; color: #dc2626;
+            border: none; padding: 6px 14px; border-radius: 6px;
+            font-size: 13px; font-weight: 600; cursor: pointer;
+            transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px;
+        }
+        .btn-delete:hover { background: #dc2626; color: white; }
+
+        .btn-expand {
+            background: #e8f0fe; color: #2575fc;
+            border: none; padding: 6px 14px; border-radius: 6px;
+            font-size: 13px; font-weight: 600; cursor: pointer;
+            transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px;
+        }
+        .btn-expand:hover { background: #2575fc; color: white; }
+
+        .comment-sub-row { display: none; }
+        .comment-sub-row.open { display: table-row; }
+        .comment-sub-cell {
+            padding: 0 16px 16px 40px !important;
+            background: #f8fafc !important;
+        }
+        .sub-comment {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            padding: 10px 14px; background: white;
+            border: 1px solid #e5e7eb; border-radius: 8px; margin-top: 8px;
+            gap: 12px;
+        }
+        .sub-comment-body { font-size: 13px; color: #374151; flex: 1; line-height: 1.5; }
+        .sub-comment-meta { font-size: 11px; color: #9ca3af; margin-top: 4px; }
+
+        .access-denied {
+            text-align: center; padding: 80px 20px;
+            color: #6b7280;
+        }
+        .access-denied i { font-size: 60px; color: #dc2626; margin-bottom: 20px; display: block; }
+        .access-denied h2 { color: #1a1a2e; margin-bottom: 10px; }
+
+        .loading-row td { text-align: center; padding: 40px; color: #9ca3af; }
+
+        @media (max-width: 900px) {
+            .admin-stats { grid-template-columns: repeat(2,1fr); }
+        }
+        @media (max-width: 600px) {
+            .admin-stats { grid-template-columns: 1fr; }
+            .admin-table { font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="top-nav container">
+            <div class="logo"><a href="index.html">GoTravel.com</a></div>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="destinations.html" class="nav-link">Destinations</a>
+                <a href="packages.html" class="nav-link">Packages</a>
+                <a href="experiences.html" class="nav-link">Experiences</a>
+                <a href="forum.html" class="nav-link">Forum</a>
+                <a href="admin.html" class="nav-link" style="color:#f59e0b;">⚙ Admin</a>
+            </nav>
+            <div class="nav-actions" id="nav-actions-container"></div>
+        </div>
+    </header>
+
+    <div class="admin-wrapper" id="admin-content" style="display:none;">
+        <div class="admin-header">
+            <div class="admin-header-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div>
+                <h1>Admin Panel</h1>
+                <p>GoTravel.com — Site Management Dashboard</p>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="admin-stats">
+            <div class="stat-card">
+                <div class="stat-icon blue"><i class="fa-solid fa-users"></i></div>
+                <div><div class="stat-value" id="stat-users">—</div><div class="stat-label">Total Users</div></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon green"><i class="fa-solid fa-calendar-check"></i></div>
+                <div><div class="stat-value" id="stat-bookings">—</div><div class="stat-label">Total Bookings</div></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon purple"><i class="fa-solid fa-comments"></i></div>
+                <div><div class="stat-value" id="stat-threads">—</div><div class="stat-label">Forum Threads</div></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon amber"><i class="fa-solid fa-comment-dots"></i></div>
+                <div><div class="stat-value" id="stat-comments">—</div><div class="stat-label">Comments</div></div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="admin-tabs">
+            <button class="admin-tab active" onclick="showTab('users')" id="tab-users">
+                <i class="fa-solid fa-users"></i> Users
+            </button>
+            <button class="admin-tab" onclick="showTab('bookings')" id="tab-bookings">
+                <i class="fa-solid fa-calendar-check"></i> Bookings
+            </button>
+            <button class="admin-tab" onclick="showTab('forum')" id="tab-forum">
+                <i class="fa-solid fa-comments"></i> Forum
+            </button>
+        </div>
+
+        <!-- Users Panel -->
+        <div class="admin-panel active" id="panel-users">
+            <div class="admin-card">
+                <div class="admin-card-header">
+                    <span><i class="fa-solid fa-users" style="margin-right:8px; color:#2575fc;"></i>All Users</span>
+                    <button class="btn-expand" onclick="loadUsers()"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+                </div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th><th>Name</th><th>Email</th><th>Role</th><th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-tbody">
+                        <tr class="loading-row"><td colspan="5"><i class="fa-solid fa-spinner fa-spin"></i> Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Bookings Panel -->
+        <div class="admin-panel" id="panel-bookings">
+            <div class="admin-card">
+                <div class="admin-card-header">
+                    <span><i class="fa-solid fa-calendar-check" style="margin-right:8px; color:#10b981;"></i>All Bookings</span>
+                    <button class="btn-expand" onclick="loadBookings()"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+                </div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th><th>User</th><th>Property</th><th>Check-in</th><th>Check-out</th><th>Persons</th><th>Total</th><th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookings-tbody">
+                        <tr class="loading-row"><td colspan="8"><i class="fa-solid fa-spinner fa-spin"></i> Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Forum Panel -->
+        <div class="admin-panel" id="panel-forum">
+            <div class="admin-card">
+                <div class="admin-card-header">
+                    <span><i class="fa-solid fa-comments" style="margin-right:8px; color:#7c3aed;"></i>All Threads &amp; Comments</span>
+                    <button class="btn-expand" onclick="loadThreads()"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+                </div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th><th>Title</th><th>Author</th><th>Date</th><th>Comments</th><th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="threads-tbody">
+                        <tr class="loading-row"><td colspan="6"><i class="fa-solid fa-spinner fa-spin"></i> Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Access Denied -->
+    <div class="admin-wrapper" id="access-denied" style="display:none;">
+        <div class="access-denied">
+            <i class="fa-solid fa-ban"></i>
+            <h2>Access Denied</h2>
+            <p>You must be logged in as an administrator to view this page.</p>
+            <br>
+            <button class="primary-btn" onclick="openLogin()" style="padding: 12px 28px; font-size:15px;">Sign In</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-bottom text-center">
+            <p>Copyright © 1996–2026 GoTravel.com. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        const ADMIN_EMAIL = 'admin@gotravel.com';
+        let adminEmail = null;
+
+        function getAdminEmail() {
+            const u = localStorage.getItem('gotravel_user');
+            if (!u) return null;
+            const user = JSON.parse(u);
+            return user.is_admin ? user.email : null;
+        }
+
+        function showTab(name) {
+            document.querySelectorAll('.admin-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+            document.getElementById('panel-' + name).classList.add('active');
+            document.getElementById('tab-' + name).classList.add('active');
+            if (name === 'users') loadUsers();
+            if (name === 'bookings') loadBookings();
+            if (name === 'forum') loadThreads();
+        }
+
+        function fmtDate(str) {
+            if (!str) return '—';
+            return new Date(str).toLocaleDateString('en-US', {year:'numeric',month:'short',day:'numeric'});
+        }
+
+        function escHtml(s) {
+            if (!s) return '';
+            return s.replace(/[&<>'"]/g, t => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[t]));
+        }
+
+        // ── Users ──────────────────────────────────────────────────────────────
+        async function loadUsers() {
+            const tbody = document.getElementById('users-tbody');
+            tbody.innerHTML = '<tr class="loading-row"><td colspan="5"><i class="fa-solid fa-spinner fa-spin"></i> Loading...</td></tr>';
+            try {
+                const res = await fetch(`/api/admin/users?admin_email=${encodeURIComponent(adminEmail)}`);
+                const data = await res.json();
+                document.getElementById('stat-users').textContent = data.users.length;
+                tbody.innerHTML = data.users.map(u => `
+                    <tr>
+                        <td>#${u.id}</td>
+                        <td>${escHtml(u.name)}</td>
+                        <td>${escHtml(u.email)}</td>
+                        <td>${u.is_admin ? '<span class="badge-admin">Admin</span>' : '<span class="badge-user">User</span>'}</td>
+                        <td>${u.is_admin ? '—' : `<button class="btn-delete" onclick="deleteUser(${u.id}, '${escHtml(u.name)}')"><i class="fa-solid fa-trash"></i> Delete</button>`}</td>
+                    </tr>`).join('');
+            } catch(e) {
+                tbody.innerHTML = '<tr class="loading-row"><td colspan="5" style="color:red;">Failed to load users.</td></tr>';
+            }
+        }
+
+        async function deleteUser(id, name) {
+            customConfirm(`Delete user "${name}" and all their data (bookings, threads, comments)?`, async () => {
+                const res = await fetch(`/api/admin/users/${id}`, {
+                    method: 'DELETE',
+                    headers: {'Content-Type':'application/json'},
+                    body: JSON.stringify({admin_email: adminEmail})
+                });
+                const data = await res.json();
+                if (res.ok) { loadUsers(); loadBookings(); } else customAlert(data.error);
+            });
+        }
+
+        // ── Bookings ───────────────────────────────────────────────────────────
+        async function loadBookings() {
+            const tbody = document.getElementById('bookings-tbody');
+            tbody.innerHTML = '<tr class="loading-row"><td colspan="8"><i class="fa-solid fa-spinner fa-spin"></i> Loading...</td></tr>';
+            try {
+                const res = await fetch(`/api/admin/bookings?admin_email=${encodeURIComponent(adminEmail)}`);
+                const data = await res.json();
+                document.getElementById('stat-bookings').textContent = data.bookings.length;
+                if (!data.bookings.length) {
+                    tbody.innerHTML = '<tr class="loading-row"><td colspan="8">No bookings yet.</td></tr>';
+                    return;
+                }
+                tbody.innerHTML = data.bookings.map(b => `
+                    <tr>
+                        <td>#${b.id}</td>
+                        <td style="font-size:12px;">${escHtml(b.user_email)}</td>
+                        <td>${escHtml(b.property_name)}</td>
+                        <td>${b.check_in}</td>
+                        <td>${b.check_out}</td>
+                        <td>${b.persons}</td>
+                        <td style="font-weight:700; color:#2575fc;">$${b.total_price.toLocaleString()}</td>
+                        <td><button class="btn-delete" onclick="deleteBooking(${b.id})"><i class="fa-solid fa-trash"></i> Delete</button></td>
+                    </tr>`).join('');
+            } catch(e) {
+                tbody.innerHTML = '<tr class="loading-row"><td colspan="8" style="color:red;">Failed to load bookings.</td></tr>';
+            }
+        }
+
+        async function deleteBooking(id) {
+            customConfirm('Delete this booking permanently?', async () => {
+                const res = await fetch(`/api/admin/bookings/${id}`, {
+                    method: 'DELETE',
+                    headers: {'Content-Type':'application/json'},
+                    body: JSON.stringify({admin_email: adminEmail})
+                });
+                const data = await res.json();
+                if (res.ok) loadBookings(); else customAlert(data.error);
+            });
+        }
+
+        // ── Forum ──────────────────────────────────────────────────────────────
+        async function loadThreads() {
+            const tbody = document.getElementById('threads-tbody');
+            tbody.innerHTML = '<tr class="loading-row"><td colspan="6"><i class="fa-solid fa-spinner fa-spin"></i> Loading...</td></tr>';
+            try {
+                const res = await fetch(`/api/admin/threads?admin_email=${encodeURIComponent(adminEmail)}`);
+                const data = await res.json();
+                document.getElementById('stat-threads').textContent = data.threads.length;
+                if (!data.threads.length) {
+                    tbody.innerHTML = '<tr class="loading-row"><td colspan="6">No threads yet.</td></tr>';
+                    return;
+                }
+                let html = '';
+                data.threads.forEach(t => {
+                    html += `
+                        <tr>
+                            <td>#${t.id}</td>
+                            <td style="max-width:260px;">${escHtml(t.title)}</td>
+                            <td>${escHtml(t.user_name)}</td>
+                            <td>${fmtDate(t.created_at)}</td>
+                            <td>${t.comment_count}</td>
+                            <td style="display:flex; gap:6px; flex-wrap:wrap;">
+                                ${t.comment_count > 0 ? `<button class="btn-expand" onclick="toggleComments(${t.id})"><i class="fa-solid fa-comment"></i> Comments</button>` : ''}
+                                <button class="btn-delete" onclick="deleteThread(${t.id}, '${escHtml(t.title).replace(/'/g,'&#39;')}')"><i class="fa-solid fa-trash"></i> Thread</button>
+                            </td>
+                        </tr>
+                        <tr class="comment-sub-row" id="comments-row-${t.id}">
+                            <td class="comment-sub-cell" colspan="6">
+                                <div id="comments-inner-${t.id}"><i class="fa-solid fa-spinner fa-spin"></i> Loading comments...</div>
+                            </td>
+                        </tr>`;
+                });
+                tbody.innerHTML = html;
+            } catch(e) {
+                tbody.innerHTML = '<tr class="loading-row"><td colspan="6" style="color:red;">Failed to load threads.</td></tr>';
+            }
+        }
+
+        async function toggleComments(threadId) {
+            const row = document.getElementById(`comments-row-${threadId}`);
+            const inner = document.getElementById(`comments-inner-${threadId}`);
+            if (row.classList.toggle('open')) {
+                inner.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Loading...';
+                try {
+                    const res = await fetch(`/api/admin/threads/${threadId}/comments?admin_email=${encodeURIComponent(adminEmail)}`);
+                    const data = await res.json();
+                    document.getElementById('stat-comments').textContent = '…';
+                    if (!data.comments.length) {
+                        inner.innerHTML = '<p style="color:#9ca3af; font-style:italic; padding:8px 0;">No comments.</p>';
+                        return;
+                    }
+                    inner.innerHTML = data.comments.map(c => `
+                        <div class="sub-comment">
+                            <div>
+                                <div class="sub-comment-body">${escHtml(c.content)}</div>
+                                <div class="sub-comment-meta">By <strong>${escHtml(c.user_name)}</strong> · ${fmtDate(c.created_at)}</div>
+                            </div>
+                            <button class="btn-delete" onclick="deleteComment(${c.id}, ${threadId})"><i class="fa-solid fa-trash"></i></button>
+                        </div>`).join('');
+                } catch(e) {
+                    inner.innerHTML = '<p style="color:red;">Failed to load comments.</p>';
+                }
+            }
+        }
+
+        async function deleteThread(id, title) {
+            customConfirm(`Delete thread "${title}" and all its comments?`, async () => {
+                const res = await fetch(`/api/admin/threads/${id}`, {
+                    method: 'DELETE',
+                    headers: {'Content-Type':'application/json'},
+                    body: JSON.stringify({admin_email: adminEmail})
+                });
+                const data = await res.json();
+                if (res.ok) loadThreads(); else customAlert(data.error);
+            });
+        }
+
+        async function deleteComment(id, threadId) {
+            customConfirm('Delete this comment permanently?', async () => {
+                const res = await fetch(`/api/admin/comments/${id}`, {
+                    method: 'DELETE',
+                    headers: {'Content-Type':'application/json'},
+                    body: JSON.stringify({admin_email: adminEmail})
+                });
+                const data = await res.json();
+                if (res.ok) toggleComments(threadId) && toggleComments(threadId); else customAlert(data.error);
+                loadThreads();
+            });
+        }
+
+        // ── Init ───────────────────────────────────────────────────────────────
+        document.addEventListener('DOMContentLoaded', () => {
+            adminEmail = getAdminEmail();
+            if (!adminEmail) {
+                document.getElementById('access-denied').style.display = 'block';
+            } else {
+                document.getElementById('admin-content').style.display = 'block';
+                loadUsers();
+                // Pre-load stats
+                fetch(`/api/admin/bookings?admin_email=${encodeURIComponent(adminEmail)}`).then(r=>r.json()).then(d=>{ document.getElementById('stat-bookings').textContent=d.bookings.length; });
+                fetch(`/api/admin/threads?admin_email=${encodeURIComponent(adminEmail)}`).then(r=>r.json()).then(d=>{ document.getElementById('stat-threads').textContent=d.threads.length; });
+            }
+        });
+    </script>
+</body>
+</html>

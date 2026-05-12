@@ -194,12 +194,16 @@ function renderNavActions() {
     const userData = localStorage.getItem('gotravel_user');
     if (userData) {
         const user = JSON.parse(userData);
+        const adminLink = user.is_admin
+            ? `<a href="admin.html" class="auth-btn" style="background: linear-gradient(135deg,#1a1a2e,#0f3460); text-decoration:none;"><i class="fa-solid fa-shield-halved"></i> Admin</a>`
+            : '';
         container.innerHTML = `
             <div class="nav-user-greeting">
                 <i class="fa-regular fa-circle-user"></i>
                 <span>Welcome, ${user.name.split(' ')[0]}</span>
             </div>
             <a href="my-bookings.html" class="auth-btn" style="text-decoration: none;">My Bookings</a>
+            ${adminLink}
             <button class="auth-btn" onclick="logout()">Logout</button>
         `;
     } else {
