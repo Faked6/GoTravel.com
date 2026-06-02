@@ -391,9 +391,10 @@
     <!-- Header -->
     <header class="header">
         <div class="top-nav container">
-            <div class="logo"><a href="index.html">GoTravel.com</a></div>
+            <div class="logo"><a href="index.html"><img src="assets/logo.png" alt="GoTravel.com" style="height: 40px; display: block; background: rgba(255,255,255,0.9); padding: 4px 8px; border-radius: 6px;"></a></div>
             <nav class="main-nav">
                 <a href="index.html" class="nav-link">Home</a>
+                <a href="search.html" class="nav-link">Search</a>
                 <a href="destinations.html" class="nav-link">Destinations</a>
                 <a href="packages.html" class="nav-link">Packages</a>
                 <a href="experiences.html" class="nav-link">Experiences</a>
@@ -601,6 +602,7 @@
         const basePrice = parseInt(params.get('price')) || 100;
         const pkgDays   = parseInt(params.get('days') || 0);
         const pkgDest   = params.get('dest') || '';
+        const roomNameParam = params.get('room');
 
         // ── Hero meta pills ───────────────────────────────────────
         const typeLabel = isPackage ? 'Package' : isExperience ? 'Experience' : 'Hotel';
@@ -678,6 +680,10 @@
             document.getElementById('label-sum-rate').textContent = 'Rate per day';
             document.getElementById('sum-icon').innerHTML = '<i class="fa-solid fa-ticket"></i>';
             document.getElementById('sum-icon').style.background = 'linear-gradient(135deg, #f7971e, #ffd200)';
+        } else if (!isPackage) {
+            document.getElementById('booking-subtitle').textContent = hotelName;
+            document.getElementById('bk-guests').parentElement.style.display = 'none';
+            document.getElementById('sum-guests').parentElement.style.display = 'none';
         } else {
             document.getElementById('booking-subtitle').textContent = hotelName;
         }
@@ -708,36 +714,50 @@
         ];
 
         // Pick the right set of options
-        const roomTypes = isExperience ? experiencePasses : [
-            {
-                id: 'standard',
-                icon: '🛏️',
-                name: 'Standard',
-                desc: 'Comfortable room with essential amenities.',
+        let roomTypes = [];
+        if (isExperience) {
+            roomTypes = experiencePasses;
+        } else if (roomNameParam) {
+            document.getElementById('step1-card').style.display = 'none';
+            roomTypes = [{
+                id: 'selected',
+                icon: '🏨',
+                name: roomNameParam,
+                desc: 'Selected room from hotel page.',
                 multiplier: 1
-            },
-            {
-                id: 'deluxe',
-                icon: '🛎️',
-                name: 'Deluxe',
-                desc: 'Upgraded furnishings and enhanced views.',
-                multiplier: 1 + seededRand(seed + 1, 25, 40) / 100
-            },
-            {
-                id: 'suite',
-                icon: '👑',
-                name: 'Suite',
-                desc: 'Spacious suite with a separate living area.',
-                multiplier: 1 + seededRand(seed + 2, 65, 90) / 100
-            },
-            {
-                id: 'penthouse',
-                icon: '🌟',
-                name: 'Penthouse',
-                desc: 'Top-floor luxury with panoramic views.',
-                multiplier: 1 + seededRand(seed + 3, 120, 180) / 100
-            }
-        ];
+            }];
+        } else {
+            roomTypes = [
+                {
+                    id: 'standard',
+                    icon: '🛏️',
+                    name: 'Standard',
+                    desc: 'Comfortable room with essential amenities.',
+                    multiplier: 1
+                },
+                {
+                    id: 'deluxe',
+                    icon: '🛎️',
+                    name: 'Deluxe',
+                    desc: 'Upgraded furnishings and enhanced views.',
+                    multiplier: 1 + seededRand(seed + 1, 25, 40) / 100
+                },
+                {
+                    id: 'suite',
+                    icon: '👑',
+                    name: 'Suite',
+                    desc: 'Spacious suite with a separate living area.',
+                    multiplier: 1 + seededRand(seed + 2, 65, 90) / 100
+                },
+                {
+                    id: 'penthouse',
+                    icon: '🌟',
+                    name: 'Penthouse',
+                    desc: 'Top-floor luxury with panoramic views.',
+                    multiplier: 1 + seededRand(seed + 3, 120, 180) / 100
+                }
+            ];
+        }
 
         let selectedRoomIndex = 0;
 

@@ -82,12 +82,11 @@
 <!-- Header & Navigation -->
 <header class="header">
 <div class="top-nav container">
-<div class="logo">
-<a href="index.html">GoTravel.com</a>
-</div>
+<div class="logo"><a href="index.html"><img src="assets/logo.png" alt="GoTravel.com" style="height: 40px; display: block; background: rgba(255,255,255,0.9); padding: 4px 8px; border-radius: 6px;"></a></div>
 <nav class="main-nav">
 <a class="nav-link" href="index.html">Home</a>
-<a class="nav-link" href="destinations.html">Destinations</a>
+<a href="search.html" class="nav-link">Search</a>
+                <a class="nav-link" href="destinations.html">Destinations</a>
 <a class="nav-link" href="packages.html">Packages</a>
 <a class="nav-link" href="experiences.html">Experiences</a>
 <a href="forum.html" class="nav-link">Forum</a>
@@ -112,13 +111,12 @@
 <h3>Grand Indonesia Luxury Hotel</h3>
 <p style="color: var(--text-light); margin-bottom: 10px;">Menteng, Jakarta</p>
 <p>A premium 5-star hotel located right in the heart of the city.</p>
-<div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">
-                        9.1 Superb</div>
+<div class="dynamic-rating" data-hotel-id="Grand Indonesia Luxury Hotel"></div>
 </div>
 <div class="property-price">
 <p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
 <span>$150</span> / night
-                    <a class="primary-btn" href="booking.html?hotel=Grand+Indonesia+Luxury+Hotel&amp;price=150" style="display: block; width: 100%; margin-top: 15px; text-align: center; text-decoration: none;">View Availability</a>
+                    <a class="primary-btn" href="hotel-details.html?hotelId=Grand Indonesia Luxury Hotel" style="display: block; width: 100%; margin-top: 15px; text-align: center; text-decoration: none;">View Availability</a>
 </div>
 </div>
 <div class="property-item">
@@ -127,13 +125,12 @@
 <h3>Sudirman City View Apartments</h3>
 <p style="color: var(--text-light); margin-bottom: 10px;">Sudirman, Jakarta</p>
 <p>Modern serviced apartments with stunning skyline views and premium facilities.</p>
-<div style="margin-top: 10px; display: inline-block; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px;">
-                        8.7 Fabulous</div>
+<div class="dynamic-rating" data-hotel-id="Sudirman City View Apartments"></div>
 </div>
 <div class="property-price">
 <p style="font-size: 14px; color: var(--text-light); font-weight: normal;">From</p>
 <span>$999</span> / night
-                    <a class="primary-btn" href="booking.html?hotel=Sudirman+City+View+Apartments&amp;price=999" style="display: block; width: 100%; margin-top: 15px; text-align: center; text-decoration: none;">View Availability</a>
+                    <a class="primary-btn" href="hotel-details.html?hotelId=Sudirman City View Apartments" style="display: block; width: 100%; margin-top: 15px; text-align: center; text-decoration: none;">View Availability</a>
 </div>
 </div>
 </section>
@@ -294,5 +291,43 @@
 <script src="js/auth.js"></script>
 <script src="js/chatbot.js"></script>
 <script src="js/script.js"></script>
+<script src="js/hotel-data.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll('.dynamic-rating').forEach(el => {
+            const hotelId = el.getAttribute('data-hotel-id');
+            if (hotelData[hotelId]) {
+                const hotel = hotelData[hotelId];
+                let currentScore = hotel.ratingScore || 4.5;
+                let currentCount = hotel.ratingCount || 100;
+                
+                const lsKey = 'rating_' + hotelId;
+                const savedRatingStr = localStorage.getItem(lsKey);
+                let userRated = savedRatingStr ? parseInt(savedRatingStr) : 0;
+                if (userRated > 0) {
+                    const totalScore = (currentScore * currentCount) + userRated;
+                    currentCount++;
+                    currentScore = totalScore / currentCount;
+                }
+                
+                let starsHtml = '';
+                for(let i=1; i<=5; i++) {
+                    if(currentScore >= i - 0.2) {
+                        starsHtml += '<i class="fas fa-star" style="color: #FFD700;"></i>';
+                    } else if(currentScore >= i - 0.7) {
+                        starsHtml += '<i class="fas fa-star-half-alt" style="color: #FFD700;"></i>';
+                    } else {
+                        starsHtml += '<i class="far fa-star" style="color: #FFD700;"></i>';
+                    }
+                }
+                
+                el.innerHTML = `<div style="display: flex; align-items: center; gap: 8px; margin-top: 10px;">
+                    <div style="background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px; font-weight: 600;">${currentScore.toFixed(1)}</div>
+                    <div style="font-size: 14px;">${starsHtml} <span style="color: var(--text-light); margin-left: 4px;">(${currentCount})</span></div>
+                </div>`;
+            }
+        });
+    });
+</script>
 </body>
 </html>

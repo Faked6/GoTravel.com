@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Hotel Details | GoTravel.com</title>
+    <link href="css/styles.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <style>
+        .hotel-hero {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 40px;
+        }
+        .hotel-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7));
+        }
+        .hotel-hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            width: 100%;
+        }
+        .hotel-title {
+            font-size: 42px;
+            margin-bottom: 5px;
+        }
+        .hotel-location {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        .hotel-rating-badge {
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        @media (max-width: 768px) {
+            .content-grid { grid-template-columns: 1fr; }
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .facility-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text);
+            font-weight: 500;
+        }
+        .facility-item i {
+            color: var(--primary);
+            font-size: 20px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .rooms-container {
+            margin-top: 50px;
+        }
+        .room-card {
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .room-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .room-details h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        .room-details p {
+            color: var(--text-light);
+            max-width: 500px;
+            line-height: 1.5;
+        }
+        .room-action {
+            text-align: right;
+            min-width: 150px;
+        }
+        .room-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .room-price span {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: normal;
+        }
+        
+        .loading-state {
+            text-align: center;
+            padding: 100px;
+            font-size: 20px;
+            color: var(--text-light);
+        }
+        
+        @media(max-width: 600px) {
+            .room-card { flex-direction: column; align-items: flex-start; }
+            .room-action { text-align: left; margin-top: 15px; width: 100%; }
+            .room-action .primary-btn { display: block; width: 100%; text-align: center; }
+        }
+
+        .star-rating {
+            color: #FFD700;
+            font-size: 18px;
+            margin-right: 5px;
+        }
+        .user-rating-section {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+        .user-rating-stars i {
+            font-size: 24px;
+            color: #ccc;
+            cursor: pointer;
+            transition: color 0.2s, transform 0.1s;
+        }
+        .user-rating-stars i:hover {
+            transform: scale(1.1);
+        }
+        .user-rating-stars i.active-star {
+            color: #FFD700;
+        }
+
+        /* Review Styles */
+        .review-card {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+        .review-card:last-child {
+            border-bottom: none;
+        }
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .review-author {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .review-date {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        .review-stars i {
+            color: #FFD700;
+            font-size: 14px;
+        }
+        .comment-box {
+            width: 100%;
+            height: 80px;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            resize: vertical;
+        }
+        .submit-review-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .submit-review-btn:hover {
+            background: #2a75d3;
+        }
+        .review-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .review-actions button {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 0;
+        }
+        .review-actions button:hover {
+            color: var(--primary);
+        }
+        .review-actions button.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .review-replies {
+            margin-top: 15px;
+            margin-left: 30px;
+            border-left: 2px solid var(--border);
+            padding-left: 15px;
+        }
+        .reply-card {
+            margin-bottom: 10px;
+        }
+        .reply-author {
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .reply-text {
+            font-size: 14px;
+            color: var(--text);
+            margin-top: 4px;
+        }
+        .reply-input-container {
+            margin-top: 10px;
+            display: none;
+        }
+        .reply-input-container input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius);
+            margin-bottom: 5px;
+        }
+        .carousel-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(0,0,0,0.5); color: white; border: none;
+            border-radius: 50%; width: 36px; height: 36px;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            font-size: 16px;
+        }
+        .carousel-btn:hover { background: rgba(0,0,0,0.8); }
+        .carousel-btn.left { left: 10px; }
+        .carousel-btn.right { right: 10px; }
+        .lightbox {
+            display: none; position: fixed; z-index: 3000; left: 0; top: 0;
+            width: 100%; height: 100%; background: rgba(0,0,0,0.9);
+            justify-content: center; align-items: center;
+        }
+        .lightbox img {
+            max-width: 90vw; max-height: 90vh; object-fit: contain;
+            border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .lightbox-close {
+            position: absolute; top: 20px; right: 30px; color: white;
+            font-size: 40px; font-weight: bold; cursor: pointer;
+        }
+        .lightbox-close:hover { color: #ccc; }
+        .room-img-clickable { cursor: zoom-in; transition: opacity 0.2s; }
+        .room-img-clickable:hover { opacity: 0.95; }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="top-nav container">
+        <div class="logo"><a href="index.html"><img src="assets/logo.png" alt="GoTravel.com" style="height: 40px; display: block; background: rgba(255,255,255,0.9); padding: 4px 8px; border-radius: 6px;"></a></div>
+        <nav class="main-nav">
+            <a class="nav-link" href="index.html">Home</a>
+            <a href="search.html" class="nav-link">Search</a>
+                <a class="nav-link" href="destinations.html">Destinations</a>
+            <a class="nav-link" href="packages.html">Packages</a>
+            <a class="nav-link" href="experiences.html">Experiences</a>
+            <a href="forum.html" class="nav-link">Forum</a>
+        </nav>
+        <div class="nav-actions" id="nav-actions-container"></div>
+    </div>
+</header>
+
+<div id="loading" class="loading-state">
+    <i class="fas fa-spinner fa-spin"></i> Loading hotel details...
+</div>
+
+<div id="hotel-content" style="display: none;">
+    <section class="hotel-hero" id="hero-section">
+        <div class="container hotel-hero-content">
+            <h1 class="hotel-title" id="hotel-name">Hotel Name</h1>
+            <div class="hotel-location"><i class="fas fa-map-marker-alt"></i> <span id="hotel-location">Location</span></div>
+            <div class="hotel-rating-badge" id="hotel-rating">9.0 Superb</div>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="content-grid">
+            <div class="main-details">
+                <h2 class="section-title">About This Property</h2>
+                <p id="hotel-desc" style="line-height: 1.8; font-size: 16px; color: var(--text-light);"></p>
+                
+                <h2 class="section-title" style="margin-top: 40px;">Popular Facilities</h2>
+                <div class="facilities-grid" id="hotel-facilities">
+                    <!-- Facilities injected here -->
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div style="background: var(--bg-alt); padding: 20px; border-radius: var(--border-radius); border: 1px solid var(--border); margin-bottom: 20px;">
+                    <h3>Guest Rating</h3>
+                    <div style="font-size: 36px; font-weight: bold; color: var(--primary); margin: 10px 0;">
+                        <span id="display-score">4.8</span><span style="font-size: 16px; color: var(--text-light);"> / 5</span>
+                    </div>
+                    <div id="display-stars" class="star-rating">
+                        <!-- Stars injected here -->
+                    </div>
+                    <div style="color: var(--text-light); font-size: 14px; margin-top: 5px;">
+                        Based on <span id="display-count">154</span> reviews
+                    </div>
+                    
+                    <div class="user-rating-section">
+                        <p style="margin-bottom: 10px; font-weight: 500;" id="review-prompt">Write a review:</p>
+                        <div class="user-rating-stars" id="user-rating-stars">
+                            <i class="fas fa-star" data-val="1"></i>
+                            <i class="fas fa-star" data-val="2"></i>
+                            <i class="fas fa-star" data-val="3"></i>
+                            <i class="fas fa-star" data-val="4"></i>
+                            <i class="fas fa-star" data-val="5"></i>
+                        </div>
+                        <div id="review-input-container" style="display: none;">
+                            <textarea id="review-text" class="comment-box" placeholder="Share details of your own experience at this hotel..."></textarea>
+                            <button id="submit-review-btn" class="submit-review-btn">Submit Review</button>
+                        </div>
+                        <p id="rating-thanks" style="display: none; color: green; font-size: 14px; margin-top: 10px;">Thanks for your review!</p>
+                    </div>
+                </div>
+                
+                <div style="background: var(--bg-alt); padding: 20px; border-radius: var(--border-radius); border: 1px solid var(--border);">
+                    <h3>Why Book With Us?</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 15px; color: var(--text-light); line-height: 2;">
+                        <li><i class="fas fa-check" style="color: green; margin-right: 10px;"></i> Lowest price guaranteed</li>
+                        <li><i class="fas fa-check" style="color: green; margin-right: 10px;"></i> No hidden booking fees</li>
+                        <li><i class="fas fa-check" style="color: green; margin-right: 10px;"></i> 24/7 customer support</li>
+                        <li><i class="fas fa-check" style="color: green; margin-right: 10px;"></i> Instant confirmation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <section class="reviews-container" style="margin-top: 50px;">
+            <h2 class="section-title">Guest Reviews</h2>
+            <div id="hotel-reviews">
+                <!-- Reviews injected here -->
+            </div>
+        </section>
+
+        <section class="rooms-container">
+            <h2 class="section-title">Available Rooms</h2>
+            <div id="hotel-rooms">
+                <!-- Rooms injected here -->
+            </div>
+        </section>
+    </main>
+</div>
+
+<footer class="footer" style="margin-top: 60px;">
+    <div class="footer-bottom text-center">
+        <p>Copyright © 1996–2026 GoTravel.com. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="js/auth.js"></script>
+<script src="js/chatbot.js"></script>
+<script src="js/script.js"></script>
+<script src="js/hotel-data.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const hotelId = urlParams.get('hotelId');
+        
+        if (!hotelId || !hotelData[hotelId]) {
+            document.getElementById('loading').innerHTML = "Hotel not found. <a href='destinations.html' style='color: var(--primary);'>Go back to destinations</a>";
+            return;
+        }
+
+        const hotel = hotelData[hotelId];
+        
+        // Populate header
+        document.title = `${hotel.name} | GoTravel.com`;
+        document.getElementById('hero-section').style.backgroundImage = `url('${hotel.image}')`;
+        document.getElementById('hotel-name').textContent = hotel.name;
+        document.getElementById('hotel-location').textContent = hotel.location;
+        document.getElementById('hotel-desc').textContent = hotel.description;
+
+        // Rating & Review Logic
+        let currentScore = hotel.ratingScore || 4.5;
+        let currentCount = hotel.ratingCount || 100;
+        
+        const lsKey = 'review_' + hotelId;
+        const savedReviewStr = localStorage.getItem(lsKey);
+        let userReviewObj = savedReviewStr ? JSON.parse(savedReviewStr) : null;
+        let userRated = userReviewObj ? userReviewObj.rating : 0;
+        
+        if (userRated > 0) {
+            const totalScore = (currentScore * currentCount) + userRated;
+            currentCount++;
+            currentScore = totalScore / currentCount;
+        }
+
+        function renderRating() {
+            document.getElementById('display-score').textContent = currentScore.toFixed(1);
+            document.getElementById('display-count').textContent = currentCount;
+            
+            let starsHtml = '';
+            for(let i=1; i<=5; i++) {
+                if(currentScore >= i - 0.2) {
+                    starsHtml += '<i class="fas fa-star"></i>';
+                } else if(currentScore >= i - 0.7) {
+                    starsHtml += '<i class="fas fa-star-half-alt"></i>';
+                } else {
+                    starsHtml += '<i class="far fa-star"></i>';
+                }
+            }
+            document.getElementById('display-stars').innerHTML = starsHtml;
+            document.getElementById('hotel-rating').innerHTML = `<i class="fas fa-star" style="color:#FFD700"></i> ${currentScore.toFixed(1)} (${currentCount} reviews)`;
+        }
+        
+        renderRating();
+        
+        const userStars = document.querySelectorAll('#user-rating-stars i');
+        let selectedRatingForSubmit = 0;
+        
+        function updateStarUI(val) {
+            userStars.forEach(s => {
+                if(parseInt(s.getAttribute('data-val')) <= val) {
+                    s.classList.add('active-star');
+                } else {
+                    s.classList.remove('active-star');
+                }
+            });
+        }
+
+        const votesKey = 'votes_' + hotelId;
+        const repliesKey = 'replies_' + hotelId;
+        
+        let userVotes = JSON.parse(localStorage.getItem(votesKey)) || {};
+        let userReplies = JSON.parse(localStorage.getItem(repliesKey)) || {};
+
+        window.handleVote = function(reviewId, val) {
+            if (userVotes[reviewId] === val) {
+                delete userVotes[reviewId]; // toggle off
+            } else {
+                userVotes[reviewId] = val; // set vote
+            }
+            localStorage.setItem(votesKey, JSON.stringify(userVotes));
+            renderReviewsList();
+        };
+
+        window.toggleReplyInput = function(reviewId) {
+            const container = document.getElementById('reply-input-' + reviewId);
+            container.style.display = container.style.display === 'none' ? 'block' : 'none';
+        };
+
+        window.submitReply = function(reviewId) {
+            const input = document.getElementById('reply-text-' + reviewId);
+            const text = input.value.trim();
+            if (!text) return;
+            
+            if (!userReplies[reviewId]) userReplies[reviewId] = [];
+            userReplies[reviewId].push({ author: "You", text: text });
+            localStorage.setItem(repliesKey, JSON.stringify(userReplies));
+            
+            input.value = '';
+            renderReviewsList();
+        };
+
+        function renderReviewsList() {
+            const container = document.getElementById('hotel-reviews');
+            let html = '';
+            
+            // Combine hotel.reviews and userReviewObj if it exists
+            const allReviews = hotel.reviews ? [...hotel.reviews] : [];
+            if (userReviewObj) {
+                if(!userReviewObj.id) userReviewObj.id = 'user_rev_' + hotelId;
+                allReviews.unshift(userReviewObj); // Put user review at top
+            }
+            
+            if (allReviews.length === 0) {
+                container.innerHTML = "<p style='color: var(--text-light);'>No reviews yet.</p>";
+                return;
+            }
+            
+            allReviews.forEach(r => {
+                let starHtml = '';
+                for(let i=1; i<=5; i++) {
+                    starHtml += i <= r.rating ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
+                }
+
+                const revId = r.id;
+                const userVote = userVotes[revId] || 0;
+                const upvotes = (r.upvotes || 0) + (userVote === 1 ? 1 : 0);
+                const downvotes = (r.downvotes || 0) + (userVote === -1 ? 1 : 0);
+                
+                const upClass = userVote === 1 ? 'active' : '';
+                const downClass = userVote === -1 ? 'active' : '';
+
+                let repliesHtml = '';
+                const combinedReplies = (r.replies || []).concat(userReplies[revId] || []);
+                if (combinedReplies.length > 0) {
+                    repliesHtml += `<div class="review-replies">`;
+                    combinedReplies.forEach(reply => {
+                        repliesHtml += `
+                            <div class="reply-card">
+                                <div class="reply-author">${reply.author}</div>
+                                <div class="reply-text">${reply.text}</div>
+                            </div>
+                        `;
+                    });
+                    repliesHtml += `</div>`;
+                }
+                
+                html += `
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-author"><i class="fas fa-user-circle" style="color: #aaa; font-size: 24px;"></i> ${r.author}</div>
+                            <div class="review-date">${r.date}</div>
+                        </div>
+                        <div class="review-stars" style="margin-bottom: 10px;">
+                            ${starHtml}
+                        </div>
+                        <p style="color: var(--text); line-height: 1.5;">${r.text}</p>
+                        
+                        <div class="review-actions">
+                            <button class="${upClass}" onclick="handleVote('${revId}', 1)"><i class="fas fa-thumbs-up"></i> ${upvotes > 0 ? upvotes : 'Helpful'}</button>
+                            <button class="${downClass}" onclick="handleVote('${revId}', -1)"><i class="fas fa-thumbs-down"></i> ${downvotes > 0 ? downvotes : ''}</button>
+                            <button onclick="toggleReplyInput('${revId}')"><i class="fas fa-reply"></i> Reply</button>
+                        </div>
+                        ${repliesHtml}
+                        <div class="reply-input-container" id="reply-input-${revId}">
+                            <input type="text" id="reply-text-${revId}" placeholder="Write a reply...">
+                            <button class="submit-review-btn" style="padding: 4px 12px; font-size: 12px; margin-top: 0;" onclick="submitReply('${revId}')">Post Reply</button>
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        renderReviewsList();
+        
+        if (userRated > 0) {
+            updateStarUI(userRated);
+            document.getElementById('review-prompt').style.display = 'none';
+            document.getElementById('rating-thanks').style.display = 'block';
+            document.getElementById('rating-thanks').textContent = "You rated this " + userRated + " stars.";
+        } else {
+            userStars.forEach(star => {
+                star.addEventListener('mouseover', function() {
+                    if (userRated) return;
+                    updateStarUI(parseInt(this.getAttribute('data-val')));
+                });
+                star.addEventListener('mouseout', function() {
+                    if (userRated) return;
+                    updateStarUI(selectedRatingForSubmit); // Revert to selected if any
+                });
+                star.addEventListener('click', function() {
+                    if (userRated) return;
+                    selectedRatingForSubmit = parseInt(this.getAttribute('data-val'));
+                    updateStarUI(selectedRatingForSubmit);
+                    document.getElementById('review-input-container').style.display = 'block';
+                });
+            });
+
+            document.getElementById('submit-review-btn').addEventListener('click', () => {
+                const text = document.getElementById('review-text').value.trim();
+                if (selectedRatingForSubmit === 0) return;
+                
+                userRated = selectedRatingForSubmit;
+                
+                const now = new Date();
+                const dateStr = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                
+                userReviewObj = {
+                    id: 'user_rev_' + hotelId,
+                    author: "You",
+                    rating: userRated,
+                    date: dateStr,
+                    text: text || "No comment provided."
+                };
+                
+                localStorage.setItem(lsKey, JSON.stringify(userReviewObj));
+                
+                const totalScore = (currentScore * currentCount) + userRated;
+                currentCount++;
+                currentScore = totalScore / currentCount;
+                
+                renderRating();
+                renderReviewsList();
+                
+                document.getElementById('review-input-container').style.display = 'none';
+                document.getElementById('review-prompt').style.display = 'none';
+                document.getElementById('rating-thanks').style.display = 'block';
+                document.getElementById('rating-thanks').textContent = "Thanks for your review!";
+            });
+        }
+
+        // Populate facilities
+        const facilitiesContainer = document.getElementById('hotel-facilities');
+        hotel.facilities.forEach(fac => {
+            const div = document.createElement('div');
+            div.className = 'facility-item';
+            div.innerHTML = `<i class="fas ${fac.icon}"></i> ${fac.name}`;
+            facilitiesContainer.appendChild(div);
+        });
+
+        // Carousel logic
+        window.nextImage = function(id, images) {
+            const imgEl = document.getElementById('img-' + id);
+            let currentSrc = imgEl.getAttribute('src');
+            let idx = images.indexOf(currentSrc);
+            idx = (idx + 1) % images.length;
+            imgEl.setAttribute('src', images[idx]);
+            // Stop event bubbling if needed, but the button has its own click handler
+        };
+        window.prevImage = function(id, images) {
+            const imgEl = document.getElementById('img-' + id);
+            let currentSrc = imgEl.getAttribute('src');
+            let idx = images.indexOf(currentSrc);
+            idx = (idx - 1 + images.length) % images.length;
+            imgEl.setAttribute('src', images[idx]);
+        };
+
+        // Lightbox logic
+        window.openLightbox = function(src) {
+            // Reconstruct relative path if needed, or just use absolute src
+            // `src` is absolute URL usually, which is fine
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').style.display = 'flex';
+        };
+        window.closeLightbox = function() {
+            document.getElementById('lightbox').style.display = 'none';
+        };
+
+        // Populate rooms
+        const roomsContainer = document.getElementById('hotel-rooms');
+        hotel.rooms.forEach(room => {
+            const roomUrl = `booking.html?hotel=${encodeURIComponent(hotel.name)}&price=${room.price}&room=${encodeURIComponent(room.name)}`;
+            const div = document.createElement('div');
+            div.className = 'room-card';
+            div.style.flexDirection = 'column';
+            div.style.padding = '0';
+            div.style.overflow = 'hidden';
+            
+            let imageHtml = '';
+            if (room.images && room.images.length > 0) {
+                const isCarousel = room.images.length > 1;
+                const imagesJson = JSON.stringify(room.images).replace(/"/g, '&quot;');
+                const safeId = room.name.replace(/[^a-zA-Z0-9]/g, '');
+                imageHtml = `
+                    <div style="width: 100%; height: 400px; position: relative;">
+                        <img id="img-${safeId}" class="room-img-clickable" onclick="openLightbox(this.src)" src="${room.images[0]}" alt="${room.name}" style="width: 100%; height: 100%; object-fit: cover; border-top-left-radius: var(--border-radius); border-top-right-radius: var(--border-radius);">
+                        ${isCarousel ? `
+                            <button class="carousel-btn left" onclick="prevImage('${safeId}', ${imagesJson})"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-btn right" onclick="nextImage('${safeId}', ${imagesJson})"><i class="fas fa-chevron-right"></i></button>
+                        ` : ''}
+                    </div>
+                `;
+            } else if (room.image) {
+                imageHtml = `<div style="width: 100%; height: 400px;"><img class="room-img-clickable" onclick="openLightbox(this.src)" src="${room.image}" alt="${room.name}" style="width: 100%; height: 100%; object-fit: cover; border-top-left-radius: var(--border-radius); border-top-right-radius: var(--border-radius);"></div>`;
+            }
+            
+            div.innerHTML = `
+                ${imageHtml}
+                <div style="padding: 20px; width: 100%; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box;" class="room-details-container">
+                    <div class="room-details" style="flex-grow: 1;">
+                        <h3>${room.name}</h3>
+                        <p>${room.description}</p>
+                    </div>
+                    <div class="room-action">
+                        <div class="room-price">$${room.price} <span>/ night</span></div>
+                        <a href="${roomUrl}" class="primary-btn">Book Now</a>
+                    </div>
+                </div>
+            `;
+            roomsContainer.appendChild(div);
+        });
+
+        // Show content
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('hotel-content').style.display = 'block';
+    });
+</script>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" onclick="event.stopPropagation()">
+</div>
+
+</body>
+</html>
