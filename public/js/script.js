@@ -48,4 +48,20 @@ document.addEventListener('DOMContentLoaded', () => {
     renderNavActions();   // from auth.js  — renders header buttons
     initChatbot();        // from chatbot.js — starts DestiBot
 
+    // ── Dynamic Hotel Main Image Update ──────────────────────────
+    if (typeof hotelData !== 'undefined') {
+        document.querySelectorAll('.property-item').forEach(item => {
+            const heading = item.querySelector('h3');
+            if (heading) {
+                const hotelName = heading.textContent.trim();
+                if (hotelData[hotelName] && hotelData[hotelName].image) {
+                    const img = item.querySelector('.property-img');
+                    if (img) {
+                        img.src = hotelData[hotelName].image;
+                    }
+                }
+            }
+        });
+    }
+
 });
