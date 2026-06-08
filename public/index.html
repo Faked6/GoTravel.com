@@ -165,5 +165,16 @@
     <script src="js/auth.js"></script>
     <script src="js/chatbot.js"></script>
     <script src="js/script.js"></script>
+    <script>
+        // Auto-open login modal if redirected from a protected page
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash === '#login') {
+                setTimeout(() => {
+                    if (typeof openLogin === 'function') openLogin();
+                    history.replaceState(null, '', window.location.pathname);
+                }, 200);
+            }
+        });
+    </script>
 </body>
 </html>

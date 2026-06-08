@@ -143,8 +143,8 @@ function initChatbot() {
             desc: 'Tropical paradise with beaches and culture.',
             traits: ['relax', 'warm', 'nature', 'beach'],
             hotels: [
-                { name: 'Uluwatu Ocean View Resort', price: 240 },
-                { name: 'Seminyak Private Villa', price: 180 }
+                { name: 'Uluwatu Ocean View Resort', price: 240, detailUrl: 'bali.html' },
+                { name: 'Seminyak Private Villa', price: 180, detailUrl: 'bali.html' }
             ],
             experiences: [
                 { name: 'Tanah Lot Sunset Tour', price: 45, type: 'Guided Tour', url: 'bali.html' },
@@ -156,8 +156,8 @@ function initChatbot() {
             desc: 'Bustling metropolis with rich history.',
             traits: ['adventure', 'warm', 'city', 'food'],
             hotels: [
-                { name: 'Grand Indonesia Luxury Hotel', price: 150 },
-                { name: 'Sudirman City View Apartments', price: 999 }
+                { name: 'Grand Indonesia Luxury Hotel', price: 150, detailUrl: 'jakarta.html' },
+                { name: 'Sudirman City View Apartments', price: 90, detailUrl: 'jakarta.html' }
             ],
             experiences: [
                 { name: 'Dufan Adventure Park', price: 25, type: 'Theme Park', url: 'jakarta.html' },
@@ -169,8 +169,8 @@ function initChatbot() {
             desc: 'City of light, perfect for romantic strolls.',
             traits: ['relax', 'cold', 'city', 'culture'],
             hotels: [
-                { name: 'Eiffel View Hotel', price: 350 },
-                { name: 'Champs-Élysées Apartment', price: 220 }
+                { name: 'Le Bristol Paris', price: 550, detailUrl: 'paris.html' },
+                { name: 'Eiffel View Apartment', price: 220, detailUrl: 'paris.html' }
             ],
             experiences: [
                 { name: 'Eiffel Tower Skip-the-Line', price: 38, type: 'Landmark', url: 'paris.html' },
@@ -182,8 +182,8 @@ function initChatbot() {
             desc: 'Neon lights and incredible food scene.',
             traits: ['adventure', 'cold', 'city', 'food'],
             hotels: [
-                { name: 'Shinjuku Skyline Hotel', price: 280 },
-                { name: 'Akihabara Budget Inn', price: 90 }
+                { name: 'Shinjuku Grand Hotel', price: 300, detailUrl: 'tokyo.html' },
+                { name: 'Traditional Ryokan', price: 300, detailUrl: 'tokyo.html' }
             ],
             experiences: [
                 { name: 'TeamLab Planets Digital Art', price: 32, type: 'Digital Art', url: 'tokyo.html' },
@@ -195,8 +195,8 @@ function initChatbot() {
             desc: 'Majestic mountains and cozy chalets.',
             traits: ['relax', 'cold', 'nature', 'culture'],
             hotels: [
-                { name: 'Alpine Grand Chalet', price: 420 },
-                { name: 'Cozy Mountain Lodge', price: 160 }
+                { name: 'Alpine Grand Chalet', price: 420, detailUrl: 'swiss-alps.html' },
+                { name: 'Cozy Mountain Lodge', price: 160, detailUrl: 'swiss-alps.html' }
             ],
             experiences: [
                 { name: 'Ski Day at Jungfrau Region', price: 120, type: 'Ski & Snow', url: 'swiss-alps.html' },
@@ -208,8 +208,8 @@ function initChatbot() {
             desc: 'Overwater bungalows and crystal clear water.',
             traits: ['relax', 'warm', 'nature', 'beach'],
             hotels: [
-                { name: 'Overwater Paradise Villa', price: 800 },
-                { name: 'Lagoon Beach Bungalow', price: 320 }
+                { name: 'Overwater Paradise Villa', price: 800, detailUrl: 'maldives.html' },
+                { name: 'Lagoon Beach Bungalow', price: 320, detailUrl: 'maldives.html' }
             ],
             experiences: [
                 { name: 'Coral Reef Snorkeling', price: 45, type: 'Snorkeling', url: 'maldives.html' },
@@ -221,8 +221,8 @@ function initChatbot() {
             desc: 'Glaciers, hot springs, and Northern Lights.',
             traits: ['adventure', 'cold', 'nature', 'culture'],
             hotels: [
-                { name: 'Northern Lights Retreat', price: 310 },
-                { name: 'Reykjavik City Hostel', price: 70 }
+                { name: 'Northern Lights Retreat', price: 310, detailUrl: 'reykjavik.html' },
+                { name: 'Reykjavik City Hostel', price: 70, detailUrl: 'reykjavik.html' }
             ],
             experiences: [
                 { name: 'Northern Lights Chase', price: 90, type: 'Night Tour', url: 'reykjavik.html' },
@@ -234,8 +234,8 @@ function initChatbot() {
             desc: 'Rainforests, volcanoes, and surfing.',
             traits: ['adventure', 'warm', 'nature', 'beach'],
             hotels: [
-                { name: 'Jungle Canopy Eco-Lodge', price: 200 },
-                { name: 'Pacific Surf Hostel', price: 55 }
+                { name: 'Jungle Canopy Eco-Lodge', price: 200, detailUrl: 'costa-rica.html' },
+                { name: 'Pacific Surf Hostel', price: 55, detailUrl: 'costa-rica.html' }
             ],
             experiences: [
                 { name: 'Arenal Volcano Hike', price: 55, type: 'Volcano', url: 'costa-rica.html' },
@@ -247,8 +247,8 @@ function initChatbot() {
             desc: 'Luxury shopping and modern architecture.',
             traits: ['relax', 'warm', 'city', 'culture'],
             hotels: [
-                { name: 'Burj Al Arab Penthouse', price: 1500 },
-                { name: 'Downtown Dubai Suites', price: 380 }
+                { name: 'Burj Al Arab Penthouse', price: 1500, detailUrl: 'dubai.html' },
+                { name: 'Downtown Dubai Suites', price: 380, detailUrl: 'dubai.html' }
             ],
             experiences: [
                 { name: 'Desert Safari & BBQ Dinner', price: 80, type: 'Desert Safari', url: 'dubai.html' },
@@ -260,8 +260,8 @@ function initChatbot() {
             desc: 'The city that never sleeps.',
             traits: ['adventure', 'cold', 'city', 'food'],
             hotels: [
-                { name: 'Manhattan Grand Hotel', price: 450 },
-                { name: 'Brooklyn Budget Stay', price: 120 }
+                { name: 'Manhattan Grand Hotel', price: 450, detailUrl: 'new-york.html' },
+                { name: 'Brooklyn Budget Stay', price: 120, detailUrl: 'new-york.html' }
             ],
             experiences: [
                 { name: 'Broadway Show Experience', price: 110, type: 'Entertainment', url: 'new-york.html' },
@@ -273,8 +273,8 @@ function initChatbot() {
             desc: 'A desert kingdom full of ancient secrets.',
             traits: ['adventure', 'warm', 'culture', 'food'],
             hotels: [
-                { name: 'Royal Palace Suites', price: 180 },
-                { name: 'Desert Oasis Guesthouse', price: 60 }
+                { name: 'Royal Palace Suites', price: 180, detailUrl: 'alabasta.html' },
+                { name: 'Desert Oasis Guesthouse', price: 60, detailUrl: 'alabasta.html' }
             ],
             experiences: [
                 { name: 'Desert Dune Camel Trek', price: 35, type: 'Desert Trek', url: 'alabasta.html' },
@@ -286,8 +286,8 @@ function initChatbot() {
             desc: 'Zero gravity and zero atmosphere. The ultimate getaway.',
             traits: ['adventure', 'cold', 'nature', 'culture'],
             hotels: [
-                { name: 'Lunar Base Alpha', price: 9999 },
-                { name: 'Zero-G Capsule Hotel', price: 500 }
+                { name: 'Lunar Base Alpha', price: 9999, detailUrl: 'moon.html' },
+                { name: 'Zero-G Capsule Hotel', price: 500, detailUrl: 'moon.html' }
             ],
             experiences: [
                 { name: 'Zero-G Crater Walk', price: 999, type: 'Space Walk', url: 'moon.html' },
@@ -468,7 +468,8 @@ function initChatbot() {
             addBotMessage(`🏨 I recommend <strong>${hotelToShow.name}</strong> at <strong>$${hotelToShow.price}/night</strong>${budgetNote}`);
 
             setTimeout(() => {
-                addBotMessage(`<button class="chat-dest-btn" style="width:100%;border:none;cursor:pointer;margin-top:8px;" onclick="openBooking('${hotelToShow.name}', ${hotelToShow.price})">Book ${hotelToShow.name} — $${hotelToShow.price}/night</button>`);
+                const hotelDetailUrl = `hotel-details.html?hotel=${encodeURIComponent(hotelToShow.name)}&from=${hotelToShow.detailUrl || bestMatch.url}`;
+                addBotMessage(`<a class="chat-dest-btn" style="display:block;margin-top:8px;" href="${hotelDetailUrl}">View ${hotelToShow.name} →</a>`);
 
                 // Also suggest a fun experience
                 if (bestMatch.experiences && bestMatch.experiences.length > 0) {

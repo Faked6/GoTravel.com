@@ -408,7 +408,8 @@
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const urlParams = new URLSearchParams(window.location.search);
-        const hotelId = urlParams.get('hotelId');
+        // Support both ?hotel= (from chatbot links) and ?hotelId= (from destination pages)
+        const hotelId = urlParams.get('hotel') || urlParams.get('hotelId');
         
         if (!hotelId || !hotelData[hotelId]) {
             document.getElementById('loading').innerHTML = "Hotel not found. <a href='destinations.html' style='color: var(--primary);'>Go back to destinations</a>";

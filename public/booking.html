@@ -593,6 +593,14 @@
             });
         });
 
+        // ── Auth Guard — redirect if not logged in ───────────────────
+        (function() {
+            const userData = localStorage.getItem('gotravel_user');
+            if (!userData) {
+                window.location.href = 'index.html#login';
+            }
+        })();
+
         // ── Read URL params ──────────────────────────────────────────
         const params = new URLSearchParams(window.location.search);
         const bookingType = params.get('type') || 'hotel';
